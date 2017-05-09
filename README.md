@@ -1,4 +1,4 @@
-# python-jolokia
+# python-jolokia [![Build Status](https://travis-ci.org/wbrefvem/python-jolokia.svg?branch=master)](https://travis-ci.org/wbrefvem/python-jolokia)
 This is a python client library for [Jolokia](https://jolokia.org/).
 
 ### Motivation
