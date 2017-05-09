@@ -1,30 +1,34 @@
-import pytest
-import json
 from requests import Session
 
 from jolokia.api import JolokiaClient
 
 
-# @pytest.fixture(autouse=True)
-# def no_requests(monkeypatch):
-#     monkeypatch.delattr("requests.Session.request")
-
-
+# FIXME Needs to be more DRY
 def test_malformed_url(monkeypatch):
 
-    def mock_jolokia_response(url):
+    # FIXME Refactor to read response data from .json file.
+    def mock_jolokia_response(self, *args, **kwargs):
 
-        return json.dumps({
+        import json
+        from requests import Response
+        resp_json = json.dumps({
             'error_type': "java.lang.IllegalArgumentException",
             'error': "java.lang.IllegalArgumentException : No type with name 'foo' exists",
             'status': 400
         })
 
+        resp = Response()
+        monkeypatch.setattr(Response, 'content', bytes(resp_json, 'utf-8'))
+        resp.status_code = 400
+        monkeypatch.setattr(Response, 'ok', False)
+
+        return resp.json()
+
     monkeypatch.setattr(Session, 'request', mock_jolokia_response)
 
-    jc = JolokiaClient('http://localhost:8080/jolokia/foo')
+    jc = JolokiaClient()
 
-    resp_json = jc.get().json()
+    resp_json = jc.get('http://localhost:8080/jolokia/foo')
 
     assert resp_json['status'] == 400
     assert resp_json['error'] == "java.lang.IllegalArgumentException : No type with name 'foo' exists"
@@ -32,10 +36,12 @@ def test_malformed_url(monkeypatch):
 
 def test_well_formed_url(monkeypatch):
 
-    # FIXME Refactor to read response data from .json file
-    def mock_jolokia_response(url):
+    # FIXME Refactor to read response data from .json file.
+    def mock_jolokia_response(self, *args, **kwargs):
 
-        return json.dumps({
+        import json
+        from requests import Response
+        resp_json = json.dumps({
             "request": {
                 "type": "version"
             },
@@ -68,11 +74,18 @@ def test_well_formed_url(monkeypatch):
             "status": 200
         })
 
+        resp = Response()
+        monkeypatch.setattr(Response, 'content', bytes(resp_json, 'utf-8'))
+        resp.status_code = 200
+        monkeypatch.setattr(Response, 'ok', True)
+
+        return resp.json()
+
     monkeypatch.setattr(Session, 'request', mock_jolokia_response)
 
-    jc = JolokiaClient('http://localhost:8080/jolokia')
+    jc = JolokiaClient()
 
-    resp_json = jc.get().json()
+    resp_json = jc.get('http://localhost:8080/jolokia')
 
     assert resp_json['status'] == 200
     assert resp_json['value']['info']['product'] == 'JBoss EAP'
