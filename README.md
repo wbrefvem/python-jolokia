@@ -8,6 +8,3 @@ JMX is not a platform-agnostic tech. This means that management applications for
 
 ### Goals
 Create a Python client for Jolokia that makes JMX data available both through simple abstractions aimed at the non-Java developer as well as through a full-featured API that gives the seasoned Java developer the flexibility she craves.
-
-### Note
-The goal is to support Python 2.6+ and 3.2+, but at the moment only 3.5 and 3.6 are supported.
