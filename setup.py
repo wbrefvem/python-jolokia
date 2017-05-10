@@ -1,11 +1,12 @@
 import os
+import io
 
 from setuptools import setup
 
 
 cwd = os.path.abspath(os.path.dirname('__file__'))
 
-with open(os.path.join(cwd, 'README.rst'), encoding='utf-8') as f:
+with io.open(os.path.join(cwd, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
