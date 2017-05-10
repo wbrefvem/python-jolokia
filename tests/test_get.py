@@ -1,5 +1,3 @@
-from requests import Session
-
 from jolokia.api import JolokiaClient
 
 from .fixtures.responses import mock_illegal_arg, mock_root_ok
@@ -7,9 +5,9 @@ from .fixtures.responses import mock_illegal_arg, mock_root_ok
 
 def test_malformed_url(monkeypatch):
 
-    monkeypatch.setattr(Session, 'request', mock_illegal_arg)
-
     jc = JolokiaClient()
+
+    setattr(jc.session, 'request', mock_illegal_arg)
 
     resp_json = jc.get('http://localhost:8080/jolokia/foo')
 
@@ -19,9 +17,9 @@ def test_malformed_url(monkeypatch):
 
 def test_well_formed_url(monkeypatch):
 
-    monkeypatch.setattr(Session, 'request', mock_root_ok)
-
     jc = JolokiaClient()
+
+    setattr(jc.session, 'request', mock_root_ok)
 
     resp_json = jc.get('http://localhost:8080/jolokia')
 
