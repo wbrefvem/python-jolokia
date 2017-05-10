@@ -7,5 +7,7 @@ python:
   - "3.4"
   - "3.5"
   - "3.6"
-install: "pip install -e ."
+install: 
+  - "pip install -e ."
+  - "pip install setuptools"
 script: "pytest"
