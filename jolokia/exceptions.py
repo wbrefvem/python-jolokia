@@ -7,3 +7,7 @@ class UrlNotSpecifiedException(Exception):
 
 class MalformedUrlException(Exception):
     pass
+
+
+class IllegalArgumentException(Exception):
+    pass
