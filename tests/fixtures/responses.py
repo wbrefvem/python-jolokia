@@ -36,11 +36,16 @@ ROOT_URL_OK = {
     "status": 200
 }
 
-VALID_POST_DATA = {
-    "type": "read",
-    "mbean": "java.lang:type=Memory",
-    "attribute": "HeapMemoryUsage",
-    "path": "used",
+VALID_POST_RESPONSE = {
+    "request": {
+        "path": "used",
+        "mbean": "java.lang:type=Memory",
+        "attribute": "HeapMemoryUsage",
+        "type": "read"
+    },
+    "value": 321815952,
+    "timestamp": 1494560184,
+    "status": 200
 }
 
 
@@ -63,7 +68,7 @@ def mock_illegal_arg(self, *args, **kwargs):
     return resp.json()
 
 
-def mock_root_ok(self, *args, **kwargs):
+def mock_root_ok(*args, **kwargs):
 
     import json
     from requests import Response
@@ -77,7 +82,7 @@ def mock_root_ok(self, *args, **kwargs):
     return resp.json()
 
 
-def mock_empty_body(self, *args, **kwargs):
+def mock_empty_body(*args, **kwargs):
 
     import json
     from requests import Response
@@ -86,6 +91,20 @@ def mock_empty_body(self, *args, **kwargs):
     resp = Response()
     setattr(Response, 'content', resp_json.encode('utf-8'))
     resp.status_code == 400
+    setattr(Response, 'ok', True)
+
+    return resp.json()
+
+
+def mock_valid_body(*args, **kwargs):
+
+    import json
+    from requests import Response
+    resp_json = json.dumps(VALID_POST_RESPONSE)
+
+    resp = Response()
+    setattr(Response, 'content', resp_json.encode('utf-8'))
+    resp.status_code = 200
     setattr(Response, 'ok', True)
 
     return resp.json()
