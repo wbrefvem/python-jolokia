@@ -3,7 +3,7 @@ from jolokia.api import JolokiaClient
 from .fixtures.responses import mock_illegal_arg, mock_root_ok
 
 
-def test_malformed_url(monkeypatch):
+def test_malformed_url():
 
     jc = JolokiaClient()
 
@@ -12,10 +12,10 @@ def test_malformed_url(monkeypatch):
     resp_json = jc.get('http://localhost:8080/jolokia/foo')
 
     assert resp_json['status'] == 400
-    assert resp_json['error'] == "java.lang.IllegalArgumentException : No type with name 'foo' exists"
+    assert resp_json['error_type'] == "java.lang.IllegalArgumentException"
 
 
-def test_well_formed_url(monkeypatch):
+def test_well_formed_url():
 
     jc = JolokiaClient()
 

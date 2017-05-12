@@ -1,6 +1,5 @@
 ILLEGAL_ARGUMENT = {
     'error_type': "java.lang.IllegalArgumentException",
-    'error': "java.lang.IllegalArgumentException : No type with name 'foo' exists",
     'status': 400
 }
 
@@ -37,6 +36,17 @@ ROOT_URL_OK = {
     "status": 200
 }
 
+VALID_POST_DATA = {
+    "type": "read",
+    "mbean": "java.lang:type=Memory",
+    "attribute": "HeapMemoryUsage",
+    "path": "used",
+}
+
+
+def mock_request(self, url=None, method=None, data=None, *args, **kwargs):
+    pass
+
 
 # FIXME These need to be DRY
 def mock_illegal_arg(self, *args, **kwargs):
@@ -62,6 +72,20 @@ def mock_root_ok(self, *args, **kwargs):
     resp = Response()
     setattr(Response, 'content', resp_json.encode('utf-8'))
     resp.status_code = 200
+    setattr(Response, 'ok', True)
+
+    return resp.json()
+
+
+def mock_empty_body(self, *args, **kwargs):
+
+    import json
+    from requests import Response
+    resp_json = json.dumps(ILLEGAL_ARGUMENT)
+
+    resp = Response()
+    setattr(Response, 'content', resp_json.encode('utf-8'))
+    resp.status_code == 400
     setattr(Response, 'ok', True)
 
     return resp.json()
