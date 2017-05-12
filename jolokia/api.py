@@ -1,4 +1,4 @@
-from .exceptions import UrlNotSpecifiedException, MalformedUrlException
+from .exceptions import *
 import requests
 import re
 
@@ -47,6 +47,10 @@ class JolokiaClient(object):
 
     def version(self, *args, **kwargs):
         pass
+
+    def get_attribute(self, attribute=None, *args, **kwargs):
+        if not attribute:
+            raise IllegalArgumentException('You must specify an attribute.')
 
     """Private methods are not guaranteed to be stable. Use at your peril!"""
     def _build_url(self, *args, **kwargs):
