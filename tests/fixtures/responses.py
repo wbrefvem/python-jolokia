@@ -36,7 +36,7 @@ ROOT_URL_OK = {
     "status": 200
 }
 
-VALID_POST_RESPONSE = {
+VALID_GET_HEAP_MEMORY_USAGE = {
     "request": {
         "path": "used",
         "mbean": "java.lang:type=Memory",
@@ -100,7 +100,7 @@ def mock_valid_body(*args, **kwargs):
 
     import json
     from requests import Response
-    resp_json = json.dumps(VALID_POST_RESPONSE)
+    resp_json = json.dumps(VALID_GET_HEAP_MEMORY_USAGE)
 
     resp = Response()
     setattr(Response, 'content', resp_json.encode('utf-8'))
@@ -114,7 +114,7 @@ def mock_valid_attribute_request(*args, **kwargs):
 
     import json
     from requests import Response
-    resp_json = json.dumps(VALID_POST_RESPONSE).encode('utf-8')
+    resp_json = json.dumps(VALID_GET_HEAP_MEMORY_USAGE).encode('utf-8')
 
     resp = Response()
     setattr(Response, 'content', resp_json)
