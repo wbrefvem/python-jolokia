@@ -108,3 +108,15 @@ def mock_valid_body(*args, **kwargs):
     setattr(Response, 'ok', True)
 
     return resp.json()
+
+
+def mock_valid_attribute_request(*args, **kwargs):
+
+    import json
+    from requests import Response
+    resp_json = json.dumps(VALID_POST_RESPONSE).encode('utf-8')
+
+    resp = Response()
+    setattr(Response, 'content', resp_json)
+
+    return resp.json()
