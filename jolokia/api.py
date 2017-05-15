@@ -24,10 +24,21 @@ class JolokiaClient(object):
     def version(self, *args, **kwargs):
         pass
 
-    def get_attribute(self, data=None, *args, **kwargs):
+    def get_attribute(self, *args, **kwargs):
         """Returns an attribute's value. Domain and MBean type must be specified"""
-        if not data or 'domain' not in data or 'mbean_type' not in data or 'attribute' not in data:
+        domain = kwargs.pop('domain', '')
+        mbean = kwargs.pop('mbean', '')
+        attribute = kwargs.pop('attribute', '')
+        base_url = kwargs.pop('base_url', '')
+
+        if not domain or not mbean or not base_url:
             raise IllegalArgumentException('You must specify a domain, an MBean type, and an attribute.')
+
+        data = {
+            'type': 'read',
+            'mbean': '{0}:{1}'.format(domain, mbean),
+            'attribute': attribute
+        }
 
         return self.session.post(base_url, data=data)
 
