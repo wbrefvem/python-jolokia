@@ -4,7 +4,7 @@ from .fixtures.responses import mock_valid_attribute_request
 
 def test_valid_request():
 
-    jc = JolokiaClient()
+    jc = JolokiaClient('http://localhost:8080/jolokia')
 
     setattr(jc.session, 'request', mock_valid_attribute_request)
 

@@ -5,8 +5,12 @@ import re
 
 class JolokiaClient(object):
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, base_url, *args, **kwargs):
 
+        if not base_url:
+            raise UrlNotSpecifiedException()
+
+        self.base_url = base_url
         self.session = requests.Session()
 
     def execute(self, *args, **kwargs):
@@ -29,10 +33,9 @@ class JolokiaClient(object):
         domain = kwargs.pop('domain', '')
         mbean = kwargs.pop('mbean', '')
         attribute = kwargs.pop('attribute', '')
-        base_url = kwargs.pop('base_url', '')
 
-        if not domain or not mbean or not base_url:
-            raise IllegalArgumentException('You must specify a domain, an MBean type, and an attribute.')
+        if not domain or not mbean:
+            raise IllegalArgumentException('You must specify a domain and MBean type.')
 
         data = {
             'type': 'read',
@@ -40,7 +43,7 @@ class JolokiaClient(object):
             'attribute': attribute
         }
 
-        return self.session.post(base_url, data=data)
+        return self.session.post(self.base_url, data=data)
 
     def set_attribute(self, data=None, *args, **kwargs):
         pass
