@@ -28,19 +28,16 @@ class JolokiaClient(object):
     def version(self, *args, **kwargs):
         pass
 
-    def get_attribute(self, *args, **kwargs):
+    def get_attribute(self, mbean, attribute, path=None, *args, **kwargs):
         """Returns an attribute's value. Domain and MBean type must be specified"""
-        domain = kwargs.pop('domain', '')
-        mbean = kwargs.pop('mbean', '')
-        attribute = kwargs.pop('attribute', '')
-
-        if not domain or not mbean:
-            raise IllegalArgumentException('You must specify a domain and MBean type.')
+        if type(attribute) is list:
+            return _bulk_request(mbean, attribute)
 
         data = {
             'type': 'read',
-            'mbean': '{0}:{1}'.format(domain, mbean),
-            'attribute': attribute
+            'attribute': attribute,
+            'mbean': mbean,
+            'path': path
         }
 
         return self.session.post(self.base_url, data=data)
@@ -56,6 +53,19 @@ class JolokiaClient(object):
         regex = re.compile(r'^https?://([\w\d]+\.)*[\w\d]+(:[\d]{2,})*(/+[\w\d]*)*$')
         if not regex.match(url):
             raise MalformedUrlException('Base url should be of the form http[s]://hostname[:port][path]')
+
+    def _bulk_request(self, mbean, attribute, path=None, *args, **kwargs):
+        data = {
+            'type': 'read',
+            'mbean': mbean,
+            'attribute': [],
+            'path': path
+        }
+
+        for a in attribute:
+            data['attribute'].append(a)
+
+        return self.session.post(self.base_url, data=data)
 
 
 class JBossJolokiaClient(JolokiaClient):

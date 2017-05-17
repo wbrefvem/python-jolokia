@@ -8,7 +8,7 @@ def test_valid_request():
 
     setattr(jc.session, 'request', mock_valid_attribute_request)
 
-    resp_json = jc.get_attribute(base_url='localhost:8080/jolokia', domain='java.lang', mbean='Memory')
+    resp_json = jc.get_attribute('java.lang:Memory', 'HeapMemoryUsage')
 
     print(resp_json)
 
