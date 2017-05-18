@@ -74,6 +74,20 @@ VALID_BULK_RESPONSE = [
 ]
 
 
+def _mock_base(resp_data, status_code, ok, *args, **kwargs):
+
+    import json
+    from requests import Response
+    resp_json = json.dumps(resp_data)
+
+    resp = Response()
+    setattr(Response, 'content', resp_json.encode('utf-8'))
+    resp.status_code = status_code
+    setattr(Response, 'ok', ok)
+
+    return resp
+
+
 def mock_request(self, url=None, method=None, data=None, *args, **kwargs):
     pass
 
@@ -81,79 +95,41 @@ def mock_request(self, url=None, method=None, data=None, *args, **kwargs):
 # FIXME These need to be DRY
 def mock_illegal_arg(self, *args, **kwargs):
 
-    import json
-    from requests import Response
-    resp_json = json.dumps(ILLEGAL_ARGUMENT)
-
-    resp = Response()
-    setattr(Response, 'content', resp_json.encode('utf-8'))
-    resp.status_code = 400
-    setattr(Response, 'ok', False)
+    resp = _mock_base(ILLEGAL_ARGUMENT, 400, False)
 
     return resp.json()
 
 
 def mock_root_ok(*args, **kwargs):
 
-    import json
-    from requests import Response
-    resp_json = json.dumps(ROOT_URL_OK)
-
-    resp = Response()
-    setattr(Response, 'content', resp_json.encode('utf-8'))
-    resp.status_code = 200
-    setattr(Response, 'ok', True)
+    resp = _mock_base(ROOT_URL_OK, 200, True)
 
     return resp.json()
 
 
 def mock_empty_body(*args, **kwargs):
 
-    import json
-    from requests import Response
-    resp_json = json.dumps(ILLEGAL_ARGUMENT)
-
-    resp = Response()
-    setattr(Response, 'content', resp_json.encode('utf-8'))
-    resp.status_code == 400
-    setattr(Response, 'ok', True)
+    resp = _mock_base(ILLEGAL_ARGUMENT, 400, False)
 
     return resp.json()
 
 
 def mock_valid_body(*args, **kwargs):
 
-    import json
-    from requests import Response
-    resp_json = json.dumps(VALID_GET_HEAP_MEMORY_USAGE)
-
-    resp = Response()
-    setattr(Response, 'content', resp_json.encode('utf-8'))
-    resp.status_code = 200
-    setattr(Response, 'ok', True)
+    resp = _mock_base(VALID_GET_HEAP_MEMORY_USAGE, 200, True)
 
     return resp.json()
 
 
 def mock_get_heap_memory_usage(*args, **kwargs):
 
-    import json
-    from requests import Response
-    resp_json = json.dumps(VALID_GET_HEAP_MEMORY_USAGE).encode('utf-8')
-
-    resp = Response()
-    setattr(Response, 'content', resp_json)
+    resp = _mock_base(VALID_GET_HEAP_MEMORY_USAGE, 200, True)
 
     return resp.json()
 
 
 def mock_bulk_request(*args, **kwargs):
 
-    import json
-    from requests import Response
-    resp_json = json.dumps(VALID_BULK_RESPONSE).encode('utf-8')
-
-    resp = Response()
-    setattr(Response, 'content', resp_json)
+    resp = _mock_base(VALID_BULK_RESPONSE, 200, True)
 
     return resp.json()
