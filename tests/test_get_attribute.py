@@ -17,8 +17,6 @@ class TestGetAttribute(TestCase):
 
         resp_data = self.jc.get_attribute('java.lang:Memory', 'HeapMemoryUsage')
 
-        print(resp_data)
-
         assert resp_data['status'] == 200
         assert type(resp_data['value']) is int
 
