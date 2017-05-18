@@ -31,7 +31,7 @@ class JolokiaClient(object):
     def get_attribute(self, mbean, attribute, path=None, *args, **kwargs):
         """Returns an attribute's value. Domain and MBean type must be specified"""
         if type(attribute) is list:
-            return _bulk_request(mbean, attribute)
+            return self._bulk_request(mbean, attribute)
 
         data = {
             'type': 'read',

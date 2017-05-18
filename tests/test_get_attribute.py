@@ -1,5 +1,5 @@
 from jolokia import JolokiaClient
-from .fixtures.responses import mock_get_heap_memory_usage
+from .fixtures.responses import mock_get_heap_memory_usage, mock_bulk_request
 import pytest
 from unittest import TestCase
 
@@ -15,13 +15,22 @@ class TestGetAttribute(TestCase):
 
         setattr(self.jc.session, 'request', mock_get_heap_memory_usage)
 
-        resp_json = self.jc.get_attribute('java.lang:Memory', 'HeapMemoryUsage')
+        resp_data = self.jc.get_attribute('java.lang:Memory', 'HeapMemoryUsage')
 
-        print(resp_json)
-
-        assert resp_json['status'] == 200
-        assert type(resp_json['value']) is int
+        assert resp_data['status'] == 200
+        assert type(resp_data['value']) is int
 
     def test_empty_request_body(self):
 
         pytest.raises(TypeError, self.jc.get_attribute)
+
+    def test_valid_bulk_request(self, *args, **kwargs):
+
+        setattr(self.jc.session, 'request', mock_bulk_request)
+
+        attributes = ['HeapMemoryUsage', 'NonHeapMemoryUsage']
+
+        resp_data = self.jc.get_attribute('java.lang:Memory', attributes)
+
+        assert type(resp_data) is list
+        assert len(resp_data) == 2

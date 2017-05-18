@@ -48,6 +48,31 @@ VALID_GET_HEAP_MEMORY_USAGE = {
     "status": 200
 }
 
+VALID_BULK_RESPONSE = [
+    {
+        "request": {
+            "path": "used",
+            "mbean": "java.lang:type=Memory",
+            "attribute": "HeapMemoryUsage",
+            "type": "read"
+        },
+        "value": 75977776,
+        "timestamp": 1495078549,
+        "status": 200
+    },
+    {
+        "request": {
+            "path": "used",
+            "mbean": "java.lang:type=Memory",
+            "attribute": "NonHeapMemoryUsage",
+            "type": "read"
+        },
+        "value": 80981104,
+        "timestamp": 1495078549,
+        "status": 200
+    }
+]
+
 
 def mock_request(self, url=None, method=None, data=None, *args, **kwargs):
     pass
@@ -115,6 +140,18 @@ def mock_get_heap_memory_usage(*args, **kwargs):
     import json
     from requests import Response
     resp_json = json.dumps(VALID_GET_HEAP_MEMORY_USAGE).encode('utf-8')
+
+    resp = Response()
+    setattr(Response, 'content', resp_json)
+
+    return resp.json()
+
+
+def mock_bulk_request(*args, **kwargs):
+
+    import json
+    from requests import Response
+    resp_json = json.dumps(VALID_BULK_RESPONSE).encode('utf-8')
 
     resp = Response()
     setattr(Response, 'content', resp_json)
