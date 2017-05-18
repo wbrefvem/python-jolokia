@@ -110,7 +110,7 @@ def mock_valid_body(*args, **kwargs):
     return resp.json()
 
 
-def mock_valid_attribute_request(*args, **kwargs):
+def mock_get_heap_memory_usage(*args, **kwargs):
 
     import json
     from requests import Response

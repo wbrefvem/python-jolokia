@@ -1,16 +1,27 @@
 from jolokia import JolokiaClient
-from .fixtures.responses import mock_valid_attribute_request
+from .fixtures.responses import mock_get_heap_memory_usage
+import pytest
+from unittest import TestCase
 
 
-def test_valid_request():
+class TestGetAttribute(TestCase):
 
-    jc = JolokiaClient('http://localhost:8080/jolokia')
+    def __init__(self, *args, **kwargs):
+        super(TestGetAttribute, self).__init__(*args, **kwargs)
 
-    setattr(jc.session, 'request', mock_valid_attribute_request)
+        self.jc = JolokiaClient('http://localhost:8080/jolokia')
 
-    resp_json = jc.get_attribute('java.lang:Memory', 'HeapMemoryUsage')
+    def test_valid_request(self):
 
-    print(resp_json)
+        setattr(self.jc.session, 'request', mock_get_heap_memory_usage)
 
-    assert resp_json['status'] == 200
-    assert type(resp_json['value']) is int
+        resp_json = self.jc.get_attribute('java.lang:Memory', 'HeapMemoryUsage')
+
+        print(resp_json)
+
+        assert resp_json['status'] == 200
+        assert type(resp_json['value']) is int
+
+    def test_empty_request_body(self):
+
+        pytest.raises(TypeError, self.jc.get_attribute)
