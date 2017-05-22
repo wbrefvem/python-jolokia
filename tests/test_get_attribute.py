@@ -1,7 +1,12 @@
+import pytest
+import logging
+
 from jolokia import JolokiaClient
 from .fixtures.responses import mock_get_heap_memory_usage, mock_bulk_request
-import pytest
 from unittest import TestCase
+
+
+logging.basicConfig(level=logging.DEBUG)
 
 
 class TestGetAttribute(TestCase):
@@ -25,12 +30,15 @@ class TestGetAttribute(TestCase):
         pytest.raises(TypeError, self.jc.get_attribute)
 
     def test_valid_bulk_request(self, *args, **kwargs):
+        log = logging.getLogger('TestGetAttribute.test_valid_bulk_request')
 
         setattr(self.jc.session, 'request', mock_bulk_request)
 
         attributes = ['HeapMemoryUsage', 'NonHeapMemoryUsage']
 
         resp_data = self.jc.get_attribute('java.lang:Memory', attributes)
+
+        log.debug('Bulk resp. data: {0}'.format(resp_data))
 
         assert type(resp_data) is list
         assert len(resp_data) == 2
