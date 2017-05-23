@@ -31,19 +31,30 @@ class JolokiaClient(object):
     def get_attribute(self, mbean, attribute, path=None, *args, **kwargs):
         """Returns an attribute's value. Domain and MBean type must be specified"""
         if type(attribute) is list:
-            return self._bulk_request(mbean, attribute)
+            return self._bulk_request('read', mbean, attribute)
 
         data = {
             'type': 'read',
-            'attribute': attribute,
             'mbean': mbean,
+            'attribute': attribute,
             'path': path
         }
 
         return self.session.post(self.base_url, data=data)
 
-    def set_attribute(self, data=None, *args, **kwargs):
-        pass
+    def set_attribute(self, mbean, attribute, path=None, *args, **kwargs):
+
+        if type(attribute) is list:
+            return self._bulk_request('write', mbean, attribute)
+
+        data = {
+            'type': 'write',
+            'mbean': mbean,
+            'attribute': attribute,
+            'path': path
+        }
+
+        return self.session.post(self.base_url, data=data)
 
     """Private methods are not guaranteed to be stable. Use at your peril!"""
     def _validate_url(self, url):
@@ -54,9 +65,9 @@ class JolokiaClient(object):
         if not regex.match(url):
             raise MalformedUrlException('Base url should be of the form http[s]://hostname[:port][path]')
 
-    def _bulk_request(self, mbean, attribute, path=None, *args, **kwargs):
+    def _bulk_request(self, op_type, mbean, attribute, path=None, *args, **kwargs):
         data = {
-            'type': 'read',
+            'type': op_type,
             'mbean': mbean,
             'attribute': [],
             'path': path
