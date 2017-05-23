@@ -73,6 +73,18 @@ VALID_BULK_RESPONSE = [
     }
 ]
 
+VALID_WRITE_CLASSLOADING_RESPONSE = {
+    "request": {
+        "mbean": "java.lang:type=ClassLoading",
+        "attribute": "Verbose",
+        "type": "write",
+        "value": True
+    },
+    "value": False,
+    "timestamp": 1495480324,
+    "status": 200
+}
+
 
 def _mock_base(resp_data, status_code, ok, *args, **kwargs):
 
@@ -117,6 +129,13 @@ def mock_empty_body(*args, **kwargs):
 def mock_valid_body(*args, **kwargs):
 
     resp = _mock_base(VALID_GET_HEAP_MEMORY_USAGE, 200, True)
+
+    return resp.json()
+
+
+def mock_write_valid(*args, **kwargs):
+
+    resp = _mock_base(VALID_WRITE_CLASSLOADING_RESPONSE, 200, True)
 
     return resp.json()
 
