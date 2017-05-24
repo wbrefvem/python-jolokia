@@ -1,5 +1,5 @@
 from .exceptions import *
-import requests
+from .models import JolokiaSession
 import re
 
 
@@ -11,7 +11,7 @@ class JolokiaClient(object):
             raise UrlNotSpecifiedException()
 
         self.base_url = base_url
-        self.session = requests.Session()
+        self.session = JolokiaSession()
 
     def execute(self, *args, **kwargs):
         """Execute JMX operation on MBean."""
