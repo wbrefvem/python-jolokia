@@ -89,13 +89,13 @@ VALID_WRITE_CLASSLOADING_RESPONSE = {
 def _mock_base(resp_data, status_code, ok, *args, **kwargs):
 
     import json
-    from requests import Response
+    from jolokia.models import JolokiaResponse
     resp_json = json.dumps(resp_data)
 
-    resp = Response()
-    setattr(Response, 'content', resp_json.encode('utf-8'))
+    resp = JolokiaResponse()
+    setattr(JolokiaResponse, 'content', resp_json.encode('utf-8'))
     resp.status_code = status_code
-    setattr(Response, 'ok', ok)
+    setattr(JolokiaResponse, 'ok', ok)
 
     return resp
 
@@ -107,48 +107,39 @@ def mock_request(self, url=None, method=None, data=None, *args, **kwargs):
 # FIXME These need to be DRY
 def mock_illegal_arg(self, *args, **kwargs):
 
-    resp = _mock_base(ILLEGAL_ARGUMENT, 400, False)
-
-    return resp.json()
+    return _mock_base(ILLEGAL_ARGUMENT, 400, False)
 
 
 def mock_root_ok(*args, **kwargs):
 
-    resp = _mock_base(ROOT_URL_OK, 200, True)
-
-    return resp.json()
+    return _mock_base(ROOT_URL_OK, 200, True)
 
 
 def mock_empty_body(*args, **kwargs):
 
-    resp = _mock_base(ILLEGAL_ARGUMENT, 400, False)
-
-    return resp.json()
+    return _mock_base(ILLEGAL_ARGUMENT, 400, False)
 
 
 def mock_valid_body(*args, **kwargs):
 
-    resp = _mock_base(VALID_GET_HEAP_MEMORY_USAGE, 200, True)
-
-    return resp.json()
+    return _mock_base(VALID_GET_HEAP_MEMORY_USAGE, 200, True)
 
 
 def mock_write_valid(*args, **kwargs):
 
-    resp = _mock_base(VALID_WRITE_CLASSLOADING_RESPONSE, 200, True)
-
-    return resp.json()
+    return _mock_base(VALID_WRITE_CLASSLOADING_RESPONSE, 200, True)
 
 
 def mock_get_heap_memory_usage(*args, **kwargs):
 
-    resp = _mock_base(VALID_GET_HEAP_MEMORY_USAGE, 200, True)
-
-    return resp.json()
+    return _mock_base(VALID_GET_HEAP_MEMORY_USAGE, 200, True)
 
 
 def mock_bulk_request(*args, **kwargs):
 
-    resp = _mock_base(VALID_BULK_RESPONSE, 200, True)
+    return _mock_base(VALID_BULK_RESPONSE, 200, True)
 
-    return resp.json()
+
+def mock_valid_write(*args, **kwargs):
+
+    return _mock_base(VALID_WRITE_CLASSLOADING_RESPONSE, 200, True)
