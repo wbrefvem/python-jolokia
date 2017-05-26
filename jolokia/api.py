@@ -42,7 +42,7 @@ class JolokiaClient(object):
 
         return self.session.post(self.base_url, data=data)
 
-    def set_attribute(self, mbean, attribute, path=None, *args, **kwargs):
+    def set_attribute(self, mbean, attribute, value, path=None, *args, **kwargs):
 
         if type(attribute) is list:
             return self._bulk_request('write', mbean, attribute)
@@ -51,6 +51,7 @@ class JolokiaClient(object):
             'type': 'write',
             'mbean': mbean,
             'attribute': attribute,
+            'value': value,
             'path': path
         }
 

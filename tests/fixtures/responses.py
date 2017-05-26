@@ -85,6 +85,12 @@ VALID_WRITE_CLASSLOADING_RESPONSE = {
     "status": 200
 }
 
+MISSING_MBEAN_RESPONSE = {
+    "error_type": "java.lang.IllegalArgumentException",
+    "error": "java.lang.IllegalArgumentException : Objectname can not be null",
+    "status": 400
+}
+
 
 def _mock_base(resp_data, status_code, ok, *args, **kwargs):
 
@@ -143,3 +149,8 @@ def mock_bulk_request(*args, **kwargs):
 def mock_valid_write(*args, **kwargs):
 
     return _mock_base(VALID_WRITE_CLASSLOADING_RESPONSE, 200, True)
+
+
+def mock_missing_mbean(*args, **kwargs):
+
+    return _mock_base(MISSING_MBEAN_RESPONSE, 400, False)
