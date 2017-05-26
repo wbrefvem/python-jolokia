@@ -3,7 +3,7 @@ import logging
 
 from jolokia import JolokiaClient
 from unittest import TestCase
-from .fixtures.responses import mock_valid_write, mock_missing_mbean
+from .fixtures.responses import mock_valid_write
 
 
 logging.basicConfig(level=logging.DEBUG)
@@ -27,10 +27,16 @@ class TestSetAttribute(TestCase):
         pytest.raises(TypeError, self.jc.set_attribute, *args)
 
     def test_missing_attribute(self):
-        pass
+
+        args = ['java.lang:type=ClassLoading', True]
+
+        pytest.raises(TypeError, self.jc.set_attribute, *args)
 
     def test_missing_value(self):
-        pass
+
+        args = ['java.lang:type=ClassLoading', 'Verbose']
+
+        pytest.raises(TypeError, self.jc.set_attribute, *args)
 
     def test_valid_request(self):
 
