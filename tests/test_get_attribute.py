@@ -42,3 +42,15 @@ class TestGetAttribute(TestCase):
 
         assert type(resp_data) is list
         assert len(resp_data) == 2
+
+    def test_missing_mbean(self):
+
+        args = ['HeapMemoryUsage']
+
+        pytest.raises(TypeError, self.jc.get_attribute, *args)
+
+    def test_missing_attribute(self):
+
+        args = ['java.lang:type=Memory']
+
+        pytest.raises(TypeError, self.jc.get_attribute, *args)
