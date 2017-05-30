@@ -1,4 +1,4 @@
-# python-jolokia [![Build Status](https://travis-ci.org/wbrefvem/python-jolokia.svg?branch=master)](https://travis-ci.org/wbrefvem/python-jolokia)
+# python-jolokia [![Build Status](https://travis-ci.org/wbrefvem/python-jolokia.svg?branch=master)](https://travis-ci.org/wbrefvem/python-jolokia)  [![Coverage Status](https://coveralls.io/repos/github/wbrefvem/python-jolokia/badge.svg?branch=master)](https://coveralls.io/github/wbrefvem/python-jolokia?branch=master)
 This is a python client library for [Jolokia](https://jolokia.org/).
 
 ### Motivation
