@@ -7,8 +7,11 @@ python:
   - "3.5"
   - "3.6"
 install: 
-  - "python setup.py develop"
-  - "pip install -r requirements.txt"
-script: "py.test coveralls/tests.py --doctest-modules --pep8 coveralls -v --cov coveralls --cov-report term-missing"
+  - "python -e . --use-mirrors"
+before_script:
+  - pip install -r requirements.txt --use-mirrors
+  - py.test tests/ --cov=jolokia
+  - cd -
+script: "py.test tests/ --doctest-modules -v --cov jolokia --cov-report term-missing"
 after_success:
   - coveralls
