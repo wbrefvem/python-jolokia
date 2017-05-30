@@ -2,6 +2,7 @@ import pytest
 import logging
 
 from jolokia import JolokiaClient
+from jolokia.exceptions import IllegalArgumentException
 from .fixtures.responses import mock_get_heap_memory_usage, mock_bulk_request
 from unittest import TestCase
 
@@ -27,7 +28,7 @@ class TestGetAttribute(TestCase):
 
     def test_empty_request_body(self):
 
-        pytest.raises(TypeError, self.jc.get_attribute)
+        pytest.raises(IllegalArgumentException, self.jc.get_attribute)
 
     def test_valid_bulk_request(self, *args, **kwargs):
         log = logging.getLogger('TestGetAttribute.test_valid_bulk_request')
@@ -45,12 +46,12 @@ class TestGetAttribute(TestCase):
 
     def test_missing_mbean(self):
 
-        args = ['HeapMemoryUsage']
+        kwargs = {'attribute': 'HeapMemoryUsage'}
 
-        pytest.raises(TypeError, self.jc.get_attribute, *args)
+        pytest.raises(IllegalArgumentException, self.jc.get_attribute, **kwargs)
 
     def test_missing_attribute(self):
 
-        args = ['java.lang:type=Memory']
+        kwargs = {'mbean': 'java.lang:type=Memory'}
 
-        pytest.raises(TypeError, self.jc.get_attribute, *args)
+        pytest.raises(IllegalArgumentException, self.jc.get_attribute, **kwargs)
