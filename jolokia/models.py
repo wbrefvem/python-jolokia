@@ -8,7 +8,8 @@ class JolokiaResponse(Response):
 class JolokiaSession(Session):
     """Wraps requests.Session"""
 
-    def post(self, url, data=None, *args, **kwargs):
-        resp = super(JolokiaSession, self).post(url, data, *args, **kwargs)
+    def simple_post(self, url, data=None):
+
+        resp = self.post(url, json=data)
 
         return resp.json()
