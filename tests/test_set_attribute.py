@@ -2,6 +2,7 @@ import pytest
 import logging
 
 from jolokia import JolokiaClient
+from jolokia.exceptions import IllegalArgumentException
 from unittest import TestCase
 from .fixtures.responses import mock_valid_write
 
@@ -18,25 +19,25 @@ class TestSetAttribute(TestCase):
 
     def test_empty_body(self):
 
-        pytest.raises(TypeError, self.jc.set_attribute)
+        pytest.raises(IllegalArgumentException, self.jc.set_attribute)
 
     def test_missing_mbean(self):
 
         args = ['Verbose', True]
 
-        pytest.raises(TypeError, self.jc.set_attribute, *args)
+        pytest.raises(IllegalArgumentException, self.jc.set_attribute, *args)
 
     def test_missing_attribute(self):
 
-        args = ['java.lang:type=ClassLoading', True]
+        kwargs = {'mbean': 'java.lang:type=ClassLoading', 'value': True}
 
-        pytest.raises(TypeError, self.jc.set_attribute, *args)
+        pytest.raises(IllegalArgumentException, self.jc.set_attribute, **kwargs)
 
     def test_missing_value(self):
 
-        args = ['java.lang:type=ClassLoading', 'Verbose']
+        kwargs = {'mbean': 'java.lang:type=ClassLoading', 'attribute': 'Verbose'}
 
-        pytest.raises(TypeError, self.jc.set_attribute, *args)
+        pytest.raises(IllegalArgumentException, self.jc.set_attribute, **kwargs)
 
     def test_valid_request(self):
 

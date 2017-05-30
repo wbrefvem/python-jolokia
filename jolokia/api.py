@@ -28,8 +28,12 @@ class JolokiaClient(object):
     def version(self, *args, **kwargs):
         pass
 
-    def get_attribute(self, mbean, attribute, path=None, *args, **kwargs):
+    def get_attribute(self, mbean=None, attribute=None, path=None, *args, **kwargs):
         """Returns an attribute's value. Domain and MBean type must be specified"""
+
+        if not mbean or not attribute:
+            raise IllegalArgumentException('get_attribute method has 2 required arguments: mbean and attribute')
+
         if type(attribute) is list:
             return self._bulk_request('read', mbean, attribute)
 
@@ -42,7 +46,10 @@ class JolokiaClient(object):
 
         return self.session.post(self.base_url, data=data)
 
-    def set_attribute(self, mbean, attribute, value, path=None, *args, **kwargs):
+    def set_attribute(self, mbean=None, attribute=None, value=None, path=None, *args, **kwargs):
+
+        if not mbean or not attribute or not value:
+            raise IllegalArgumentException('set_attribute method has 3 required parameters: mbean, attribute, and value')
 
         if type(attribute) is list:
             return self._bulk_request('write', mbean, attribute)
