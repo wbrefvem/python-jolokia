@@ -1,6 +1,5 @@
 appdirs==1.4.3
 coverage==4.0.3
--e git+git@github.com:wbrefvem/python-jolokia.git@3b892e8b6da152277145e827ec565f5f5f67c2f7#egg=jolokia
 packaging==16.8
 py==1.4.33
 pyparsing==2.2.0
