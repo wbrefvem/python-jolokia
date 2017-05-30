@@ -8,3 +8,115 @@ JMX is not a platform-agnostic tech. This means that management applications for
 
 ### Goals
 Create a Python client for Jolokia that makes JMX data available both through simple abstractions aimed at the non-Java developer as well as through a full-featured API that gives the seasoned Java developer the flexibility she craves.
+
+### Usage
+
+To get a single attribute of an MBean:
+
+```python
+from jolokia import JolokiaClient
+
+
+jc = JolokiaClient('http://my-jolokia-enabled-server.com/jolokia')
+
+resp = jc.get_attribute(mbean='java.lang:type=Memory', attribute='HeapMemoryUsage')
+
+print(resp)
+
+{
+    'request': {
+        'attribute': 'HeapMemoryUsage', 
+        'mbean': 'java.lang:type=Memory', 
+        'type': 'read'
+    }, 
+    'timestamp': 1496174821, 
+    'value': {
+        'used': 288902152, 
+        'committed': 1310720000, 
+        'max': 1310720000, 
+        'init': 1367343104
+    }, 
+    'status': 200
+}
+
+```
+
+Or to retrieve multiple attributes, pass a list as the ```attribute``` parameter:
+
+```python
+resp = jc.get_attribute(
+    mbean='java.lang:type=Memory', 
+    attribute=['HeapMemoryUsage', 'NonHeapMemoryUsage']
+)
+
+print(resp)
+
+{
+    'request': {
+        'type': 'read', 
+        'attribute': ['HeapMemoryUsage', 'NonHeapMemoryUsage'], 
+        'mbean': 'java.lang:type=Memory'
+    }, 
+    'value': {
+        'NonHeapMemoryUsage': {
+            'init': 2555904, 
+            'max': 1593835520, 
+            'used': 77620176, 
+            'committed': 87556096
+        }, 
+        'HeapMemoryUsage': {
+            'init': 1367343104, 
+            'max': 1310720000, 
+            'used': 367638816, 
+            'committed': 1310720000
+        }
+    }, 
+    'timestamp': 1496175578, 
+    'status': 200
+}
+```
+
+Setting attributes works the same way, except that the ```value``` parameter is also required:
+
+```python
+
+resp = jc.set_attribute(
+    mbean='java.lang:type=ClassLoading',
+    attribute='Verbose',
+    value=True
+)
+
+print(resp)
+
+{
+    'request': {
+        'type': 'write', 
+        'attribute': 'Verbose', 
+        'mbean': 'java.lang:type=ClassLoading', 
+        'value': True
+    }, 
+    'value': False, 
+    'timestamp': 1496175995, 
+    'status': 200
+}
+
+```
+
+Note that the top-level ```value``` key in the response refers to the initial value, and we can run ```get_attribute``` to verify that the value is now set to our specified value:
+
+```python
+resp = jc.get_attribute(mbean='java.lang:type=ClassLoading', attribute='Verbose')
+
+print(resp)
+
+{
+    'request': {
+        'type': 'read', 
+        'attribute': 'Verbose', 
+        'mbean': 'java.lang:type=ClassLoading'
+    }, 
+    'value': True, 
+    'timestamp': 1496176091, 
+    'status': 200
+}
+``` 
