@@ -44,7 +44,7 @@ class JolokiaClient(object):
             'path': path
         }
 
-        return self.session.post(self.base_url, data=data)
+        return self.session.simple_post(self.base_url, data=data)
 
     def set_attribute(self, mbean=None, attribute=None, value=None, path=None, *args, **kwargs):
 
@@ -62,7 +62,7 @@ class JolokiaClient(object):
             'path': path
         }
 
-        return self.session.post(self.base_url, data=data)
+        return self.session.simple_post(self.base_url, data=data)
 
     """Private methods are not guaranteed to be stable. Use at your peril!"""
     def _validate_url(self, url):
@@ -84,7 +84,7 @@ class JolokiaClient(object):
         for a in attribute:
             data['attribute'].append(a)
 
-        return self.session.post(self.base_url, data=data)
+        return self.session.simple_post(self.base_url, data=data)
 
 
 class JBossJolokiaClient(JolokiaClient):
