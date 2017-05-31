@@ -56,8 +56,6 @@ class TestSetAttribute(TestCase):
 
         setattr(self.jc.session, 'request', mock_bulk_write)
 
-        print(attr_map)
-
         resp_data = self.jc.set_attribute(
             mbean='jolokia:type=Config',
             attribute=['HistoryMaxEntries', 'MaxDebugEntries'],
