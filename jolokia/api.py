@@ -1,13 +1,17 @@
 from .exceptions import *
 from .models import JolokiaSession
-import re
+from .utils import validate_url
+import logging
+
+
+logging.basicConfig(level=logging.DEBUG)
 
 
 class JolokiaClient(object):
 
     def __init__(self, base_url, *args, **kwargs):
 
-        self._validate_url(base_url)
+        validate_url(base_url)
 
         self.base_url = base_url
         self.session = JolokiaSession()
@@ -50,6 +54,9 @@ class JolokiaClient(object):
         if not mbean or not attribute or not value:
             raise IllegalArgumentException('set_attribute method has 3 required parameters: mbean, attribute, and value')
 
+        log = logging.getLogger('JolokiaClient.set_attribute')
+        log.debug(attribute)
+
         if type(attribute) is list and type(value) is dict:
             return self._bulk_write(mbean, attribute, value, **kwargs)
         elif (type(attribute) is list and type(value) is not dict) or (type(attribute) is not list and type(value) is dict):
@@ -64,15 +71,6 @@ class JolokiaClient(object):
         }
 
         return self.session.simple_post(self.base_url, data=data)
-
-    """Private methods are not guaranteed to be stable. Use at your peril!"""
-    def _validate_url(self, url):
-        if not url:
-            raise UrlNotSpecifiedException()
-
-        regex = re.compile(r'^https?://([\w\d]+\.)*[\w\d]+(:[\d]{2,})*(/+[\w\d]*)*$')
-        if not regex.match(url):
-            raise MalformedUrlException('Base url should be of the form http[s]://hostname[:port][path]')
 
     def _bulk_write(self, mbean, attribute, attr_map, path=None, *args, **kwargs):
 
