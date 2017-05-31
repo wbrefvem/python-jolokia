@@ -64,3 +64,16 @@ class TestSetAttribute(TestCase):
 
         for obj in resp_data:
             assert obj['status'] == 200
+
+    def test_incorrect_attribute_type(self):
+
+        kwargs = {
+            'value': {
+                'foo': 1,
+                'bar': 2
+            },
+            'attribute': 'baz',
+            'mbean': 'bang'
+        }
+
+        pytest.raises(IllegalArgumentException, self.jc.set_attribute, **kwargs)
