@@ -3,7 +3,7 @@ import logging
 
 from jolokia import JolokiaClient
 from jolokia.exceptions import IllegalArgumentException
-from .fixtures.responses import mock_get_heap_memory_usage, mock_bulk_request
+from .fixtures.responses import mock_get_heap_memory_usage, mock_bulk_read
 from unittest import TestCase
 
 
@@ -33,7 +33,7 @@ class TestGetAttribute(TestCase):
     def test_valid_bulk_request(self, *args, **kwargs):
         log = logging.getLogger('TestGetAttribute.test_valid_bulk_request')
 
-        setattr(self.jc.session, 'request', mock_bulk_request)
+        setattr(self.jc.session, 'request', mock_bulk_read)
 
         attributes = ['HeapMemoryUsage', 'NonHeapMemoryUsage']
 

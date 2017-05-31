@@ -4,7 +4,7 @@ import logging
 from jolokia import JolokiaClient
 from jolokia.exceptions import IllegalArgumentException
 from unittest import TestCase
-from .fixtures.responses import mock_valid_write
+from .fixtures.responses import mock_valid_write, mock_bulk_write
 
 
 logging.basicConfig(level=logging.DEBUG)
@@ -46,3 +46,23 @@ class TestSetAttribute(TestCase):
         resp_data = self.jc.set_attribute('java.lang:type=ClassLoading', 'Verbose', True)
 
         assert not resp_data['value']
+
+    def test_bulk_write(self):
+
+        attr_map = {
+            'HistoryMaxEntries': 20,
+            'MaxDebugEntries': 200
+        }
+
+        setattr(self.jc.session, 'request', mock_bulk_write)
+
+        print(attr_map)
+
+        resp_data = self.jc.set_attribute(
+            mbean='jolokia:type=Config',
+            attribute=['HistoryMaxEntries', 'MaxDebugEntries'],
+            value=attr_map
+        )
+
+        for obj in resp_data:
+            assert obj['status'] == 200

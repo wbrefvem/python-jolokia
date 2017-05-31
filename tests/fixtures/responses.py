@@ -48,7 +48,7 @@ VALID_GET_HEAP_MEMORY_USAGE = {
     "status": 200
 }
 
-VALID_BULK_RESPONSE = [
+VALID_BULK_READ = [
     {
         "request": {
             "path": "used",
@@ -69,6 +69,31 @@ VALID_BULK_RESPONSE = [
         },
         "value": 80981104,
         "timestamp": 1495078549,
+        "status": 200
+    }
+]
+
+VALID_BULK_WRITE = [
+    {
+        "request": {
+            "mbean": "jolokia:type=Config",
+            "attribute": "HistoryMaxEntries",
+            "type": "write",
+            "value": 20
+        },
+        "value": 10,
+        "timestamp": 1496203111,
+        "status": 200
+    },
+    {
+        "request": {
+            "mbean": "jolokia:type=Config",
+            "attribute": "MaxDebugEntries",
+            "type": "write",
+            "value": 200
+        },
+        "value": 100,
+        "timestamp": 1496203111,
         "status": 200
     }
 ]
@@ -141,9 +166,14 @@ def mock_get_heap_memory_usage(*args, **kwargs):
     return _mock_base(VALID_GET_HEAP_MEMORY_USAGE, 200, True)
 
 
-def mock_bulk_request(*args, **kwargs):
+def mock_bulk_read(*args, **kwargs):
 
-    return _mock_base(VALID_BULK_RESPONSE, 200, True)
+    return _mock_base(VALID_BULK_READ, 200, True)
+
+
+def mock_bulk_write(*args, **kwargs):
+
+    return _mock_base(VALID_BULK_WRITE, 200, True)
 
 
 def mock_valid_write(*args, **kwargs):

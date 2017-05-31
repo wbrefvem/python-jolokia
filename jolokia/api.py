@@ -35,7 +35,7 @@ class JolokiaClient(object):
             raise IllegalArgumentException('get_attribute method has 2 required arguments: mbean and attribute')
 
         if type(attribute) is list:
-            return self._bulk_request('read', mbean, attribute)
+            return self._bulk_read(mbean, attribute)
 
         data = {
             'type': 'read',
@@ -51,8 +51,10 @@ class JolokiaClient(object):
         if not mbean or not attribute or not value:
             raise IllegalArgumentException('set_attribute method has 3 required parameters: mbean, attribute, and value')
 
-        if type(attribute) is list:
-            return self._bulk_request('write', mbean, attribute)
+        if type(attribute) is list and type(value) is dict:
+            return self._bulk_write(mbean, attribute, value, **kwargs)
+        elif (type(attribute) is list and type(value) is not dict) or (type(attribute) is not list and type(value) is dict):
+            raise IllegalArgumentException('Bulk writes must include an attribute list and an attribute map')
 
         data = {
             'type': 'write',
@@ -73,16 +75,30 @@ class JolokiaClient(object):
         if not regex.match(url):
             raise MalformedUrlException('Base url should be of the form http[s]://hostname[:port][path]')
 
-    def _bulk_request(self, op_type, mbean, attribute, path=None, *args, **kwargs):
-        data = {
-            'type': op_type,
-            'mbean': mbean,
-            'attribute': [],
-            'path': path
-        }
+    def _bulk_write(self, mbean, attribute, attr_map, path=None, *args, **kwargs):
+
+        data = []
 
         for a in attribute:
-            data['attribute'].append(a)
+            data.append({
+                'type': 'write',
+                'mbean': mbean,
+                'attribute': a,
+                'value': attr_map[a]
+            })
+
+        return self.session.simple_post(self.base_url, data=data)
+
+    def _bulk_read(self, mbean, attribute, path=None, *args, **kwargs):
+        data = []
+
+        for a in attribute:
+            data.append({
+                'type': 'read',
+                'mbean': mbean,
+                'attribute': a,
+                'path': path
+            })
 
         return self.session.simple_post(self.base_url, data=data)
 
