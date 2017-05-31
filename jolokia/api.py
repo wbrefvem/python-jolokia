@@ -7,8 +7,7 @@ class JolokiaClient(object):
 
     def __init__(self, base_url, *args, **kwargs):
 
-        if not base_url:
-            raise UrlNotSpecifiedException()
+        self._validate_url(base_url)
 
         self.base_url = base_url
         self.session = JolokiaSession()
