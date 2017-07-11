@@ -116,6 +116,17 @@ MISSING_MBEAN_RESPONSE = {
     "status": 400
 }
 
+VALID_EXEC_RESPONSE = {
+    'status': 200,
+    'request': {
+        'operation': 'dumpAllThreads',
+        'type': 'exec',
+        'arguments': [True, True],
+        'mbean': 'java.lang:type=Threading'
+    },
+    'value': ['','','']
+}
+
 
 def _mock_base(resp_data, status_code, ok, *args, **kwargs):
 
@@ -184,3 +195,8 @@ def mock_valid_write(*args, **kwargs):
 def mock_missing_mbean(*args, **kwargs):
 
     return _mock_base(MISSING_MBEAN_RESPONSE, 400, False)
+
+
+def mock_valid_exec(*args, **Kwargs):
+
+    return _mock_base(VALID_EXEC_RESPONSE, 200, True)
