@@ -16,9 +16,10 @@ class JolokiaClient(object):
         self.base_url = base_url
         self.session = JolokiaSession()
 
-    def execute(self, *args, **kwargs):
+    def execute(self, data=None, *args, **kwargs):
         """Execute JMX operation on MBean."""
-        pass
+        
+        return self.session.simple_post(self.base_url, data=data)
 
     def list(self, *args, **kwargs):
         """Return a list of all MBeans on all available MBean servers."""
