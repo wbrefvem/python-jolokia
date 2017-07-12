@@ -18,7 +18,10 @@ class JolokiaClient(object):
 
     def execute(self, data=None, *args, **kwargs):
         """Execute JMX operation on MBean."""
-        
+
+        if not data:
+            raise IllegalArgumentException('data argument is required')
+
         return self.session.simple_post(self.base_url, data=data)
 
     def list(self, *args, **kwargs):
@@ -33,7 +36,12 @@ class JolokiaClient(object):
         pass
 
     def get_attribute(self, mbean=None, attribute=None, path=None, *args, **kwargs):
-        """Returns an attribute's value. Domain and MBean type must be specified"""
+        """Returns an attribute's value. Domain and MBean type must be specified
+
+        :param mbean: The MBean to query.
+        :param attribute: The MBean attribute to get
+        :param path: (optional) Path to query into MBean attribute
+        """
 
         if not mbean or not attribute:
             raise IllegalArgumentException('get_attribute method has 2 required arguments: mbean and attribute')

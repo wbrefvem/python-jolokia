@@ -2,6 +2,7 @@ import pytest
 import logging
 
 from jolokia import JolokiaClient
+from jolokia.exceptions import IllegalArgumentException
 from .fixtures.responses import mock_valid_exec
 from .fixtures.requests import *
 from unittest import TestCase
@@ -24,3 +25,7 @@ class TestExecute(TestCase):
 
         assert resp_data['status'] == 200
         assert type(resp_data['value']) is list
+
+    def test_empty_body(self):
+
+        pytest.raises(IllegalArgumentException, self.jc.execute)
