@@ -1,13 +1,9 @@
-import pytest
-import logging
-
 from jolokia import JolokiaClient
 from jolokia.exceptions import IllegalArgumentException
 from .fixtures.responses import mock_get_heap_memory_usage, mock_bulk_read
 from unittest import TestCase
 
-
-logging.basicConfig(level=logging.DEBUG)
+import pytest
 
 
 class TestGetAttribute(TestCase):
@@ -31,15 +27,12 @@ class TestGetAttribute(TestCase):
         pytest.raises(IllegalArgumentException, self.jc.get_attribute)
 
     def test_valid_bulk_request(self, *args, **kwargs):
-        log = logging.getLogger('TestGetAttribute.test_valid_bulk_request')
 
         setattr(self.jc.session, 'request', mock_bulk_read)
 
         attributes = ['HeapMemoryUsage', 'NonHeapMemoryUsage']
 
         resp_data = self.jc.get_attribute(mbean='java.lang:Memory', attribute=attributes)
-
-        log.debug('Bulk resp. data: {0}'.format(resp_data))
 
         assert type(resp_data) is list
         assert len(resp_data) == 2

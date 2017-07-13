@@ -1,6 +1,7 @@
 from .exceptions import *
 from .models import JolokiaSession
-from .utils import validate_url, require_args
+from .utils.validators import validate_url
+from .utils.decorators import require_args
 import logging
 
 
@@ -41,9 +42,6 @@ class JolokiaClient(object):
         :param attribute: The MBean attribute to get
         :param path: (optional) Path to query into MBean attribute
         """
-
-        # if not mbean or not attribute:
-        #     raise IllegalArgumentException('mbean and attribute args are required')
 
         if type(attribute) is list:
             return self._bulk_read(mbean, attribute)
