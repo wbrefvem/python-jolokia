@@ -1,6 +1,6 @@
 from .exceptions import *
 from .models import JolokiaSession
-from .utils import validate_url
+from .utils import validate_url, require_args
 import logging
 
 
@@ -16,11 +16,12 @@ class JolokiaClient(object):
         self.base_url = base_url
         self.session = JolokiaSession()
 
+    @require_args(['data'], 'Base url should be of the form http[s]://hostname[:port][path]')
     def execute(self, data=None, *args, **kwargs):
         """Execute JMX operation on MBean."""
 
-        if not data:
-            raise IllegalArgumentException('data argument is required')
+        log = logging.getLogger('JolokiaClient.execute')
+        log.debug(data)
 
         return self.session.simple_post(self.base_url, data=data)
 
@@ -35,6 +36,7 @@ class JolokiaClient(object):
     def version(self, *args, **kwargs):
         pass
 
+    @require_args(['mbean, attribute'], 'get_attribute method has 2 required arguments: mbean and attribute')
     def get_attribute(self, mbean=None, attribute=None, path=None, *args, **kwargs):
         """Returns an attribute's value. Domain and MBean type must be specified
 
@@ -42,9 +44,6 @@ class JolokiaClient(object):
         :param attribute: The MBean attribute to get
         :param path: (optional) Path to query into MBean attribute
         """
-
-        if not mbean or not attribute:
-            raise IllegalArgumentException('get_attribute method has 2 required arguments: mbean and attribute')
 
         if type(attribute) is list:
             return self._bulk_read(mbean, attribute)
@@ -62,9 +61,6 @@ class JolokiaClient(object):
 
         if not mbean or not attribute or not value:
             raise IllegalArgumentException('set_attribute method has 3 required parameters: mbean, attribute, and value')
-
-        log = logging.getLogger('JolokiaClient.set_attribute')
-        log.debug(attribute)
 
         if type(attribute) is list and type(value) is dict:
             return self._bulk_write(mbean, attribute, value, **kwargs)
