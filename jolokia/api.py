@@ -20,9 +20,6 @@ class JolokiaClient(object):
     def execute(self, data=None, *args, **kwargs):
         """Execute JMX operation on MBean."""
 
-        log = logging.getLogger('JolokiaClient.execute')
-        log.debug(data)
-
         return self.session.simple_post(self.base_url, data=data)
 
     def list(self, *args, **kwargs):
@@ -36,7 +33,7 @@ class JolokiaClient(object):
     def version(self, *args, **kwargs):
         pass
 
-    @require_args(['mbean, attribute'], 'get_attribute method has 2 required arguments: mbean and attribute')
+    @require_args(['mbean', 'attribute'], 'get_attribute method has 2 required arguments: mbean and attribute')
     def get_attribute(self, mbean=None, attribute=None, path=None, *args, **kwargs):
         """Returns an attribute's value. Domain and MBean type must be specified
 
@@ -44,6 +41,9 @@ class JolokiaClient(object):
         :param attribute: The MBean attribute to get
         :param path: (optional) Path to query into MBean attribute
         """
+
+        # if not mbean or not attribute:
+        #     raise IllegalArgumentException('mbean and attribute args are required')
 
         if type(attribute) is list:
             return self._bulk_read(mbean, attribute)
