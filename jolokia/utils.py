@@ -16,14 +16,14 @@ def validate_url(url):
         raise MalformedUrlException('Base url should be of the form http[s]://hostname[:port][path]')
 
 
-def require_args(original_func, args, err_msg):
-
-    @wraps(original_func)
-    def new_func(self, *args, **kwargs):
-        try:
-            for arg in args:
-                kwargs[arg]
-            return original_func(self, *args, **kwargs)
-        except KeyError:
-            raise IllegalArgumentException(err_msg)
-    return new_func
+def require_args(reqs, err_msg):
+    def wrapper(func):
+        def new_func(self, *args, **kwargs):
+            try:
+                for arg in reqs:
+                    kwargs[arg]
+                return func(self, *args, **kwargs)
+            except KeyError:
+                raise IllegalArgumentException(err_msg)
+        return new_func
+    return wrapper

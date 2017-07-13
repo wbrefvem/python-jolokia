@@ -21,7 +21,7 @@ class TestGetAttribute(TestCase):
 
         setattr(self.jc.session, 'request', mock_get_heap_memory_usage)
 
-        resp_data = self.jc.get_attribute('java.lang:Memory', 'HeapMemoryUsage')
+        resp_data = self.jc.get_attribute(mbean='java.lang:Memory', attribute='HeapMemoryUsage')
 
         assert resp_data['status'] == 200
         assert type(resp_data['value']) is int
@@ -37,7 +37,7 @@ class TestGetAttribute(TestCase):
 
         attributes = ['HeapMemoryUsage', 'NonHeapMemoryUsage']
 
-        resp_data = self.jc.get_attribute('java.lang:Memory', attributes)
+        resp_data = self.jc.get_attribute(mbean='java.lang:Memory', attribute=attributes)
 
         log.debug('Bulk resp. data: {0}'.format(resp_data))
 
