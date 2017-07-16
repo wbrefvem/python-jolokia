@@ -27,7 +27,7 @@ class JolokiaClient(object):
         """Return a list of all MBeans on all available MBean servers."""
         pass
 
-    def search(self, *args, **kwargs):
+    def search(self, data=None, *args, **kwargs):
         """Search all available MBean servers for the desired MBean"""
         pass
 
