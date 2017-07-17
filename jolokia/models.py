@@ -16,4 +16,7 @@ class JolokiaSession(Session):
         """Posts to url and returns de-serialized response"""
         resp = self.post(url, json=data)
 
+        # log = logging.getLogger('simple_post')
+        # log.debug(resp.json())
+
         return resp.json()

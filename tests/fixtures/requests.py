@@ -4,3 +4,8 @@ VALID_EXEC = {
     'operation': 'dumpAllThreads',
     'arguments': [True, True]
 }
+
+VALID_SEARCH = {
+    'type': 'search',
+    'mbean': 'java.lang:*'
+}

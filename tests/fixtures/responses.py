@@ -124,7 +124,34 @@ VALID_EXEC_RESPONSE = {
         'arguments': [True, True],
         'mbean': 'java.lang:type=Threading'
     },
-    'value': ['','','']
+    'value': ['', '', '']
+}
+
+VALID_SEARCH_RESPONSE = {
+    "request": {
+        "mbean": "java.lang:*",
+        "type": "search"
+    },
+    "value": [
+        "java.lang:name=Metaspace,type=MemoryPool",
+        "java.lang:name=PS Old Gen,type=MemoryPool",
+        "java.lang:name=PS Scavenge,type=GarbageCollector",
+        "java.lang:name=PS Eden Space,type=MemoryPool",
+        "java.lang:type=Runtime",
+        "java.lang:type=Threading",
+        "java.lang:type=OperatingSystem",
+        "java.lang:name=Code Cache,type=MemoryPool",
+        "java.lang:type=Compilation",
+        "java.lang:name=CodeCacheManager,type=MemoryManager",
+        "java.lang:name=Compressed Class Space,type=MemoryPool",
+        "java.lang:type=Memory",
+        "java.lang:name=PS Survivor Space,type=MemoryPool",
+        "java.lang:type=ClassLoading",
+        "java.lang:name=Metaspace Manager,type=MemoryManager",
+        "java.lang:name=PS MarkSweep,type=GarbageCollector"
+    ],
+    "timestamp": 1500261449,
+    "status": 200
 }
 
 
