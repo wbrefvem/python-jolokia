@@ -5,7 +5,7 @@ from jolokia.utils.validators import validate_url
 from jolokia.utils.decorators import require_args
 from jolokia.exceptions import UrlNotSpecifiedException, MalformedUrlException, IllegalArgumentException
 from unittest import TestCase
-from mock import Mock, MagicMock
+from mock import Mock
 
 logging.basicConfig(level=logging.DEBUG)
 

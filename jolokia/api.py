@@ -17,24 +17,28 @@ class JolokiaClient(object):
         self.base_url = base_url
         self.session = JolokiaSession()
 
-    @require_args(['data'], 'Base url should be of the form http[s]://hostname[:port][path]')
-    def execute(self, data=None, *args, **kwargs):
+    @require_args(['mbean', 'operation', 'arguments'], 'execute method has 3 required keyword argument: mbean, operation, and arguments')
+    def execute(self, *args, **kwargs):
         """Execute JMX operation on MBean."""
+        kwargs.update({'type': 'execute'})
 
-        return self.session.simple_post(self.base_url, data=data)
+        return self.session.simple_post(self.base_url, data=kwargs)
 
     def list(self, *args, **kwargs):
         """Return a list of all MBeans on all available MBean servers."""
         pass
 
+    @require_args(['mbean'], 'search method has 1 required keyword argument: mbean')
     def search(self, data=None, *args, **kwargs):
         """Search all available MBean servers for the desired MBean"""
-        pass
+        kwargs.update({'type': 'search'})
+
+        return self.session.simple_post(self.base_url, data=kwargs)
 
     def version(self, *args, **kwargs):
         pass
 
-    @require_args(['mbean', 'attribute'], 'get_attribute method has 2 required arguments: mbean and attribute')
+    @require_args(['mbean', 'attribute'], 'get_attribute method has 2 required keyword arguments: mbean and attribute')
     def get_attribute(self, mbean=None, attribute=None, path=None, *args, **kwargs):
         """Returns an attribute's value. Domain and MBean type must be specified
 
