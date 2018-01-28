@@ -43,7 +43,11 @@ class TestSetAttribute(TestCase):
 
         setattr(self.jc.session, 'request', mock_valid_write)
 
-        resp_data = self.jc.set_attribute('java.lang:type=ClassLoading', 'Verbose', True)
+        resp_data = self.jc.set_attribute(
+            mbean='java.lang:type=ClassLoading', 
+            attribute='Verbose', 
+            value=True
+        )
 
         assert not resp_data['value']
 
