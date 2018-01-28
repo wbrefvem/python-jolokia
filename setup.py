@@ -11,16 +11,16 @@ with io.open(os.path.join(cwd, 'README.rst'), encoding='utf-8') as f:
 
 setup(
     name='jolokia',
-    version='0.0.1',
+    version='0.1.0a1',
     description='A Python Jolokia client',
     long_description=long_description,
     url='https://github.com/wbrefvem/python-jolokia',
     author='Will Refvem',
-    author_email='wrefvem@redhat.com',
+    author_email='wbrefvem@gmail.com',
     license='Apache 2.0',
 
     classifiers=[
-        'Development Status :: 1 - Planning',
+        'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Libraries :: Python Modules',
         'License :: OSI Approved :: Apache Software License',
