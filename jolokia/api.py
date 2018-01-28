@@ -4,8 +4,7 @@ from jolokia.utils.validators import validate_url
 from jolokia.utils.decorators import require_args
 import logging
 
-
-logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(__name__)
 
 
 class JolokiaClient(object):
@@ -30,6 +29,8 @@ class JolokiaClient(object):
             'type': 'list',
             'path': path
         }
+
+        logger.debug(data)
 
         return self.session.simple_post(self.base_url, data=data)
 
@@ -63,6 +64,8 @@ class JolokiaClient(object):
             'path': path
         }
 
+        logger.debug(data)
+
         return self.session.simple_post(self.base_url, data=data)
 
     @require_args(['mbean', 'attribute', 'value'], 'set_attribute method has 3 required arguments: mbean, attribute, and value')
@@ -85,6 +88,8 @@ class JolokiaClient(object):
             'path': path
         }
 
+        logger.debug(data)
+
         return self.session.simple_post(self.base_url, data=data)
 
     def _bulk_write(self, mbean, attribute, attr_map, path=None, *args, **kwargs):
@@ -99,6 +104,8 @@ class JolokiaClient(object):
                 'value': attr_map[a]
             })
 
+        logger.debug(data)
+
         return self.session.simple_post(self.base_url, data=data)
 
     def _bulk_read(self, mbean, attribute, path=None, *args, **kwargs):
@@ -111,6 +118,8 @@ class JolokiaClient(object):
                 'attribute': a,
                 'path': path
             })
+
+        logger.debug(data)
 
         return self.session.simple_post(self.base_url, data=data)
 
