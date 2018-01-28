@@ -1,8 +1,4 @@
 from requests import Session, Response
-import logging
-
-
-logging.basicConfig(level=logging.DEBUG)
 
 
 class JolokiaResponse(Response):

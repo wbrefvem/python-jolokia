@@ -1,11 +1,6 @@
 from functools import wraps
 from jolokia.exceptions import *
 
-import logging
-
-
-logging.basicConfig(level=logging.DEBUG)
-
 
 def require_args(reqs, err_msg):
     def wrapper(func):
