@@ -49,7 +49,7 @@ class TestSetAttribute(TestCase):
             value=True
         )
 
-        assert not resp_data['value']
+        assert resp_data['value']
 
     def test_bulk_write(self):
 

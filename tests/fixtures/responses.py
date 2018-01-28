@@ -105,7 +105,7 @@ VALID_WRITE_CLASSLOADING_RESPONSE = {
         "type": "write",
         "value": True
     },
-    "value": False,
+    "value": True,
     "timestamp": 1495480324,
     "status": 200
 }
