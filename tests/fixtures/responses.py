@@ -154,6 +154,26 @@ VALID_SEARCH_RESPONSE = {
     "status": 200
 }
 
+VALID_LIST = {
+    'request': {
+        'path': 'java.lang/type=Memory/attr/HeapMemoryUsage',
+        'type': 'list'
+    },
+    'value': {
+        'rw': False,
+        'type': 'javax.management.openmbean.CompositeData',
+        'desc': 'HeapMemoryUsage'
+    },
+    'timestamp': 1517106359,
+    'status': 200
+}
+
+INVALID_LIST_PATH = {
+    'error_type': 'java.lang.IllegalArgumentException',
+    'error': 'java.lang.IllegalArgumentException : Illegal path element HeapMemoryUsage',
+    'status': 400
+}
+
 
 def _mock_base(resp_data, status_code, ok, *args, **kwargs):
 
@@ -227,3 +247,11 @@ def mock_missing_mbean(*args, **kwargs):
 def mock_valid_exec(*args, **Kwargs):
 
     return _mock_base(VALID_EXEC_RESPONSE, 200, True)
+
+def mock_valid_list(*args, **kwargs):
+
+    return _mock_base(VALID_LIST, 200, True)
+
+def mock_invalid_path(*args, **kwargs):
+
+    return _mock_base(INVALID_LIST_PATH, 200, True)

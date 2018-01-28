@@ -24,9 +24,14 @@ class JolokiaClient(object):
 
         return self.session.simple_post(self.base_url, data=kwargs)
 
-    def list(self, *args, **kwargs):
-        """Return a list of all MBeans on all available MBean servers."""
-        pass
+    def list(self, path=None, *args, **kwargs):
+        """Returns a list of all MBeans on all available MBean servers."""
+        data = {
+            'type': 'list',
+            'path': path
+        }
+
+        return self.session.simple_post(self.base_url, data=data)
 
     @require_args(['mbean'], 'search method has 1 required keyword argument: mbean')
     def search(self, data=None, *args, **kwargs):
@@ -59,7 +64,9 @@ class JolokiaClient(object):
 
         return self.session.simple_post(self.base_url, data=data)
 
+    @require_args(['mbean', 'attribute', 'value'], 'set_attribute method has 3 required arguments: mbean, attribute, and value')
     def set_attribute(self, mbean=None, attribute=None, value=None, path=None, *args, **kwargs):
+        """Sets the value of an MBean's attribute"""
 
         if not mbean or not attribute or not value:
             raise IllegalArgumentException('set_attribute method has 3 required parameters: mbean, attribute, and value')
