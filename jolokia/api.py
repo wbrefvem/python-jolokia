@@ -1,7 +1,7 @@
-from .exceptions import *
-from .models import JolokiaSession
-from .utils.validators import validate_url
-from .utils.decorators import require_args
+from jolokia.exceptions import *
+from jolokia.models import JolokiaSession
+from jolokia.utils.validators import validate_url
+from jolokia.utils.decorators import require_args
 import logging
 
 
