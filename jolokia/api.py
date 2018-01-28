@@ -35,13 +35,14 @@ class JolokiaClient(object):
 
     @require_args(['mbean'], 'search method has 1 required keyword argument: mbean')
     def search(self, data=None, *args, **kwargs):
-        """Search all available MBean servers for the desired MBean"""
+        """Searches all available MBean servers for the desired MBean"""
         kwargs.update({'type': 'search'})
 
         return self.session.simple_post(self.base_url, data=kwargs)
 
     def version(self, *args, **kwargs):
-        pass
+        """Returns agent version"""
+        return self.session.simple_post(self.base_url, data={'type': 'version'})
 
     @require_args(['mbean', 'attribute'], 'get_attribute method has 2 required keyword arguments: mbean and attribute')
     def get_attribute(self, mbean=None, attribute=None, path=None, *args, **kwargs):
