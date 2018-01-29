@@ -1,7 +1,14 @@
+"""This module provides various models related to a Jolokia session"""
+
+import logging
+
 from requests import Session, Response
+
+LOGGER = logging.getLogger(__name__)
 
 
 class JolokiaResponse(Response):
+    """Wraps requests.Response"""
     pass
 
 
@@ -12,7 +19,6 @@ class JolokiaSession(Session):
         """Posts to url and returns de-serialized response"""
         resp = self.post(url, json=data)
 
-        # log = logging.getLogger('simple_post')
-        # log.debug(resp.json())
+        LOGGER.debug(resp.json())
 
         return resp.json()

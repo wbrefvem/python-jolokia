@@ -1,8 +1,12 @@
-from jolokia.exceptions import *
+"""Utilities for validating data passed to Jolokia agent"""
+
 import re
+
+from jolokia.exceptions import UrlNotSpecifiedException, MalformedUrlException
 
 
 def validate_url(url):
+    """Ensures URL is well-formed"""
     if not url:
         raise UrlNotSpecifiedException()
 
