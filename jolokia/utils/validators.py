@@ -12,5 +12,4 @@ def validate_url(url):
 
     regex = re.compile(r'^https?://([\w\d]+\.)*[\w\d]+(:[\d]{2,})*(/+[\w\d]*)*$')
     if not regex.match(url):
-        raise MalformedUrlException('Base url should be of the form \
-        	http[s]://hostname[:port][path]')
+        raise MalformedUrlException('Base url should be of the form http[s]://hostname[:port][path]')
