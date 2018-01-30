@@ -1,14 +1,17 @@
-language: "python"
-python:
-  - "2.7"
-  - "3.3"
-  - "3.4"
-  - "3.5"
-  - "3.6"
+--- 
+language: python
+python: 
+  - 2.7
+  - 3.3
+  - 3.4
+  - 3.5
+  - 3.6
 install: 
   - "python setup.py develop"
-before_script:
-  - pip install -r requirements.txt
-script: "coverage run --source=jolokia setup.py test"
-after_success:
+before_script: 
+  - "pip install -r requirements.txt"
+script: 
+  - "coverage run --source=jolokia setup.py test"
+  - "pyint jolokia"
+after_success: 
   - coveralls
