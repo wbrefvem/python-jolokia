@@ -15,3 +15,5 @@ script:
   - "pylint jolokia"
 after_success: 
   - coveralls
+notifications:
+  email: false
