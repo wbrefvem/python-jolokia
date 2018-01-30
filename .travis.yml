@@ -12,6 +12,6 @@ before_script:
   - "pip install -r requirements.txt"
 script: 
   - "coverage run --source=jolokia setup.py test"
-  - "pyint jolokia"
+  - "pylint jolokia"
 after_success: 
   - coveralls
