@@ -51,7 +51,10 @@ class JolokiaClient(object):
         """Returns agent version"""
         return self.session.simple_post(self.base_url, data={'type': 'version'})
 
-    @require_params(['mbean', 'attribute'], 'get_attribute method has 2 required keyword arguments: mbean and attribute')
+    @require_params(
+        ['mbean', 'attribute'],
+        'get_attribute method has 2 required keyword arguments: mbean and attribute'
+    )
     def get_attribute(self, mbean=None, attribute=None, path=None):
         """Returns an attribute's value. Domain and MBean type must be specified
 
@@ -74,7 +77,10 @@ class JolokiaClient(object):
 
         return self.session.simple_post(self.base_url, data=data)
 
-    @require_params(['mbean', 'attribute', 'value'], 'set_attribute method has 3 required arguments: mbean, attribute, and value')
+    @require_params(
+        ['mbean', 'attribute', 'value'],
+        'set_attribute method has 3 required arguments: mbean, attribute, and value'
+    )
     def set_attribute(self, mbean=None, attribute=None, value=None, path=None, **kwargs):
         """Sets the value of an MBean's attribute"""
 
@@ -85,8 +91,10 @@ class JolokiaClient(object):
 
         if isinstance(attribute, list) and isinstance(value, dict):
             return self._bulk_write(mbean, attribute, value, **kwargs)
-        elif (isinstance(attribute, list) and isinstance(value, dict)) or (not isinstance(attribute, list) and isinstance(value, dict)):
-            raise IllegalArgumentException('Bulk writes must include an attribute list and an attribute map')
+        elif (isinstance(attribute, list) and isinstance(value, dict))\
+            or (not isinstance(attribute, list) and isinstance(value, dict)):
+            raise IllegalArgumentException('Bulk writes must include \
+                 an attribute list and an attribute map')
 
         data = {
             'type': 'write',
