@@ -1,21 +1,16 @@
 import pytest
 import logging
 
-from jolokia import JolokiaClient
 from jolokia.exceptions import IllegalArgumentException
-from unittest import TestCase
-from .fixtures.responses import mock_valid_write, mock_bulk_write
+from tests.base import JolokiaTestCase
+from tests.fixtures.responses import *
+from mock import Mock
 
 
 logging.basicConfig(level=logging.DEBUG)
 
 
-class TestSetAttribute(TestCase):
-
-    def __init__(self, *args, **kwargs):
-        super(TestSetAttribute, self).__init__(*args, **kwargs)
-
-        self.jc = JolokiaClient('http://localhost:8080/jolokia')
+class TestSetAttribute(JolokiaTestCase):
 
     def test_empty_body(self):
 
@@ -41,11 +36,12 @@ class TestSetAttribute(TestCase):
 
     def test_valid_request(self):
 
-        setattr(self.jc.session, 'request', mock_valid_write)
+        resp = self._prepare_response(VALID_WRITE_CLASSLOADING_RESPONSE, 200, True)
+        self.jc.session.request = Mock(return_value=resp)
 
         resp_data = self.jc.set_attribute(
-            mbean='java.lang:type=ClassLoading', 
-            attribute='Verbose', 
+            mbean='java.lang:type=ClassLoading',
+            attribute='Verbose',
             value=True
         )
 
@@ -58,7 +54,8 @@ class TestSetAttribute(TestCase):
             'MaxDebugEntries': 200
         }
 
-        setattr(self.jc.session, 'request', mock_bulk_write)
+        resp = self._prepare_response(VALID_BULK_WRITE, 200, True)
+        self.jc.session.request = Mock(return_value=resp)
 
         resp_data = self.jc.set_attribute(
             mbean='jolokia:type=Config',

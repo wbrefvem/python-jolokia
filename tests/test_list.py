@@ -1,22 +1,19 @@
-import pytest
 import logging
 
 from jolokia import JolokiaClient
-from jolokia.exceptions import IllegalArgumentException
-from unittest import TestCase
-from .fixtures.responses import mock_valid_list, mock_invalid_path
+from tests.base import JolokiaTestCase
+from tests.fixtures.responses import *
+from mock import Mock
 
 logging.basicConfig(level=logging.DEBUG)
 
 
-class TestList(TestCase):
-
-    def __init__(self, *args, **kwargs):
-        super(TestList, self).__init__(*args, **kwargs)
-        self.jc = JolokiaClient('http://localhost:8080/jolokia')
+class TestList(JolokiaTestCase):
 
     def test_valid_request(self):
-        setattr(self.jc.session, 'request', mock_valid_list)
+
+        resp = self._prepare_response(VALID_LIST, 200, True)
+        self.jc.session.request = Mock(return_value=resp)
 
         resp_data = self.jc.list(path='java.lang/type=Memory/attr/HeapMemoryUsage')
 
@@ -25,7 +22,9 @@ class TestList(TestCase):
         assert type(resp_data['value']) is dict
 
     def test_invalid_path(self):
-        setattr(self.jc.session, 'request', mock_invalid_path)
+
+        resp = self._prepare_response(INVALID_LIST_PATH, 200, True)
+        self.jc.session.request = Mock(return_value=resp)
 
         resp_data = self.jc.list(path='java.lang/type=Memory/HeapMemoryUsage')
 
