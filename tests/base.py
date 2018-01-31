@@ -12,6 +12,14 @@ class JolokiaTestCase(TestCase):
 
         self.jc = JolokiaClient('http://localhost:8080/jolokia')
 
+        f_requests = open('tests/fixtures/requests.json', 'r')
+        self.requests = json.load(f_requests)
+        f_requests.close()
+
+        f_responses = open('tests/fixtures/responses.json', 'r')
+        self.responses = json.load(f_responses)
+        f_responses.close()
+
     def _prepare_response(self, response_json, status_code, ok):
 
         resp_string = json.dumps(response_json)

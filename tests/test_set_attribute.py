@@ -3,7 +3,6 @@ import logging
 
 from jolokia.exceptions import IllegalArgumentException
 from tests.base import JolokiaTestCase
-from tests.fixtures.responses import *
 from mock import Mock
 
 
@@ -36,7 +35,7 @@ class TestSetAttribute(JolokiaTestCase):
 
     def test_valid_request(self):
 
-        resp = self._prepare_response(VALID_WRITE_CLASSLOADING_RESPONSE, 200, True)
+        resp = self._prepare_response(self.responses['valid_write_classloading_response'], 200, True)
         self.jc.session.request = Mock(return_value=resp)
 
         resp_data = self.jc.set_attribute(
@@ -54,7 +53,7 @@ class TestSetAttribute(JolokiaTestCase):
             'MaxDebugEntries': 200
         }
 
-        resp = self._prepare_response(VALID_BULK_WRITE, 200, True)
+        resp = self._prepare_response(self.responses['valid_bulk_write'], 200, True)
         self.jc.session.request = Mock(return_value=resp)
 
         resp_data = self.jc.set_attribute(
