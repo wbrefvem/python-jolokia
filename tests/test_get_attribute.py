@@ -1,6 +1,5 @@
 from jolokia.exceptions import IllegalArgumentException
 from tests.base import JolokiaTestCase
-from .fixtures.responses import *
 from mock import Mock
 
 import pytest
@@ -14,7 +13,7 @@ class TestGetAttribute(JolokiaTestCase):
 
     def test_valid_request(self):
 
-        resp = self._prepare_response(VALID_GET_HEAP_MEMORY_USAGE, 200, True)
+        resp = self._prepare_response(self.responses['valid_get_heap_memory_usage'], 200, True)
         self.jc.session.request = Mock(return_value=resp)
         resp_data = self.jc.get_attribute(mbean='java.lang:type=Memory', attribute='HeapMemoryUsage', path='used')
 
@@ -29,7 +28,7 @@ class TestGetAttribute(JolokiaTestCase):
 
     def test_valid_bulk_request(self, *args, **kwargs):
 
-        resp = self._prepare_response(VALID_BULK_READ, 200, True)
+        resp = self._prepare_response(self.responses['valid_bulk_read'], 200, True)
         self.jc.session.request = Mock(return_value=resp)
 
         attributes = ['HeapMemoryUsage', 'NonHeapMemoryUsage']

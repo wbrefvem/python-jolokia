@@ -1,0 +1,15 @@
+{
+    "valid_exec": {
+        "type": "exec",
+        "mbean": "java.lang:type=Threading",
+        "operation": "dumpAllThreads",
+        "arguments": [
+            true,
+            true
+        ]
+    },
+    "valid_search": {
+        "type": "search",
+        "mbean": "java.lang:*"
+    }
+}
