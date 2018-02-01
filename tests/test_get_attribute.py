@@ -13,8 +13,8 @@ class TestGetAttribute(JolokiaTestCase):
 
     def test_valid_request(self):
 
-        resp = self._prepare_response(self.responses['valid_get_heap_memory_usage'], 200, True)
-        self.jc.session.request = Mock(return_value=resp)
+        #resp = self._prepare_response(self.responses['valid_get_heap_memory_usage'], 200, True)
+        #self.jc.session.request = Mock(return_value=resp)
         resp_data = self.jc.get_attribute(mbean='java.lang:type=Memory', attribute='HeapMemoryUsage', path='used')
 
         LOGGER.debug(resp_data)
