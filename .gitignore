@@ -98,3 +98,5 @@ ENV/
 /site
 
 .pytest_cache/
+
+Pipfile.lock
