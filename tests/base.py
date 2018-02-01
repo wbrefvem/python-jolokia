@@ -10,7 +10,7 @@ class JolokiaTestCase(TestCase):
     def __init__(self, *args, **kwargs):
         super(JolokiaTestCase, self).__init__(*args, **kwargs)
 
-        self.jc = JolokiaClient('http://localhost:8080/jolokia')
+        self.jc = JolokiaClient('http://localhost:8080/jolokia-1.0.0')
 
         f_requests = open('tests/fixtures/requests.json', 'r')
         self.requests = json.load(f_requests)

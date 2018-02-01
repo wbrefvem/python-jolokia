@@ -1,7 +1,7 @@
 import pytest
 import logging
 
-from jolokia.utils.validators import validate_url
+from jolokia.utils.validators import verify_url
 from jolokia.utils.decorators import require_params
 from jolokia.exceptions import UrlNotSpecifiedException, MalformedUrlException, IllegalArgumentException
 from unittest import TestCase
@@ -16,13 +16,31 @@ class TestValidateUrl(TestCase):
 
         args = [None]
 
-        pytest.raises(UrlNotSpecifiedException, validate_url, *args)
+        pytest.raises(UrlNotSpecifiedException, verify_url, *args)
 
-    def test_malformed_url(self):
+    def test_malformed_no_protocol(self):
 
         args = ['://herewego.com']
 
-        pytest.raises(MalformedUrlException, validate_url, *args)
+        pytest.raises(MalformedUrlException, verify_url, *args)
+
+    def test_well_formed(self):
+
+        args = ['http://localhost:8080/jolokia']
+
+        assert verify_url(*args) is True
+
+    def test_well_formed_with_non_alpha_chars(self):
+
+        args = ['http://localhost:8080/joloki-1.0.0']
+
+        assert verify_url(*args) is True
+
+    def test_weird_machiney_url(self):
+
+        args = ['http://url-23497fdca787d87b.az.example.com']
+
+        assert verify_url(*args) is True
 
 
 class TestRequireArgs(TestCase):

@@ -3,7 +3,7 @@ import logging
 
 from jolokia.exceptions import IllegalArgumentException
 from jolokia.models import JolokiaSession
-from jolokia.utils.validators import validate_url
+from jolokia.utils.validators import verify_url
 from jolokia.utils.decorators import require_params
 
 LOGGER = logging.getLogger(__name__)
@@ -14,7 +14,7 @@ class JolokiaClient(object):
 
     def __init__(self, base_url):
 
-        validate_url(base_url)
+        verify_url(base_url)
 
         self.base_url = base_url
         self.session = JolokiaSession()
