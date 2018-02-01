@@ -9,6 +9,25 @@ JMX is not a platform-agnostic tech. This means that management applications for
 ### Goals
 Create a Python client for Jolokia that makes JMX data available both through simple abstractions aimed at the non-Java developer as well as through a full-featured API that gives the seasoned Java developer the flexibility she craves.
 
+### Requirements
+
+* Python 2.7, 3.[3|4|5|6] (Python 2.6 should work but is neither routinely tested nor supported.)
+* `python-jolokia` should be transparent to different versions of the Jolokia protocol.
+
+### Installation
+For regular usage, the recommended (but not required) installation method is pipenv:
+
+```
+pipenv install jolokia
+```
+
+For hacking on `python-jolokia`, [pipenv](https://docs.pipenv.org/) is required. Fork the repo, clone it, and install dev dependencies:
+
+```
+git clone https://github.com/<user|org>/python-jolokia.git
+pipenv install --dev
+```
+
 ### Usage
 
 To get a single attribute of an MBean:
@@ -120,3 +139,6 @@ print(resp)
     'status': 200
 }
 ``` 
+
+### Contributing
+Coming soon...

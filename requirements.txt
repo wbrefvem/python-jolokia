@@ -1,6 +1,0 @@
-coveralls
-pytest
-mock
-requests
-twine
-pylint
