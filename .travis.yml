@@ -8,8 +8,9 @@ python:
   - 3.6
 install: 
   - "python setup.py develop"
-before_script: 
-  - "pip install -r requirements.txt"
+before_script:
+  - "pip install pipenv" 
+  - "pipenv install --dev"
 script: 
   - "coverage run --source=jolokia setup.py test"
   - "pylint jolokia"
