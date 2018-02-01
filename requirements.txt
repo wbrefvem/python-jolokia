@@ -3,3 +3,4 @@ pytest
 mock
 requests
 twine
+pylint
