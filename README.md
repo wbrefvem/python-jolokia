@@ -11,7 +11,7 @@ Create a Python client for Jolokia that makes JMX data available both through si
 
 ### Requirements
 
-* Python 2.7, 3.[3|4|5|6] (Python 2.6 should work but is neither routinely tested nor supported.)
+* Python 2.7, 3.[4|5|6] (Python 2.6 should work but is neither routinely tested nor supported.)
 * `python-jolokia` should be transparent to different versions of the Jolokia protocol.
 
 ### Installation
