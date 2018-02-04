@@ -19,6 +19,7 @@ notifications:
 
 jobs:
   include:
+  - stage: GitHub release
     deploy:
     - provider: releases
       python: 3.6

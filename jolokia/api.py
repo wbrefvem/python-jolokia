@@ -108,7 +108,7 @@ class JolokiaClient(object):
         :param path: (optional) Inner path for nesteed mbean values
         """
 
-        if not self._attr_value_pairs_is_valid(bulk, attr_value_pairs):
+        if not _attr_value_pairs_is_valid(bulk, attr_value_pairs):
             raise IllegalArgumentException('attr_value_pairs must either be a single 2-tuple or a list of 2-tuples.')
 
         attribute, value = attr_value_pairs
@@ -172,16 +172,17 @@ class JolokiaClient(object):
 
         return resp
 
-    def _attr_value_pairs_is_valid(self, bulk, attr_value_pairs):
 
-        if not bulk:
-            return isinstance(attr_value_pairs, tuple) and len(attr_value_pairs) == 2
+def _attr_value_pairs_is_valid(bulk, attr_value_pairs):
 
-        if not isinstance(attr_value_pairs, list):
+    if not bulk:
+        return isinstance(attr_value_pairs, tuple) and len(attr_value_pairs) == 2
+
+    if not isinstance(attr_value_pairs, list):
+        return False
+
+    for avp in attr_value_pairs:
+        if not isinstance(avp, tuple) and len(avp) == 2:
             return False
 
-        for avp in attr_value_pairs:
-            if not isinstance(avp, tuple) and len(avp) == 2:
-                return False
-
-        return True
+    return True
