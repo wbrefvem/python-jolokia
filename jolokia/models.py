@@ -3,7 +3,6 @@
 import logging
 
 from requests import Session, Response, Request
-from requests.exceptions import ConnectionError
 
 LOGGER = logging.getLogger(__name__)
 
@@ -27,5 +26,5 @@ class JolokiaSession(Session):
             resp = self.post(url, json=data)
             LOGGER.debug(resp)
             return resp
-        except ConnectionError as error:
+        except Exception as error:
             raise error
