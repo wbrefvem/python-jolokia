@@ -25,9 +25,9 @@ jobs:
       api_key:
         secure: dGRgtqtV/dZrWCguslh2sqY6ec83kKzUIofUQhe+ikuW9TojWStkxryGdelhLCjJ8Z9NRduLBuOWIBtm76vVuxmKsF3g0Flk8bZLFKtFy6kuPrQErVrTlUuNjoEj6epcyUb8GhYEYcTnCNReeLizlOVzpuQHqRpP5zm4R0O04TzaDPMDpAGJkba4oajx/s/kIz7+qc5veL4Z4XqXMSuAsiGnZyGcTkG+HlUJ045+iLzpZh4qO3gZojeqLgOLetS4tE8UV6fls0D6+kUsz1YHUbz1NV/IZOs4ad2UBzSrC5/zvfQWDk8Fdzl76OoogpQA3mi3q1ustLbuZ5frNLA39X/dT/vpMk5UizWJ+iDZp5NFlz5LR+j0Ssx/N1XUuONRmNg5/3SoUdoDeVtAwAQToOGwbI1f+ZRoeUj+FE5iEiu776NUVRE+T2jvWGzq4tH/pADIqFLwRuT1NPazENTolL3H54qTPr7JmTomhTOlKDRBKtr2nVx9hpuAfkBEk4y71/+2GYxgEqQa1hNmnOalNyjvTGh6sVbWJ8YdncADhEYa8tS5gQkFwEjco41zywuQlUcFvXBQw83dOOXfJuzBd9njrI01eNfSQn8zrQk8PJnbcrljLIYWQvnIgeZV+0vLbgBCFnAwHYyYEmHj1anMZMSFaG9i8Mvj/6DPVzqGOP8=
       on:
-        repo: wbrefvem/python-jolokia
+        tags: true
       branch: master
-      #name: ${TRAVIS_TAG}
+      name: ${TRAVIS_TAG}
       draft: true
     - provider: pypi
       username: wbrefvem
