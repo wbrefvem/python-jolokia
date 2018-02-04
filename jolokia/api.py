@@ -99,7 +99,7 @@ class JolokiaClient(object):
         return resp
 
     @require_params(['mbean', 'attr_value_pairs'], 'set_attribute method has 2 required arguments: mbean, attr_value_pairs')
-    def set_attribute(self, mbean=None, attr_value_pairs=None, bulk=False, path=None, **kwargs):
+    def set_attribute(self, mbean=None, attr_value_pairs=None, bulk=False, path=None):
         """Sets the value of an MBean's attribute
 
         :param mbean: string, the mbean to query
@@ -108,13 +108,8 @@ class JolokiaClient(object):
         :param path: (optional) Inner path for nesteed mbean values
         """
 
-        if bulk:
-            if not isinstance(attr_value_pairs, list):
-                raise IllegalArgumentException('Bulk writes require attribute to be a list of tuples.')
-            return self._bulk_write(mbean, attr_value_pairs, **kwargs)
-
-        if not isinstance(attr_value_pairs, tuple) or len(attr_value_pairs) != 2:
-            raise IllegalArgumentException('Attribute must a 2-tuple')
+        if not self._attr_value_pairs_is_valid(bulk, attr_value_pairs):
+            raise IllegalArgumentException('attr_value_pairs must either be a single 2-tuple or a list of 2-tuples.')
 
         attribute, value = attr_value_pairs
 
@@ -140,8 +135,6 @@ class JolokiaClient(object):
         data = []
 
         for attr in attribute:
-            if not isinstance(attr, tuple) or len(attr) != 2:
-                raise IllegalArgumentException('Attribute must be a 2-tuple')
             attr, value = attr
             data.append({
                 'type': 'write',
@@ -178,3 +171,17 @@ class JolokiaClient(object):
             return resp.json()
 
         return resp
+
+    def _attr_value_pairs_is_valid(self, bulk, attr_value_pairs):
+
+        if not bulk:
+            return isinstance(attr_value_pairs, tuple) and len(attr_value_pairs) == 2
+
+        if not isinstance(attr_value_pairs, list):
+            return False
+
+        for avp in attr_value_pairs:
+            if not isinstance(avp, tuple) and len(avp) == 2:
+                return False
+
+        return True
