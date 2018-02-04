@@ -24,7 +24,12 @@ class JolokiaClient(object):
         """Execute JMX operation on MBean."""
         kwargs.update({'type': 'execute'})
 
-        return self.session.simple_post(self.base_url, data=kwargs)
+        resp = self.session.simple_post(self.base_url, data=kwargs)
+
+        if resp.status_code == 200:
+            return resp.json()
+        else:
+            return resp
 
     def list(self, path=None):
         """Returns a list of all MBeans on all available MBean servers."""
@@ -35,18 +40,33 @@ class JolokiaClient(object):
 
         LOGGER.debug(data)
 
-        return self.session.simple_post(self.base_url, data=data)
+        resp = self.session.simple_post(self.base_url, data=data)
+
+        if resp.status_code == 200:
+            return resp.json()
+        else:
+            return resp
 
     @require_params(['mbean'], 'search method has 1 required keyword argument: mbean')
     def search(self, **kwargs):
         """Searches all available MBean servers for the desired MBean"""
         kwargs.update({'type': 'search'})
 
-        return self.session.simple_post(self.base_url, data=kwargs)
+        resp = self.session.simple_post(self.base_url, data=kwargs)
+
+        if resp.status_code == 200:
+            return resp.json()
+        else:
+            return resp
 
     def version(self):
         """Returns agent version"""
-        return self.session.simple_post(self.base_url, data={'type': 'version'})
+        resp = self.session.simple_post(self.base_url, data={'type': 'version'})
+
+        if resp.status_code == 200:
+            return resp.json()
+        else:
+            return resp
 
     @require_params(['mbean', 'attribute'], 'get_attribute method has 2 required keyword arguments: mbean and attribute')
     def get_attribute(self, mbean=None, attribute=None, path=None):
@@ -69,7 +89,14 @@ class JolokiaClient(object):
 
         LOGGER.debug(data)
 
-        return self.session.simple_post(self.base_url, data=data)
+        resp = self.session.simple_post(self.base_url, data=data)
+
+        LOGGER.debug(resp.text)
+
+        if resp.status_code == 200:
+            return resp.json()
+        else:
+            return resp
 
     @require_params(['mbean', 'attribute', 'value'], 'set_attribute method has 3 required arguments: mbean, attribute, and value')
     def set_attribute(self, mbean=None, attribute=None, value=None, path=None, **kwargs):
@@ -95,7 +122,12 @@ class JolokiaClient(object):
 
         LOGGER.debug(data)
 
-        return self.session.simple_post(self.base_url, data=data)
+        resp = self.session.simple_post(self.base_url, data=data)
+
+        if resp.status_code == 200:
+            return resp.json()
+        else:
+            return resp
 
     def _bulk_write(self, mbean, attribute, attr_map):
 
@@ -111,7 +143,12 @@ class JolokiaClient(object):
 
         LOGGER.debug(data)
 
-        return self.session.simple_post(self.base_url, data=data)
+        resp = self.session.simple_post(self.base_url, data=data)
+
+        if resp.status_code == 200:
+            return resp.json()
+        else:
+            return resp
 
     def _bulk_read(self, mbean, attribute, path=None):
         data = []
@@ -126,4 +163,9 @@ class JolokiaClient(object):
 
         LOGGER.debug(data)
 
-        return self.session.simple_post(self.base_url, data=data)
+        resp = self.session.simple_post(self.base_url, data=data)
+
+        if resp.status_code == 200:
+            return resp.json()
+        else:
+            return resp

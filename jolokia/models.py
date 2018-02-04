@@ -2,7 +2,8 @@
 
 import logging
 
-from requests import Session, Response
+from requests import Session, Response, Request
+from requests.exceptions import ConnectionError
 
 LOGGER = logging.getLogger(__name__)
 
@@ -12,13 +13,19 @@ class JolokiaResponse(Response):
     pass
 
 
+class JolokiaRequest(Request):
+    """Wraps requests.Request"""
+    pass
+
+
 class JolokiaSession(Session):
     """Wraps requests.Session"""
 
     def simple_post(self, url, data=None):
         """Posts to url and returns de-serialized response"""
-        resp = self.post(url, json=data)
-
-        LOGGER.debug(resp.json())
-
-        return resp.json()
+        try:
+            resp = self.post(url, json=data)
+            LOGGER.debug(resp)
+            return resp
+        except ConnectionError as e:
+            raise e

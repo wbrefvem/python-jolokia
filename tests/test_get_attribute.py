@@ -32,8 +32,8 @@ class TestGetAttribute(JolokiaTestCase):
         self.jc.session.request = Mock(return_value=resp)
 
         attributes = ['HeapMemoryUsage', 'NonHeapMemoryUsage']
-
         resp_data = self.jc.get_attribute(mbean='java.lang:type=Memory', attribute=attributes)
+        LOGGER.debug(resp_data)
 
         assert type(resp_data) is list
         assert len(resp_data) == 2
