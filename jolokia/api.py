@@ -98,19 +98,25 @@ class JolokiaClient(object):
 
         return resp
 
-    @require_params(['mbean', 'attribute', 'value'], 'set_attribute method has 3 required arguments: mbean, attribute, and value')
-    def set_attribute(self, mbean=None, attribute=None, value=None, path=None, **kwargs):
-        """Sets the value of an MBean's attribute"""
+    @require_params(['mbean', 'attr_value_pairs'], 'set_attribute method has 2 required arguments: mbean, attr_value_pairs')
+    def set_attribute(self, mbean=None, attr_value_pairs=None, bulk=False, path=None, **kwargs):
+        """Sets the value of an MBean's attribute
 
-        if not mbean or not attribute or not value:
-            raise IllegalArgumentException(
-                'set_attribute method has 3 required parameters: mbean, attribute, and value'
-            )
+        :param mbean: string, the mbean to query
+        :param attr_value_pairs: If bulk is false, a 2-tuple consisting of (attribute, value). If bulk is true, a list of such tuples.
+        :param bulk: (optional) Whether or not multiple attributes are to be set.
+        :param path: (optional) Inner path for nesteed mbean values
+        """
 
-        if isinstance(attribute, list) and isinstance(value, dict):
-            return self._bulk_write(mbean, attribute, value, **kwargs)
-        elif (isinstance(attribute, list) and isinstance(value, dict)) or (not isinstance(attribute, list) and isinstance(value, dict)):
-            raise IllegalArgumentException('Bulk writes must include an attribute list and an attribute map')
+        if bulk:
+            if type(attr_value_pairs) is not list:
+                raise IllegalArgumentException('Bulk writes require attribute to be a list of tuples.')
+            return self._bulk_write(mbean, attr_value_pairs, **kwargs)
+
+        if not isinstance(attr_value_pairs, tuple) or len(attr_value_pairs) != 2:
+            raise IllegalArgumentException('Attribute must a 2-tuple')
+
+        attribute, value = attr_value_pairs
 
         data = {
             'type': 'write',
@@ -129,16 +135,19 @@ class JolokiaClient(object):
 
         return resp
 
-    def _bulk_write(self, mbean, attribute, attr_map):
+    def _bulk_write(self, mbean, attribute):
 
         data = []
 
-        for att in attribute:
+        for attr in attribute:
+            if not isinstance(attr, tuple) or len(attr) != 2:
+                raise IllegalArgumentException('Attribute must be a 2-tuple')
+            attr, value = attr
             data.append({
                 'type': 'write',
                 'mbean': mbean,
-                'attribute': att,
-                'value': attr_map[att]
+                'attribute': attr,
+                'value': value
             })
 
         LOGGER.debug(data)
