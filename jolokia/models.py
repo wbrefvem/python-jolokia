@@ -27,5 +27,5 @@ class JolokiaSession(Session):
             resp = self.post(url, json=data)
             LOGGER.debug(resp)
             return resp
-        except ConnectionError as e:
-            raise e
+        except ConnectionError as error:
+            raise error
