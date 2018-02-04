@@ -28,8 +28,8 @@ class JolokiaClient(object):
 
         if resp.status_code == 200:
             return resp.json()
-        else:
-            return resp
+
+        return resp
 
     def list(self, path=None):
         """Returns a list of all MBeans on all available MBean servers."""
@@ -44,8 +44,8 @@ class JolokiaClient(object):
 
         if resp.status_code == 200:
             return resp.json()
-        else:
-            return resp
+
+        return resp
 
     @require_params(['mbean'], 'search method has 1 required keyword argument: mbean')
     def search(self, **kwargs):
@@ -56,8 +56,8 @@ class JolokiaClient(object):
 
         if resp.status_code == 200:
             return resp.json()
-        else:
-            return resp
+
+        return resp
 
     def version(self):
         """Returns agent version"""
@@ -65,8 +65,8 @@ class JolokiaClient(object):
 
         if resp.status_code == 200:
             return resp.json()
-        else:
-            return resp
+
+        return resp
 
     @require_params(['mbean', 'attribute'], 'get_attribute method has 2 required keyword arguments: mbean and attribute')
     def get_attribute(self, mbean=None, attribute=None, path=None):
@@ -95,8 +95,8 @@ class JolokiaClient(object):
 
         if resp.status_code == 200:
             return resp.json()
-        else:
-            return resp
+
+        return resp
 
     @require_params(['mbean', 'attribute', 'value'], 'set_attribute method has 3 required arguments: mbean, attribute, and value')
     def set_attribute(self, mbean=None, attribute=None, value=None, path=None, **kwargs):
@@ -126,8 +126,8 @@ class JolokiaClient(object):
 
         if resp.status_code == 200:
             return resp.json()
-        else:
-            return resp
+
+        return resp
 
     def _bulk_write(self, mbean, attribute, attr_map):
 
@@ -147,8 +147,8 @@ class JolokiaClient(object):
 
         if resp.status_code == 200:
             return resp.json()
-        else:
-            return resp
+
+        return resp
 
     def _bulk_read(self, mbean, attribute, path=None):
         data = []
@@ -167,5 +167,5 @@ class JolokiaClient(object):
 
         if resp.status_code == 200:
             return resp.json()
-        else:
-            return resp
+
+        return resp
