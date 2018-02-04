@@ -109,7 +109,7 @@ class JolokiaClient(object):
         """
 
         if bulk:
-            if type(attr_value_pairs) is not list:
+            if not isinstance(attr_value_pairs, list):
                 raise IllegalArgumentException('Bulk writes require attribute to be a list of tuples.')
             return self._bulk_write(mbean, attr_value_pairs, **kwargs)
 
