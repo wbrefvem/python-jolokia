@@ -111,6 +111,9 @@ class JolokiaClient(object):
         if not _attr_value_pairs_is_valid(bulk, attr_value_pairs):
             raise IllegalArgumentException('attr_value_pairs must either be a single 2-tuple or a list of 2-tuples.')
 
+        if bulk:
+            return self._bulk_write(mbean, attr_value_pairs)
+
         attribute, value = attr_value_pairs
 
         data = {
@@ -130,12 +133,12 @@ class JolokiaClient(object):
 
         return resp
 
-    def _bulk_write(self, mbean, attribute):
+    def _bulk_write(self, mbean, attr_value_pairs):
 
         data = []
 
-        for attr in attribute:
-            attr, value = attr
+        for avp in attr_value_pairs:
+            attr, value = avp
             data.append({
                 'type': 'write',
                 'mbean': mbean,
