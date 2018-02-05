@@ -18,7 +18,7 @@ notifications:
 
 jobs:
   include:
-  - stage: GitHub release
+  - stage: PyPI and GitHub release
     python: 3.6
     deploy:
     - provider: releases

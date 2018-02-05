@@ -52,3 +52,9 @@ class TestSetAttribute(JolokiaTestCase):
 
         for obj in resp_data:
             assert obj['status'] == 200
+
+    def test_invalid_bulk_write(self):
+
+        kwargs = {'bulk': True, 'attr_value_pairs': ('', '')}
+
+        pytest.raises(IllegalArgumentException, self.jc.set_attribute, **kwargs)

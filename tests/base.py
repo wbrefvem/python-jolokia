@@ -1,6 +1,7 @@
 from unittest import TestCase
 from jolokia import JolokiaClient
 from jolokia.models import JolokiaResponse
+from mock import Mock
 
 import json
 
@@ -29,3 +30,12 @@ class JolokiaTestCase(TestCase):
         setattr(JolokiaResponse, 'ok', ok)
 
         return resp_obj
+
+    def test_missing_agent(self):
+
+        self.jc = JolokiaClient('http://google.com')
+        resp = self._prepare_response(self.responses['method_not_allowed'], 405, False)
+        self.jc.session.request = Mock(return_value=resp)
+
+        resp = self.jc.get_attribute(mbean='java.lang:Memory', attribute='HeapMemoryUsage')
+        assert resp['status'] == 405

@@ -1,6 +1,7 @@
 {
     "illegal_argument": {
         "error_type": "java.lang.IllegalArgumentException",
+        "error": "java.lang.IllegalArgumentException : No type with name 'foo' exists",
         "status": 400
     },
     "root_url_ok": {
@@ -213,5 +214,9 @@
         },
         "timestamp": 1517719090,
         "status": 200
+    },
+    "method_not_allowed": {
+        "status": 405,
+        "error": "no posting at this endpoint"
     }
 }

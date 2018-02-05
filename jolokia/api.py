@@ -26,7 +26,7 @@ class JolokiaClient(object):
 
         resp = self.session.simple_post(self.base_url, data=kwargs)
 
-        if resp.status_code == 200:
+        if resp.status_code != 404:
             return resp.json()
 
         return resp
@@ -42,7 +42,7 @@ class JolokiaClient(object):
 
         resp = self.session.simple_post(self.base_url, data=data)
 
-        if resp.status_code == 200:
+        if resp.status_code != 404:
             return resp.json()
 
         return resp
@@ -54,7 +54,7 @@ class JolokiaClient(object):
 
         resp = self.session.simple_post(self.base_url, data=kwargs)
 
-        if resp.status_code == 200:
+        if resp.status_code != 404:
             return resp.json()
 
         return resp
@@ -63,7 +63,7 @@ class JolokiaClient(object):
         """Returns agent version"""
         resp = self.session.simple_post(self.base_url, data={'type': 'version'})
 
-        if resp.status_code == 200:
+        if resp.status_code != 404:
             return resp.json()
 
         return resp
@@ -93,7 +93,7 @@ class JolokiaClient(object):
 
         LOGGER.debug(resp.text)
 
-        if resp.status_code == 200:
+        if resp.status_code != 404:
             return resp.json()
 
         return resp
@@ -128,7 +128,7 @@ class JolokiaClient(object):
 
         resp = self.session.simple_post(self.base_url, data=data)
 
-        if resp.status_code == 200:
+        if resp.status_code != 404:
             return resp.json()
 
         return resp
@@ -150,7 +150,7 @@ class JolokiaClient(object):
 
         resp = self.session.simple_post(self.base_url, data=data)
 
-        if resp.status_code == 200:
+        if resp.status_code != 404:
             return resp.json()
 
         return resp
@@ -170,7 +170,7 @@ class JolokiaClient(object):
 
         resp = self.session.simple_post(self.base_url, data=data)
 
-        if resp.status_code == 200:
+        if resp.status_code != 404:
             return resp.json()
 
         return resp
