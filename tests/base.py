@@ -8,17 +8,19 @@ import json
 
 class JolokiaTestCase(TestCase):
 
-    def setUp(self):
-
-        self.jc = JolokiaClient('http://localhost:8080/jolokia-1.0.0')
+    @classmethod
+    def setUpClass(cls):
 
         f_requests = open('tests/fixtures/requests.json', 'r')
-        self.requests = json.load(f_requests)
+        cls.requests = json.load(f_requests)
         f_requests.close()
 
         f_responses = open('tests/fixtures/responses.json', 'r')
-        self.responses = json.load(f_responses)
+        cls.responses = json.load(f_responses)
         f_responses.close()
+
+    def setUp(self):
+        self.jc = JolokiaClient('http://localhost:8080/jolokia-1.0.0')
 
     def _prepare_response(self, response_json, status_code, ok):
 

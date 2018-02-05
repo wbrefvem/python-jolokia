@@ -9,13 +9,12 @@ before_script:
 - pip install pipenv
 - pipenv install --dev
 script:
-- coverage run --source=jolokia setup.py test
+- pytest --cov=jolokia tests/
 - pylint jolokia
 after_success:
 - coveralls
 notifications:
   email: false
-
 jobs:
   include:
   - stage: PyPI and GitHub release

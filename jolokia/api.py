@@ -181,11 +181,15 @@ def _attr_value_pairs_is_valid(bulk, attr_value_pairs):
     if not bulk:
         return isinstance(attr_value_pairs, tuple) and len(attr_value_pairs) == 2
 
+    LOGGER.debug('Validating bulk write...')
+
     if not isinstance(attr_value_pairs, list):
+        LOGGER.debug('Attribute-value pairs not a list')
         return False
 
     for avp in attr_value_pairs:
-        if not isinstance(avp, tuple) and len(avp) == 2:
+        if not (isinstance(avp, tuple) and len(avp) == 2):
+            LOGGER.debug('At least one of the attribute-value pairs is invalid')
             return False
 
     return True

@@ -6,7 +6,7 @@ from tests.base import JolokiaTestCase
 from mock import Mock
 
 
-logging.basicConfig(level=logging.DEBUG)
+LOGGER = logging.getLogger()
 
 
 class TestSetAttribute(JolokiaTestCase):
@@ -23,7 +23,7 @@ class TestSetAttribute(JolokiaTestCase):
 
     def test_missing_attribute(self):
 
-        kwargs = {'mbean': 'java.lang:type=ClassLoading', 'value': True}
+        kwargs = {'mbean': 'java.lang:type=ClassLoading', 'value': True, 'attribute': 'Verbose'}
 
         pytest.raises(IllegalArgumentException, self.jc.set_attribute, **kwargs)
 
@@ -39,7 +39,7 @@ class TestSetAttribute(JolokiaTestCase):
 
         assert resp_data['value']
 
-    def test_bulk_write(self):
+    def test_valid_bulk_write(self):
 
         resp = self._prepare_response(self.responses['valid_bulk_write'], 200, True)
         self.jc.session.request = Mock(return_value=resp)
@@ -53,8 +53,23 @@ class TestSetAttribute(JolokiaTestCase):
         for obj in resp_data:
             assert obj['status'] == 200
 
-    def test_invalid_bulk_write(self):
+    def test_bulk_no_list(self):
 
-        kwargs = {'bulk': True, 'attr_value_pairs': ('', '')}
+        with pytest.raises(IllegalArgumentException):
+            kwargs = {'mbean': 'java.lang:Memory', 'bulk': True, 'attr_value_pairs': ('', '')}
 
-        pytest.raises(IllegalArgumentException, self.jc.set_attribute, **kwargs)
+            resp = self._prepare_response(self.responses['valid_bulk_write'], 200, True)
+            self.jc.session.request = Mock(return_value=resp)
+
+            self.jc.set_attribute(**kwargs)
+
+    def test_bulk_malformed_tuple(self):
+
+        with pytest.raises(IllegalArgumentException):
+
+            resp = self._prepare_response(self.responses['valid_bulk_write'], 200, True)
+            self.jc.session.request = Mock(return_value=resp)
+
+            kwargs = {'mbean': 'java.lang:Memory', 'bulk': True, 'attr_value_pairs': [('', '', ''), ('', '', '')]}
+
+            self.jc.set_attribute(**kwargs)

@@ -17,3 +17,4 @@ pylint = "*"
 [packages]
 
 requests = "*"
+pytest-cov = "*"
