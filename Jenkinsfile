@@ -10,7 +10,7 @@ pipeline {
       steps {
         pwd()
         sh 'ls -al'
-        sh './run_tests.sh'
+        sh './run_tests'
       }
     }
     stage('Deploy') {
