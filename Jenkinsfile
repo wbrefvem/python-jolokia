@@ -9,6 +9,8 @@ pipeline {
         
       }
       steps {
+        sh '''echo $PATH
+python --version'''
         pwd()
         sh 'ls -al'
         sh './run_tests'
