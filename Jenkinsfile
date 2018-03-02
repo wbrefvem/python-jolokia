@@ -8,8 +8,9 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        sh './run_tests.sh'
         pwd()
+        sh 'ls -al'
+        sh './run_tests.sh'
       }
     }
     stage('Deploy') {
