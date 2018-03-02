@@ -10,6 +10,7 @@ pipeline {
       }
       steps {
         container('python') {
+          git url: 'https://github.com/wbrefvem/python-jolokia.git' branch: 'pipeline'
           sh 'echo $PATH'
           sh 'python --version'
           pwd()
