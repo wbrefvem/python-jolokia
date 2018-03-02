@@ -1,15 +1,15 @@
 pipeline {
   agent {
     node {
-      label 'jolokia'
+      label 'python'
     }
     
   }
   stages {
     stage('Test') {
       steps {
-        sh '''pipenv install
-pipenv shell
+        sh '''sudo pip install pipenv
+pipenv install --dev --system --deploy
 pytest -v'''
       }
     }
