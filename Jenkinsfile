@@ -9,11 +9,14 @@ pipeline {
         
       }
       steps {
-        sh '''echo $PATH
-python --version'''
-        pwd()
-        sh 'ls -al'
-        sh './run_tests'
+        container('python') {
+          sh 'echo $PATH'
+          sh 'python --version'
+          pwd()
+          sh 'ls -al'
+          sh './run_tests'          
+        }
+
       }
     }
     stage('Deploy') {
