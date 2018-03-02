@@ -11,13 +11,11 @@ pipeline {
       steps {
         container('python') {
           git url: 'https://github.com/wbrefvem/python-jolokia.git', branch: 'pipeline'
-          sh 'echo $PATH'
-          sh 'python --version'
-          pwd()
-          sh 'ls -al'
-          sh './run_tests'          
+          sh 'pip install pipenv --upgrade'
+          sh 'pipenv install --dev --deploy --system'
+          sh 'pytest -v --junit-xml test-reports/results.xml'
+          junit 'test-reports/results.xml'
         }
-
       }
     }
     stage('Deploy') {
