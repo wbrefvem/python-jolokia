@@ -8,10 +8,8 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        sh '''set -ex
-pip install pipenv --upgrade
-pipenv install --dev --system --deploy
-pytest -v'''
+        sh './run_tests.sh'
+        pwd()
       }
     }
     stage('Deploy') {
