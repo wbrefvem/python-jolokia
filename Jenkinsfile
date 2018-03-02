@@ -8,7 +8,8 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        sh '''sudo pip install pipenv
+        sh '''set -ex
+pip install pipenv --upgrade
 pipenv install --dev --system --deploy
 pytest -v'''
       }
