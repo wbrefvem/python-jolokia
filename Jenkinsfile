@@ -1,7 +1,7 @@
 pipeline {
   agent {
     node {
-      label 'pytest'
+      label 'jolokia'
     }
     
   }
