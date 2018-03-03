@@ -1,0 +1,3 @@
+- name: test
+  service: python-jolokia
+  command: pytest -v --junit-xml test-reports/results.xml
