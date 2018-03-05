@@ -1,7 +1,6 @@
 from jolokia.api import JolokiaClient
 from tests.base import JolokiaTestCase
 from requests.exceptions import ConnectionError
-from json import JSONDecodeError
 
 import logging
 import pytest

@@ -5,7 +5,6 @@ from jolokia.exceptions import IllegalArgumentException
 from jolokia.models import JolokiaSession
 from jolokia.utils.validators import verify_url
 from jolokia.utils.decorators import require_params
-from json import JSONDecodeError
 
 LOGGER = logging.getLogger(__name__)
 
@@ -29,7 +28,7 @@ class JolokiaClient(object):
 
         try:
             return resp.json()
-        except JSONDecodeError:
+        except ValueError:
             return resp
         finally:
             LOGGER.debug(resp.content)
@@ -47,7 +46,7 @@ class JolokiaClient(object):
 
         try:
             return resp.json()
-        except JSONDecodeError:
+        except ValueError:
             return resp
         finally:
             LOGGER.debug(resp.content)
@@ -61,7 +60,7 @@ class JolokiaClient(object):
 
         try:
             return resp.json()
-        except JSONDecodeError:
+        except ValueError:
             return resp
         finally:
             LOGGER.debug(resp.content)
@@ -72,7 +71,7 @@ class JolokiaClient(object):
 
         try:
             return resp.json()
-        except JSONDecodeError:
+        except ValueError:
             return resp
         finally:
             LOGGER.debug(resp.content)
@@ -104,7 +103,7 @@ class JolokiaClient(object):
 
         try:
             return resp.json()
-        except JSONDecodeError:
+        except ValueError:
             return resp
         finally:
             LOGGER.debug(resp.content)
@@ -140,7 +139,7 @@ class JolokiaClient(object):
         resp = self.session.simple_post(self.base_url, data=data)
         try:
             return resp.json()
-        except JSONDecodeError:
+        except ValueError:
             return resp
         finally:
             LOGGER.debug(resp.content)
@@ -164,7 +163,7 @@ class JolokiaClient(object):
 
         try:
             return resp.json()
-        except JSONDecodeError:
+        except ValueError:
             return resp
         finally:
             LOGGER.debug(resp.content)
@@ -186,7 +185,7 @@ class JolokiaClient(object):
 
         try:
             return resp.json()
-        except JSONDecodeError:
+        except ValueError:
             return resp
         finally:
             LOGGER.debug(resp.content)

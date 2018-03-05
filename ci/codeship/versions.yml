@@ -60,7 +60,6 @@ python:
   - 3.6.4
   - 3.5.5
   - 3.4.8
-  - 3.3.7
   - 2.7.14
 app-servers:
   # wildfly:
