@@ -1,0 +1,17 @@
+#!/usr/bin/env python
+
+import requests
+import os
+
+os.mkdir('envs', mode=0o755)
+
+with open('versions.txt', 'r') as fp:
+
+    for line in fp:
+        version = line.strip('\n')
+        resp = requests.get('http://search.maven.org/remotecontent?filepath=org/jolokia/jolokia-war/{0}/jolokia-war-{1}.war'.format(version, version))
+        print('Writing Jolokia {0}'.format(line.strip('\n')))
+
+        f = open('envs/jolokia-{0}.war'.format(line.strip('\n')), 'wb')
+        f.write(resp.content)
+        f.close()

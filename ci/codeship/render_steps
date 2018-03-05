@@ -1,0 +1,40 @@
+#!/usr/bin/env python
+
+from jinja2 import Environment, DictLoader, select_autoescape
+
+import yaml
+
+f = open('codeship-steps.tmpl.yml', 'r')
+
+steps = f.read()
+f.close()
+
+env = Environment(
+    loader=DictLoader({'codeship-steps.yml': steps}),
+    autoescape=select_autoescape(['html', 'xml'])
+)
+
+template = env.get_template('codeship-steps.yml')
+
+with open('versions.yml', 'rb') as infile, open('codeship-steps.yml', 'w') as outfile:
+    versions = yaml.load(infile)
+
+    for j in versions['jolokia']:
+        for p in versions['python']:
+            for w in versions['app-servers']['wildfly']:
+                context = {
+                    'python_version': p,
+                    'jolokia_version': j['agent'],
+                    'app_server': 'wildfly',
+                    'app_server_version': w
+                }
+                outfile.write(template.render(**context))
+
+            for t in versions['app-servers']['tomcat']:
+                context = {
+                    'python_version': p,
+                    'jolokia_version': j['agent'],
+                    'app_server': 'tomcat',
+                    'app_server_version': t
+                }
+                outfile.write(template.render(**context))

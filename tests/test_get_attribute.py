@@ -1,11 +1,9 @@
 from jolokia.exceptions import IllegalArgumentException
 from tests.base import JolokiaTestCase
-from mock import Mock
 
 import pytest
 import logging
 
-logging.basicConfig(level=logging.DEBUG)
 LOGGER = logging.getLogger(__name__)
 
 
@@ -13,8 +11,6 @@ class TestGetAttribute(JolokiaTestCase):
 
     def test_valid_request(self):
 
-        resp = self._prepare_response(self.responses['valid_get_heap_memory_usage'], 200, True)
-        self.jc.session.request = Mock(return_value=resp)
         resp_data = self.jc.get_attribute(mbean='java.lang:type=Memory', attribute='HeapMemoryUsage', path='used')
 
         LOGGER.debug(resp_data)
@@ -28,9 +24,6 @@ class TestGetAttribute(JolokiaTestCase):
 
     def test_valid_bulk_request(self, *args, **kwargs):
 
-        resp = self._prepare_response(self.responses['valid_bulk_read'], 200, True)
-        self.jc.session.request = Mock(return_value=resp)
-
         attributes = ['HeapMemoryUsage', 'NonHeapMemoryUsage']
         resp_data = self.jc.get_attribute(mbean='java.lang:type=Memory', attribute=attributes)
         LOGGER.debug(resp_data)
@@ -41,11 +34,9 @@ class TestGetAttribute(JolokiaTestCase):
     def test_missing_mbean(self):
 
         kwargs = {'attribute': 'HeapMemoryUsage'}
-
         pytest.raises(IllegalArgumentException, self.jc.get_attribute, **kwargs)
 
     def test_missing_attribute(self):
 
         kwargs = {'mbean': 'java.lang:type=Memory'}
-
         pytest.raises(IllegalArgumentException, self.jc.get_attribute, **kwargs)

@@ -1,9 +1,13 @@
 from unittest import TestCase
 from jolokia import JolokiaClient
 from jolokia.models import JolokiaResponse
-from mock import Mock
+from jolokia.exceptions import MissingEnvironmentVariableException
 
 import json
+import os
+import logging
+
+LOGGER = logging.getLogger(__name__)
 
 
 class JolokiaTestCase(TestCase):
@@ -20,7 +24,12 @@ class JolokiaTestCase(TestCase):
         f_responses.close()
 
     def setUp(self):
-        self.jc = JolokiaClient('http://localhost:8080/jolokia-1.0.0')
+        try:
+            self.jolokia_host = os.environ['JOLOKIA_HOST']
+        except KeyError:
+            raise MissingEnvironmentVariableException('JOLOKIA_HOST environment variable must be set.')
+
+        self.jc = JolokiaClient('http://{0}:8080/jolokia'.format(self.jolokia_host))
 
     def _prepare_response(self, response_json, status_code, ok):
 
@@ -32,12 +41,3 @@ class JolokiaTestCase(TestCase):
         setattr(JolokiaResponse, 'ok', ok)
 
         return resp_obj
-
-    def test_missing_agent(self):
-
-        self.jc = JolokiaClient('http://google.com')
-        resp = self._prepare_response(self.responses['method_not_allowed'], 405, False)
-        self.jc.session.request = Mock(return_value=resp)
-
-        resp = self.jc.get_attribute(mbean='java.lang:Memory', attribute='HeapMemoryUsage')
-        assert resp['status'] == 405

@@ -1,3 +1,0 @@
-python-jolokia:
-  build: .
-  dockerfile: Dockerfile

@@ -1,13 +1,10 @@
 import pytest
-import logging
 
 from jolokia.utils.validators import verify_url
 from jolokia.utils.decorators import require_params
 from jolokia.exceptions import UrlNotSpecifiedException, MalformedUrlException, IllegalArgumentException
 from unittest import TestCase
 from mock import Mock
-
-logging.basicConfig(level=logging.DEBUG)
 
 
 class TestValidateUrl(TestCase):

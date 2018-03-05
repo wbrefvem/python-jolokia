@@ -22,7 +22,7 @@ class JolokiaClient(object):
     @require_params(['mbean', 'operation', 'arguments'], 'execute method has 3 required keyword argument: mbean, operation, and arguments')
     def execute(self, **kwargs):
         """Execute JMX operation on MBean."""
-        kwargs.update({'type': 'execute'})
+        kwargs.update({'type': 'exec'})
 
         resp = self.session.simple_post(self.base_url, data=kwargs)
 

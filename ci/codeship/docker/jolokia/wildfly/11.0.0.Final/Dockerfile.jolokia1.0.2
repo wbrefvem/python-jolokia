@@ -1,0 +1,9 @@
+FROM jboss/wildfly:11.0.0.Final
+
+USER root
+RUN yum -y install wget
+
+USER jboss
+WORKDIR $JBOSS_HOME
+
+RUN wget -O ./standalone/deployments/jolokia.war http://search.maven.org/remotecontent?filepath=org/jolokia/jolokia-war/1.0.2/jolokia-war-1.0.2.war

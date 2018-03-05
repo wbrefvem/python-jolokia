@@ -1,0 +1,4 @@
+- name: py{{python_version}}-{{app_server}}{{app_server_version}}-jolokia{{jolokia_version}}
+  service: jolokia{{jolokia_version}}-{{app_server}}{{app_server_version}}
+  command: pytest -v --junit-xml test-reports/python/{{python_version}}/{{app_server}}/{{app_server_version}}/jolokia/{{jolokia_version}}/results.xml
+

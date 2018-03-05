@@ -18,3 +18,5 @@ pylint = "*"
 
 requests = "*"
 pytest-cov = "*"
+"jinja2" = "*"
+pyyaml = "*"

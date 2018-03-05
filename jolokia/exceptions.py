@@ -14,3 +14,8 @@ class MalformedUrlException(Exception):
 class IllegalArgumentException(Exception):
     """Generic exception for enforcing required arguments"""
     pass
+
+
+class MissingEnvironmentVariableException(Exception):
+    """Should be thrown when expected environment variable is not found"""
+    pass
