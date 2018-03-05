@@ -30,15 +30,6 @@ class TestExecute(JolokiaTestCase):
 
         assert resp_data.status_code == 404
 
-    def test_illegal_argument_exception(self):
-
-        # Assuming a Jolokia agent at /jolokia
-        self.jc = JolokiaClient('http://{0}:8080/jolokia/foo'.format(self.jolokia_host))
-        resp_data = self.jc.execute(**self.requests['valid_exec'])
-
-        assert resp_data['status'] == 400
-        assert resp_data['error_type'] == 'java.lang.IllegalArgumentException'
-
 
 class TestSearch(JolokiaTestCase):
 

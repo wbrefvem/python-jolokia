@@ -31,30 +31,30 @@ with open('versions.yml', 'rb') as infile:
         dp.write(template.render(**context))
         dp.close()
 
-    f = open('Dockerfile.jolokia.wildfly', 'r')
-    jolokia_wildfly = f.read()
-    f.close()
+    # f = open('Dockerfile.jolokia.wildfly', 'r')
+    # jolokia_wildfly = f.read()
+    # f.close()
 
-    env = Environment(
-        loader=DictLoader({'Dockerfile.jolokia.wildfly': jolokia_wildfly})
-    )
-    template = env.get_template('Dockerfile.jolokia.wildfly')
-    os.makedirs('docker/jolokia/wildfly', mode=0o755)
+    # env = Environment(
+    #     loader=DictLoader({'Dockerfile.jolokia.wildfly': jolokia_wildfly})
+    # )
+    # template = env.get_template('Dockerfile.jolokia.wildfly')
+    # os.makedirs('docker/jolokia/wildfly', mode=0o755)
 
-    for jv in versions['jolokia']:
-        for wv in versions['app-servers']['wildfly']:
-            try:
-                os.mkdir('docker/jolokia/wildfly/{0}'.format(wv), mode=0o755)
-            except FileExistsError:
-                pass
-            jp = open('docker/jolokia/wildfly/{0}/Dockerfile.jolokia{1}'.format(wv, jv['agent']), 'w')
-            context = {
-                'wildfly_version': wv,
-                'jolokia_version': jv['agent']
-            }
+    # for jv in versions['jolokia']:
+    #     for wv in versions['app-servers']['wildfly']:
+    #         try:
+    #             os.mkdir('docker/jolokia/wildfly/{0}'.format(wv), mode=0o755)
+    #         except FileExistsError:
+    #             pass
+    #         jp = open('docker/jolokia/wildfly/{0}/Dockerfile.jolokia{1}'.format(wv, jv['agent']), 'w')
+    #         context = {
+    #             'wildfly_version': wv,
+    #             'jolokia_version': jv['agent']
+    #         }
 
-            jp.write(template.render(**context))
-            jp.close()
+    #         jp.write(template.render(**context))
+    #         jp.close()
 
     f = open('Dockerfile.jolokia.tomcat', 'r')
     jolokia_tomcat = f.read()

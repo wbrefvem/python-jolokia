@@ -28,3 +28,5 @@ class JolokiaSession(Session):
             return resp
         except Exception as error:
             raise error
+        finally:
+            LOGGER.debug(data)

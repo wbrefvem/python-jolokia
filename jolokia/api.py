@@ -5,6 +5,7 @@ from jolokia.exceptions import IllegalArgumentException
 from jolokia.models import JolokiaSession
 from jolokia.utils.validators import verify_url
 from jolokia.utils.decorators import require_params
+from json import JSONDecodeError
 
 LOGGER = logging.getLogger(__name__)
 
@@ -26,10 +27,12 @@ class JolokiaClient(object):
 
         resp = self.session.simple_post(self.base_url, data=kwargs)
 
-        if resp.status_code != 404:
+        try:
             return resp.json()
-
-        return resp
+        except JSONDecodeError:
+            return resp
+        finally:
+            LOGGER.debug(resp.content)
 
     def list(self, path=None):
         """Returns a list of all MBeans on all available MBean servers."""
@@ -42,10 +45,12 @@ class JolokiaClient(object):
 
         resp = self.session.simple_post(self.base_url, data=data)
 
-        if resp.status_code != 404:
+        try:
             return resp.json()
-
-        return resp
+        except JSONDecodeError:
+            return resp
+        finally:
+            LOGGER.debug(resp.content)
 
     @require_params(['mbean'], 'search method has 1 required keyword argument: mbean')
     def search(self, **kwargs):
@@ -54,19 +59,23 @@ class JolokiaClient(object):
 
         resp = self.session.simple_post(self.base_url, data=kwargs)
 
-        if resp.status_code != 404:
+        try:
             return resp.json()
-
-        return resp
+        except JSONDecodeError:
+            return resp
+        finally:
+            LOGGER.debug(resp.content)
 
     def version(self):
         """Returns agent version"""
         resp = self.session.simple_post(self.base_url, data={'type': 'version'})
 
-        if resp.status_code != 404:
+        try:
             return resp.json()
-
-        return resp
+        except JSONDecodeError:
+            return resp
+        finally:
+            LOGGER.debug(resp.content)
 
     @require_params(['mbean', 'attribute'], 'get_attribute method has 2 required keyword arguments: mbean and attribute')
     def get_attribute(self, mbean=None, attribute=None, path=None):
@@ -93,10 +102,12 @@ class JolokiaClient(object):
 
         LOGGER.debug(resp.text)
 
-        if resp.status_code != 404:
+        try:
             return resp.json()
-
-        return resp
+        except JSONDecodeError:
+            return resp
+        finally:
+            LOGGER.debug(resp.content)
 
     @require_params(['mbean', 'attr_value_pairs'], 'set_attribute method has 2 required arguments: mbean, attr_value_pairs')
     def set_attribute(self, mbean=None, attr_value_pairs=None, bulk=False, path=None):
@@ -127,11 +138,12 @@ class JolokiaClient(object):
         LOGGER.debug(data)
 
         resp = self.session.simple_post(self.base_url, data=data)
-
-        if resp.status_code != 404:
+        try:
             return resp.json()
-
-        return resp
+        except JSONDecodeError:
+            return resp
+        finally:
+            LOGGER.debug(resp.content)
 
     def _bulk_write(self, mbean, attr_value_pairs):
 
@@ -150,10 +162,12 @@ class JolokiaClient(object):
 
         resp = self.session.simple_post(self.base_url, data=data)
 
-        if resp.status_code != 404:
+        try:
             return resp.json()
-
-        return resp
+        except JSONDecodeError:
+            return resp
+        finally:
+            LOGGER.debug(resp.content)
 
     def _bulk_read(self, mbean, attribute, path=None):
         data = []
@@ -170,10 +184,12 @@ class JolokiaClient(object):
 
         resp = self.session.simple_post(self.base_url, data=data)
 
-        if resp.status_code != 404:
+        try:
             return resp.json()
-
-        return resp
+        except JSONDecodeError:
+            return resp
+        finally:
+            LOGGER.debug(resp.content)
 
 
 def _attr_value_pairs_is_valid(bulk, attr_value_pairs):

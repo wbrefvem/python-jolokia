@@ -1,3 +1,13 @@
+FROM tomcat:7.0.85-jre8-alpine as tomcat-conf
+
+FROM python:3.6.4 as alias-appender
+COPY --from=tomcat-conf /usr/local/tomcat/conf/server.xml .
+COPY add_hostname_alias .
+ARG HOSTNAME=jolokia1.1.2-tomcat7.0.85-jre8-alpine
+RUN ./add_hostname_alias
+
 FROM tomcat:7.0.85-jre8-alpine
+
+COPY --from=alias-appender ./server.xml conf/server.xml
 
 RUN wget -O ./webapps/jolokia.war http://search.maven.org/remotecontent?filepath=org/jolokia/jolokia-war/1.1.2/jolokia-war-1.1.2.war

@@ -31,6 +31,17 @@ class TestSetAttribute(JolokiaTestCase):
             attr_value_pairs=('Verbose', True)
         )
 
+        LOGGER.debug(resp_data)
+
+        assert resp_data['status'] == 200
+        assert not resp_data['value']
+
+        resp_data = self.jc.get_attribute(
+            mbean='java.lang:type=ClassLoading',
+            attribute='Verbose'
+        )
+
+        assert resp_data['status'] == 200
         assert resp_data['value']
 
     def test_valid_bulk_write(self):

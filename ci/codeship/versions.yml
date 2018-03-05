@@ -63,19 +63,19 @@ python:
   - 3.3.7
   - 2.7.14
 app-servers:
-  wildfly:
-    - 12.0.0.Final
-    - 11.0.0.Final
-    - 10.1.0.Final
-    - 10.0.0.Final
-    - 9.0.2.Final
-    - 9.0.1.Final
-    - 9.0.0.Final
-    - 8.2.1.Final
-    - 8.2.0.Final
-    - 8.1.0.Final
+  # wildfly:
+  #   - 12.0.0.Final
+  #   - 11.0.0.Final
+  #   - 10.1.0.Final
+  #   - 10.0.0.Final
+  #   - 9.0.2.Final
+  #   - 9.0.1.Final
+  #   - 9.0.0.Final
+  #   - 8.2.1.Final
+  #   - 8.2.0.Final
+  #   - 8.1.0.Final
   tomcat:
-    - 9.0.5-jre8-alpine
+    #- 9.0.5-jre8-alpine
     - 8.5.28-jre8-alpine
     - 8.0.50-jre8-alpine
     - 8.0.50-jre7-alpine

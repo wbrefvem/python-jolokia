@@ -23,4 +23,6 @@ class TestAPI(JolokiaTestCase):
 
         self.jc = JolokiaClient('http://google.com')
         kwargs = {'mbean': 'java.lang:Memory', 'attribute': 'HeapMemoryUsage'}
-        pytest.raises(JSONDecodeError, self.jc.get_attribute, **kwargs)
+        resp = self.jc.get_attribute(**kwargs)
+
+        assert resp.status_code != 200

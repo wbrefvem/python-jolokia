@@ -1,15 +1,21 @@
-python{{python_version}}-{{app_sever}}{{appserver_version}}-jolokia{{jolokia_agent_version}}:
-  build: .
-  dockerfile: ci/codeship/docker/python/Dockerfile-python.{{python_version}}
+python{{python_version}}-jolokia{{jolokia_agent_version}}-{{app_server}}{{app_server_version}}:
+  build:
+    image: wbrefvem/python:{{python_version}}
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.{{python_version}}
   environment:
-    JOLOKIA_HOST: jolokia{{jolokia_version}}-{{app_server}}{{app_server_version}}
+    JOLOKIA_HOST: jolokia{{jolokia_agent_version}}-{{app_server}}{{app_server_version}}
     JOLOKIA_AGENT_VERSION: {{jolokia_agent_version}}
     JOLOKIA_PROTOCOL_VERSION: {{jolokia_protocol_version}}
   depends_on: 
     - jolokia{{jolokia_agent_version}}-{{app_server}}{{app_server_version}}
 
 jolokia{{jolokia_agent_version}}-{{app_server}}{{app_server_version}}:
-  build: .
-  dockerfile: ci/codeship/docker/jolokia/{{app_server}}/{{app_server_version}}/Dockerfile.jolokia{{jolokia_version}}
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/{{app_server}}/{{app_server_version}}/Dockerfile.jolokia{{jolokia_agent_version}}
+    image: wbrefvem/jolokia:{{jolokia_agent_version}}-{{app_server}}{{app_server_version}}
+  environment:
+    HOSTNAME: jolokia{{jolokia_agent_version}}-{{app_server}}{{app_server_version}}
 
 
