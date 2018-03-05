@@ -1,0 +1,20 @@
+#!/usr/bin/env python
+
+
+from xml.etree import ElementTree
+
+import os
+
+
+HOSTNAME = os.environ['HOSTNAME']
+
+tree = ElementTree.parse('./server.xml')
+root = tree.getroot()
+
+service = root.find('.//Service[@name="Catalina"]')
+engine = service.find('.//Engine[@name="Catalina"]')
+engine.attrib['defaultHost'] = HOSTNAME
+host = engine.find('.//Host[@name="localhost"]')
+host.attrib['name'] = HOSTNAME
+
+tree.write('./server.xml')
