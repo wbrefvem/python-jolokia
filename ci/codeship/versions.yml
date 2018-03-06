@@ -2,14 +2,14 @@
 jolokia: 
   - agent: 1.5.0
     protocol: 7.2
-  # - agent: 1.4.0
-  #   protocol: 7.2
-  # - agent: 1.3.7
-  #   protocol: 7.2
-  # - agent: 1.3.6
-  #   protocol: 7.2
-  # - agent: 1.3.5
-  #   protocol: 7.2
+  - agent: 1.4.0
+    protocol: 7.2
+  - agent: 1.3.7
+    protocol: 7.2
+  - agent: 1.3.6
+    protocol: 7.2
+  - agent: 1.3.5
+    protocol: 7.2
   # - agent: 1.3.4
   #   protocol: 7.2
   # - agent: 1.3.3

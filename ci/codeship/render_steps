@@ -1,23 +1,17 @@
 #!/usr/bin/env python
 
-from jinja2 import Environment, DictLoader, select_autoescape
+from jinja2 import Environment, FileSystemLoader
 
 import yaml
 
-f = open('codeship-steps.tmpl.yml', 'r')
-
-steps = f.read()
-f.close()
-
-env = Environment(
-    loader=DictLoader({'codeship-steps.yml': steps}),
-    autoescape=select_autoescape(['html', 'xml'])
-)
-
-template = env.get_template('codeship-steps.yml')
 
 with open('versions.yml', 'rb') as infile, open('codeship-steps.yml', 'w') as outfile:
     versions = yaml.load(infile)
+    env = Environment(
+        loader=FileSystemLoader('./templates')
+    )
+
+    template = env.get_template('codeship-steps.tmpl.yml')
 
     for j in versions['jolokia']:
         for p in versions['python']:
