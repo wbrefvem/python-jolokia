@@ -1,0 +1,15 @@
+FROM tomcat:8.0.50-jre7-alpine as tomcat-conf
+
+FROM python:3.6.4 as alias-appender
+COPY --from=tomcat-conf /usr/local/tomcat/conf/server.xml .
+COPY add_hostname_alias .
+ARG HOSTNAME=jolokia1.1.5-tomcat8.0.50-jre7-alpine
+RUN ./add_hostname_alias
+
+FROM tomcat:8.0.50-jre7-alpine
+
+COPY --from=alias-appender ./server.xml conf/server.xml
+RUN apk update && apk add curl
+HEALTHCHECK CMD curl -f http://jolokia1.1.5-tomcat8.0.50-jre7-alpine:8080/jolokia
+
+RUN wget -O ./webapps/jolokia.war http://search.maven.org/remotecontent?filepath=org/jolokia/jolokia-war/1.1.5/jolokia-war-1.1.5.war
