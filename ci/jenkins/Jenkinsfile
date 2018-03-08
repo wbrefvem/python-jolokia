@@ -1,6 +1,8 @@
 pipeline {
   agent {
-    docker image: 'python:3.6.4'
+    docker {
+      image 'python:3.6.4'
+    }
   }
   stages {
     stage('Test') {
@@ -8,7 +10,7 @@ pipeline {
       steps {
         git url: 'https://github.com/wbrefvem/python-jolokia.git', branch: 'pipeline'
         sh 'pip install pipenv --upgrade'
-        sh 'pipenv install --dev --deploy --system'
+        sh 'pipenv install --dev --system'
         sh 'pytest -v --junit-xml test-reports/results.xml'
         junit 'test-reports/results.xml'
       }
