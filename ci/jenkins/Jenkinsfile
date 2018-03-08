@@ -10,7 +10,7 @@ pipeline {
       steps {
         git url: 'https://github.com/wbrefvem/python-jolokia.git', branch: 'pipeline'
         sh 'pip install pipenv --upgrade'
-        sh 'pipenv install --dev --system'
+        sh 'which python && pipenv install --dev --system'
         sh 'pytest -v --junit-xml test-reports/results.xml'
         junit 'test-reports/results.xml'
       }
