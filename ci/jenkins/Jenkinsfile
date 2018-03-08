@@ -5,8 +5,7 @@ pipeline {
       agent {
         node {
           label 'py3'
-        }
-        
+        } 
       }
       steps {
         container('python') {
