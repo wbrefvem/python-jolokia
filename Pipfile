@@ -12,11 +12,11 @@ twine = "*"
 coveralls = "*"
 mock = "*"
 pylint = "*"
-
+pytest-cov = "*"
+"jinja2" = "*"
+pyyaml = "*"
 
 [packages]
 
 requests = "*"
-pytest-cov = "*"
-"jinja2" = "*"
-pyyaml = "*"
+

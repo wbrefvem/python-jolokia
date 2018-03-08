@@ -1,1 +1,1 @@
-requests
+../../requirements.txt
