@@ -1,13 +1,12 @@
 pipeline {
-  agent none
+  agent {
+    docker {
+      image: 'python:3.6.4'
+    }
+  }
   stages {
     stage('Test') {
-      agent {
-        docker {
-          image: 'python:3.6.4'
-        }
-        
-      }
+
       steps {
         git url: 'https://github.com/wbrefvem/python-jolokia.git', branch: 'pipeline'
         sh 'pip install pipenv --upgrade'
