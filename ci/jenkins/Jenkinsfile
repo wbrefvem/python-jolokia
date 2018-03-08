@@ -8,7 +8,7 @@ pipeline {
         }
       }
       steps {
-        git url: 'https://github.com/wbrefvem/python-jolokia.git'
+        git url: 'https://github.com/wbrefvem/python-jolokia.git', branch: 'docker'
         sh 'pip install pipenv --upgrade'
         sh 'git branch -a && pwd && ls -al && pipenv install --dev --system'
         sh 'pytest -v --junit-xml test-reports/results.xml'
