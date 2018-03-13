@@ -11,6 +11,7 @@ pipeline {
         container('python') {
           git url: 'https://github.com/wbrefvem/python-jolokia.git', branch: 'pipeline'
           sh 'pip install pipenv --upgrade'
+          sh 'pipenv lock'
           sh 'pipenv install --dev --deploy --system'
           sh 'pytest -v --junit-xml test-reports/results.xml'
           junit 'test-reports/results.xml'
