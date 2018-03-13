@@ -102,6 +102,17 @@
             "type": "write",
             "value": true
         },
+        "value": false,
+        "timestamp": 1495480324,
+        "status": 200
+    },
+    "valid_read_classloading_response_verbose": {
+        "request": {
+            "mbean": "java.lang:type=ClassLoading",
+            "attribute": "Verbose",
+            "type": "read",
+            "value": true
+        },
         "value": true,
         "timestamp": 1495480324,
         "status": 200
@@ -177,7 +188,7 @@
             "type": "version"
         },
         "value": {
-            "agent": "1.4.0",
+            "agent": "1.5.0",
             "protocol": "7.2",
             "config": {
                 "listenForHttpService": "true",
@@ -218,5 +229,6 @@
     "method_not_allowed": {
         "status": 405,
         "error": "no posting at this endpoint"
-    }
+    },
+    "generic_404_page": "<html>HTTP 404 - Not Found</html>"
 }

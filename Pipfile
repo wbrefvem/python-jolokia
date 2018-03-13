@@ -15,6 +15,7 @@ pylint = "*"
 pytest-cov = "*"
 "jinja2" = "*"
 pyyaml = "*"
+requests = "*"
 
 [packages]
 
