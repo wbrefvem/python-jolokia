@@ -1,7 +1,6 @@
 from unittest import TestCase
 from jolokia import JolokiaClient
 from jolokia.models import JolokiaResponse
-from jolokia.exceptions import MissingEnvironmentVariableException
 
 import json
 import os
@@ -27,13 +26,28 @@ class JolokiaTestCase(TestCase):
         try:
             self.jolokia_host = os.environ['JOLOKIA_HOST']
         except KeyError:
-            raise MissingEnvironmentVariableException('JOLOKIA_HOST environment variable must be set.')
+            self.mock = True
+            self.jolokia_host = 'localhost'
+
+        try:
+            self.agent_version = os.environ['JOLOKIA_AGENT_VERSION']
+        except KeyError:
+            self.agent_version = '1.5.0'
+
+        try:
+            self.protocol_version = os.environ['JOLOKIA_PROTOCOL_VERSION']
+        except KeyError:
+            self.protocol_version = '7.2'
 
         self.jc = JolokiaClient('http://{0}:8080/jolokia'.format(self.jolokia_host))
 
-    def _prepare_response(self, response_json, status_code, ok):
+    def _prepare_response(self, response, status_code, ok):
 
-        resp_string = json.dumps(response_json)
+        if not isinstance(response, str):
+            resp_string = json.dumps(response)
+        else:
+            resp_string = response
+
         resp_obj = JolokiaResponse()
 
         setattr(JolokiaResponse, 'content', resp_string.encode('utf-8'))

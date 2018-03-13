@@ -26,6 +26,8 @@ class JolokiaClient(object):
 
         resp = self.session.simple_post(self.base_url, data=kwargs)
 
+        LOGGER.debug('Return type of {0} with return value of {1}'.format(type(resp), resp.text))
+
         try:
             return resp.json()
         except ValueError:
