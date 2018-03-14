@@ -11,7 +11,7 @@ pipeline {
           sh 'pip install pipenv'
           sh 'pipenv lock'
           sh 'pipenv install --dev --system --deploy'
-          dir('./ci/codeship') {
+          dir path: './ci/codeship' {
             sh 'rm -rf docker'
             sh './render_dockerfiles'
             sh './render_services'
