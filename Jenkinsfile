@@ -11,10 +11,12 @@ pipeline {
           sh 'pip install pipenv'
           sh 'pipenv lock'
           sh 'pipenv install --dev --system --deploy'
-          sh 'rm -rf ./ci/codeship/docker'
-          sh './ci/codeship/render_dockerfiles'
-          sh './ci/codeship/render_services'
-          sh './ci/codeship/render_steps'
+          dir('./ci/codeship') {
+            sh 'rm -rf docker'
+            sh './render_dockerfiles'
+            sh './render_services'
+            sh './render_steps'            
+          }
         }
       }
     }
