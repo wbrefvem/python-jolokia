@@ -1,26 +1,26 @@
 pipeline {
-  agent none
+  agent {
+    node {
+      label 'py3'
+    } 
+  }  
   stages {
-    stage('Test') {
-      agent {
-        node {
-          label 'py3'
-        } 
-      }
+    stage('Render Codeship deps') {
       steps {
         container('python') {
-          git url: 'https://github.com/wbrefvem/python-jolokia.git', branch: 'pipeline'
           sh 'pip install pipenv'
           sh 'pipenv lock'
           sh 'pipenv install --dev --system --deploy'
-          sh 'pytest -v --junit-xml test-reports/results.xml'            
-          junit 'test-reports/results.xml'
-        }          
+          sh 'rm -rf ./ci/codeship/docker'
+          sh './ci/codeship/render_dockerfiles'
+          sh './ci/codeship/render_services'
+          sh './ci/codeship/render_steps'
+        }
       }
     }
-    stage('Deploy') {
+    stage('Notifying Codeship') {
       steps {
-        echo 'Deploying'
+        echo 'Triggering codeship build'
       }
     }
   }
