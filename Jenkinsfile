@@ -8,6 +8,7 @@ pipeline {
     stage('Render Codeship deps') {
       steps {
         container('python') {
+          echo 'Received webhook from GitHub'
           sh 'pip install pipenv'
           sh 'pipenv lock'
           sh 'pipenv install --dev --system --deploy'
