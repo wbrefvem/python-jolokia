@@ -1,1 +1,2800 @@
-ci/codeship/codeship-services.yml
+jolokia1.5.0-tomcat8.5.28-jre8-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/8.5.28-jre8-alpine/Dockerfile.jolokia1.5.0
+    image: wbrefvem/jolokia:1.5.0-tomcat8.5.28-jre8-alpine
+  environment:
+    HOSTNAME: jolokia1.5.0-tomcat8.5.28-jre8-alpine
+
+python3.6.4-jolokia1.5.0-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.5.0-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.5.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.5.0-tomcat8.5.28-jre8-alpine
+
+python3.5.5-jolokia1.5.0-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.5.0-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.5.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.5.0-tomcat8.5.28-jre8-alpine
+
+python3.4.8-jolokia1.5.0-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.5.0-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.5.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.5.0-tomcat8.5.28-jre8-alpine
+
+python2.7.14-jolokia1.5.0-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.5.0-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.5.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.5.0-tomcat8.5.28-jre8-alpine
+
+jolokia1.5.0-tomcat8.0.50-jre8-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/8.0.50-jre8-alpine/Dockerfile.jolokia1.5.0
+    image: wbrefvem/jolokia:1.5.0-tomcat8.0.50-jre8-alpine
+  environment:
+    HOSTNAME: jolokia1.5.0-tomcat8.0.50-jre8-alpine
+
+python3.6.4-jolokia1.5.0-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.5.0-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.5.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.5.0-tomcat8.0.50-jre8-alpine
+
+python3.5.5-jolokia1.5.0-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.5.0-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.5.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.5.0-tomcat8.0.50-jre8-alpine
+
+python3.4.8-jolokia1.5.0-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.5.0-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.5.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.5.0-tomcat8.0.50-jre8-alpine
+
+python2.7.14-jolokia1.5.0-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.5.0-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.5.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.5.0-tomcat8.0.50-jre8-alpine
+
+jolokia1.5.0-tomcat8.0.50-jre7-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/8.0.50-jre7-alpine/Dockerfile.jolokia1.5.0
+    image: wbrefvem/jolokia:1.5.0-tomcat8.0.50-jre7-alpine
+  environment:
+    HOSTNAME: jolokia1.5.0-tomcat8.0.50-jre7-alpine
+
+python3.6.4-jolokia1.5.0-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.5.0-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.5.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.5.0-tomcat8.0.50-jre7-alpine
+
+python3.5.5-jolokia1.5.0-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.5.0-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.5.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.5.0-tomcat8.0.50-jre7-alpine
+
+python3.4.8-jolokia1.5.0-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.5.0-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.5.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.5.0-tomcat8.0.50-jre7-alpine
+
+python2.7.14-jolokia1.5.0-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.5.0-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.5.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.5.0-tomcat8.0.50-jre7-alpine
+
+jolokia1.5.0-tomcat7.0.85-jre8-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/7.0.85-jre8-alpine/Dockerfile.jolokia1.5.0
+    image: wbrefvem/jolokia:1.5.0-tomcat7.0.85-jre8-alpine
+  environment:
+    HOSTNAME: jolokia1.5.0-tomcat7.0.85-jre8-alpine
+
+python3.6.4-jolokia1.5.0-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.5.0-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.5.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.5.0-tomcat7.0.85-jre8-alpine
+
+python3.5.5-jolokia1.5.0-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.5.0-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.5.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.5.0-tomcat7.0.85-jre8-alpine
+
+python3.4.8-jolokia1.5.0-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.5.0-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.5.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.5.0-tomcat7.0.85-jre8-alpine
+
+python2.7.14-jolokia1.5.0-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.5.0-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.5.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.5.0-tomcat7.0.85-jre8-alpine
+
+jolokia1.5.0-tomcat7.0.85-jre7-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/7.0.85-jre7-alpine/Dockerfile.jolokia1.5.0
+    image: wbrefvem/jolokia:1.5.0-tomcat7.0.85-jre7-alpine
+  environment:
+    HOSTNAME: jolokia1.5.0-tomcat7.0.85-jre7-alpine
+
+python3.6.4-jolokia1.5.0-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.5.0-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.5.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.5.0-tomcat7.0.85-jre7-alpine
+
+python3.5.5-jolokia1.5.0-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.5.0-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.5.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.5.0-tomcat7.0.85-jre7-alpine
+
+python3.4.8-jolokia1.5.0-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.5.0-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.5.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.5.0-tomcat7.0.85-jre7-alpine
+
+python2.7.14-jolokia1.5.0-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.5.0-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.5.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.5.0-tomcat7.0.85-jre7-alpine
+
+jolokia1.4.0-tomcat8.5.28-jre8-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/8.5.28-jre8-alpine/Dockerfile.jolokia1.4.0
+    image: wbrefvem/jolokia:1.4.0-tomcat8.5.28-jre8-alpine
+  environment:
+    HOSTNAME: jolokia1.4.0-tomcat8.5.28-jre8-alpine
+
+python3.6.4-jolokia1.4.0-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.4.0-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.4.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.4.0-tomcat8.5.28-jre8-alpine
+
+python3.5.5-jolokia1.4.0-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.4.0-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.4.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.4.0-tomcat8.5.28-jre8-alpine
+
+python3.4.8-jolokia1.4.0-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.4.0-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.4.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.4.0-tomcat8.5.28-jre8-alpine
+
+python2.7.14-jolokia1.4.0-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.4.0-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.4.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.4.0-tomcat8.5.28-jre8-alpine
+
+jolokia1.4.0-tomcat8.0.50-jre8-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/8.0.50-jre8-alpine/Dockerfile.jolokia1.4.0
+    image: wbrefvem/jolokia:1.4.0-tomcat8.0.50-jre8-alpine
+  environment:
+    HOSTNAME: jolokia1.4.0-tomcat8.0.50-jre8-alpine
+
+python3.6.4-jolokia1.4.0-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.4.0-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.4.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.4.0-tomcat8.0.50-jre8-alpine
+
+python3.5.5-jolokia1.4.0-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.4.0-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.4.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.4.0-tomcat8.0.50-jre8-alpine
+
+python3.4.8-jolokia1.4.0-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.4.0-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.4.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.4.0-tomcat8.0.50-jre8-alpine
+
+python2.7.14-jolokia1.4.0-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.4.0-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.4.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.4.0-tomcat8.0.50-jre8-alpine
+
+jolokia1.4.0-tomcat8.0.50-jre7-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/8.0.50-jre7-alpine/Dockerfile.jolokia1.4.0
+    image: wbrefvem/jolokia:1.4.0-tomcat8.0.50-jre7-alpine
+  environment:
+    HOSTNAME: jolokia1.4.0-tomcat8.0.50-jre7-alpine
+
+python3.6.4-jolokia1.4.0-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.4.0-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.4.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.4.0-tomcat8.0.50-jre7-alpine
+
+python3.5.5-jolokia1.4.0-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.4.0-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.4.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.4.0-tomcat8.0.50-jre7-alpine
+
+python3.4.8-jolokia1.4.0-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.4.0-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.4.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.4.0-tomcat8.0.50-jre7-alpine
+
+python2.7.14-jolokia1.4.0-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.4.0-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.4.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.4.0-tomcat8.0.50-jre7-alpine
+
+jolokia1.4.0-tomcat7.0.85-jre8-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/7.0.85-jre8-alpine/Dockerfile.jolokia1.4.0
+    image: wbrefvem/jolokia:1.4.0-tomcat7.0.85-jre8-alpine
+  environment:
+    HOSTNAME: jolokia1.4.0-tomcat7.0.85-jre8-alpine
+
+python3.6.4-jolokia1.4.0-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.4.0-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.4.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.4.0-tomcat7.0.85-jre8-alpine
+
+python3.5.5-jolokia1.4.0-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.4.0-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.4.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.4.0-tomcat7.0.85-jre8-alpine
+
+python3.4.8-jolokia1.4.0-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.4.0-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.4.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.4.0-tomcat7.0.85-jre8-alpine
+
+python2.7.14-jolokia1.4.0-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.4.0-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.4.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.4.0-tomcat7.0.85-jre8-alpine
+
+jolokia1.4.0-tomcat7.0.85-jre7-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/7.0.85-jre7-alpine/Dockerfile.jolokia1.4.0
+    image: wbrefvem/jolokia:1.4.0-tomcat7.0.85-jre7-alpine
+  environment:
+    HOSTNAME: jolokia1.4.0-tomcat7.0.85-jre7-alpine
+
+python3.6.4-jolokia1.4.0-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.4.0-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.4.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.4.0-tomcat7.0.85-jre7-alpine
+
+python3.5.5-jolokia1.4.0-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.4.0-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.4.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.4.0-tomcat7.0.85-jre7-alpine
+
+python3.4.8-jolokia1.4.0-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.4.0-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.4.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.4.0-tomcat7.0.85-jre7-alpine
+
+python2.7.14-jolokia1.4.0-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.4.0-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.4.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.4.0-tomcat7.0.85-jre7-alpine
+
+jolokia1.3.7-tomcat8.5.28-jre8-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/8.5.28-jre8-alpine/Dockerfile.jolokia1.3.7
+    image: wbrefvem/jolokia:1.3.7-tomcat8.5.28-jre8-alpine
+  environment:
+    HOSTNAME: jolokia1.3.7-tomcat8.5.28-jre8-alpine
+
+python3.6.4-jolokia1.3.7-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.7-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.7
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.7-tomcat8.5.28-jre8-alpine
+
+python3.5.5-jolokia1.3.7-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.7-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.7
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.7-tomcat8.5.28-jre8-alpine
+
+python3.4.8-jolokia1.3.7-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.7-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.7
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.7-tomcat8.5.28-jre8-alpine
+
+python2.7.14-jolokia1.3.7-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.7-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.7
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.7-tomcat8.5.28-jre8-alpine
+
+jolokia1.3.7-tomcat8.0.50-jre8-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/8.0.50-jre8-alpine/Dockerfile.jolokia1.3.7
+    image: wbrefvem/jolokia:1.3.7-tomcat8.0.50-jre8-alpine
+  environment:
+    HOSTNAME: jolokia1.3.7-tomcat8.0.50-jre8-alpine
+
+python3.6.4-jolokia1.3.7-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.7-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.7
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.7-tomcat8.0.50-jre8-alpine
+
+python3.5.5-jolokia1.3.7-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.7-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.7
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.7-tomcat8.0.50-jre8-alpine
+
+python3.4.8-jolokia1.3.7-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.7-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.7
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.7-tomcat8.0.50-jre8-alpine
+
+python2.7.14-jolokia1.3.7-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.7-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.7
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.7-tomcat8.0.50-jre8-alpine
+
+jolokia1.3.7-tomcat8.0.50-jre7-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/8.0.50-jre7-alpine/Dockerfile.jolokia1.3.7
+    image: wbrefvem/jolokia:1.3.7-tomcat8.0.50-jre7-alpine
+  environment:
+    HOSTNAME: jolokia1.3.7-tomcat8.0.50-jre7-alpine
+
+python3.6.4-jolokia1.3.7-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.7-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.7
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.7-tomcat8.0.50-jre7-alpine
+
+python3.5.5-jolokia1.3.7-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.7-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.7
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.7-tomcat8.0.50-jre7-alpine
+
+python3.4.8-jolokia1.3.7-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.7-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.7
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.7-tomcat8.0.50-jre7-alpine
+
+python2.7.14-jolokia1.3.7-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.7-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.7
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.7-tomcat8.0.50-jre7-alpine
+
+jolokia1.3.7-tomcat7.0.85-jre8-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/7.0.85-jre8-alpine/Dockerfile.jolokia1.3.7
+    image: wbrefvem/jolokia:1.3.7-tomcat7.0.85-jre8-alpine
+  environment:
+    HOSTNAME: jolokia1.3.7-tomcat7.0.85-jre8-alpine
+
+python3.6.4-jolokia1.3.7-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.7-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.7
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.7-tomcat7.0.85-jre8-alpine
+
+python3.5.5-jolokia1.3.7-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.7-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.7
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.7-tomcat7.0.85-jre8-alpine
+
+python3.4.8-jolokia1.3.7-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.7-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.7
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.7-tomcat7.0.85-jre8-alpine
+
+python2.7.14-jolokia1.3.7-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.7-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.7
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.7-tomcat7.0.85-jre8-alpine
+
+jolokia1.3.7-tomcat7.0.85-jre7-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/7.0.85-jre7-alpine/Dockerfile.jolokia1.3.7
+    image: wbrefvem/jolokia:1.3.7-tomcat7.0.85-jre7-alpine
+  environment:
+    HOSTNAME: jolokia1.3.7-tomcat7.0.85-jre7-alpine
+
+python3.6.4-jolokia1.3.7-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.7-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.7
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.7-tomcat7.0.85-jre7-alpine
+
+python3.5.5-jolokia1.3.7-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.7-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.7
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.7-tomcat7.0.85-jre7-alpine
+
+python3.4.8-jolokia1.3.7-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.7-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.7
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.7-tomcat7.0.85-jre7-alpine
+
+python2.7.14-jolokia1.3.7-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.7-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.7
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.7-tomcat7.0.85-jre7-alpine
+
+jolokia1.3.6-tomcat8.5.28-jre8-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/8.5.28-jre8-alpine/Dockerfile.jolokia1.3.6
+    image: wbrefvem/jolokia:1.3.6-tomcat8.5.28-jre8-alpine
+  environment:
+    HOSTNAME: jolokia1.3.6-tomcat8.5.28-jre8-alpine
+
+python3.6.4-jolokia1.3.6-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.6-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.6
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.6-tomcat8.5.28-jre8-alpine
+
+python3.5.5-jolokia1.3.6-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.6-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.6
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.6-tomcat8.5.28-jre8-alpine
+
+python3.4.8-jolokia1.3.6-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.6-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.6
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.6-tomcat8.5.28-jre8-alpine
+
+python2.7.14-jolokia1.3.6-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.6-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.6
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.6-tomcat8.5.28-jre8-alpine
+
+jolokia1.3.6-tomcat8.0.50-jre8-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/8.0.50-jre8-alpine/Dockerfile.jolokia1.3.6
+    image: wbrefvem/jolokia:1.3.6-tomcat8.0.50-jre8-alpine
+  environment:
+    HOSTNAME: jolokia1.3.6-tomcat8.0.50-jre8-alpine
+
+python3.6.4-jolokia1.3.6-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.6-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.6
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.6-tomcat8.0.50-jre8-alpine
+
+python3.5.5-jolokia1.3.6-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.6-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.6
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.6-tomcat8.0.50-jre8-alpine
+
+python3.4.8-jolokia1.3.6-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.6-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.6
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.6-tomcat8.0.50-jre8-alpine
+
+python2.7.14-jolokia1.3.6-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.6-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.6
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.6-tomcat8.0.50-jre8-alpine
+
+jolokia1.3.6-tomcat8.0.50-jre7-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/8.0.50-jre7-alpine/Dockerfile.jolokia1.3.6
+    image: wbrefvem/jolokia:1.3.6-tomcat8.0.50-jre7-alpine
+  environment:
+    HOSTNAME: jolokia1.3.6-tomcat8.0.50-jre7-alpine
+
+python3.6.4-jolokia1.3.6-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.6-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.6
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.6-tomcat8.0.50-jre7-alpine
+
+python3.5.5-jolokia1.3.6-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.6-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.6
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.6-tomcat8.0.50-jre7-alpine
+
+python3.4.8-jolokia1.3.6-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.6-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.6
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.6-tomcat8.0.50-jre7-alpine
+
+python2.7.14-jolokia1.3.6-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.6-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.6
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.6-tomcat8.0.50-jre7-alpine
+
+jolokia1.3.6-tomcat7.0.85-jre8-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/7.0.85-jre8-alpine/Dockerfile.jolokia1.3.6
+    image: wbrefvem/jolokia:1.3.6-tomcat7.0.85-jre8-alpine
+  environment:
+    HOSTNAME: jolokia1.3.6-tomcat7.0.85-jre8-alpine
+
+python3.6.4-jolokia1.3.6-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.6-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.6
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.6-tomcat7.0.85-jre8-alpine
+
+python3.5.5-jolokia1.3.6-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.6-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.6
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.6-tomcat7.0.85-jre8-alpine
+
+python3.4.8-jolokia1.3.6-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.6-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.6
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.6-tomcat7.0.85-jre8-alpine
+
+python2.7.14-jolokia1.3.6-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.6-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.6
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.6-tomcat7.0.85-jre8-alpine
+
+jolokia1.3.6-tomcat7.0.85-jre7-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/7.0.85-jre7-alpine/Dockerfile.jolokia1.3.6
+    image: wbrefvem/jolokia:1.3.6-tomcat7.0.85-jre7-alpine
+  environment:
+    HOSTNAME: jolokia1.3.6-tomcat7.0.85-jre7-alpine
+
+python3.6.4-jolokia1.3.6-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.6-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.6
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.6-tomcat7.0.85-jre7-alpine
+
+python3.5.5-jolokia1.3.6-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.6-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.6
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.6-tomcat7.0.85-jre7-alpine
+
+python3.4.8-jolokia1.3.6-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.6-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.6
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.6-tomcat7.0.85-jre7-alpine
+
+python2.7.14-jolokia1.3.6-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.6-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.6
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.6-tomcat7.0.85-jre7-alpine
+
+jolokia1.3.5-tomcat8.5.28-jre8-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/8.5.28-jre8-alpine/Dockerfile.jolokia1.3.5
+    image: wbrefvem/jolokia:1.3.5-tomcat8.5.28-jre8-alpine
+  environment:
+    HOSTNAME: jolokia1.3.5-tomcat8.5.28-jre8-alpine
+
+python3.6.4-jolokia1.3.5-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.5-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.5
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.5-tomcat8.5.28-jre8-alpine
+
+python3.5.5-jolokia1.3.5-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.5-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.5
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.5-tomcat8.5.28-jre8-alpine
+
+python3.4.8-jolokia1.3.5-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.5-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.5
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.5-tomcat8.5.28-jre8-alpine
+
+python2.7.14-jolokia1.3.5-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.5-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.5
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.5-tomcat8.5.28-jre8-alpine
+
+jolokia1.3.5-tomcat8.0.50-jre8-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/8.0.50-jre8-alpine/Dockerfile.jolokia1.3.5
+    image: wbrefvem/jolokia:1.3.5-tomcat8.0.50-jre8-alpine
+  environment:
+    HOSTNAME: jolokia1.3.5-tomcat8.0.50-jre8-alpine
+
+python3.6.4-jolokia1.3.5-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.5-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.5
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.5-tomcat8.0.50-jre8-alpine
+
+python3.5.5-jolokia1.3.5-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.5-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.5
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.5-tomcat8.0.50-jre8-alpine
+
+python3.4.8-jolokia1.3.5-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.5-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.5
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.5-tomcat8.0.50-jre8-alpine
+
+python2.7.14-jolokia1.3.5-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.5-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.5
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.5-tomcat8.0.50-jre8-alpine
+
+jolokia1.3.5-tomcat8.0.50-jre7-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/8.0.50-jre7-alpine/Dockerfile.jolokia1.3.5
+    image: wbrefvem/jolokia:1.3.5-tomcat8.0.50-jre7-alpine
+  environment:
+    HOSTNAME: jolokia1.3.5-tomcat8.0.50-jre7-alpine
+
+python3.6.4-jolokia1.3.5-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.5-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.5
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.5-tomcat8.0.50-jre7-alpine
+
+python3.5.5-jolokia1.3.5-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.5-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.5
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.5-tomcat8.0.50-jre7-alpine
+
+python3.4.8-jolokia1.3.5-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.5-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.5
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.5-tomcat8.0.50-jre7-alpine
+
+python2.7.14-jolokia1.3.5-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.5-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.5
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.5-tomcat8.0.50-jre7-alpine
+
+jolokia1.3.5-tomcat7.0.85-jre8-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/7.0.85-jre8-alpine/Dockerfile.jolokia1.3.5
+    image: wbrefvem/jolokia:1.3.5-tomcat7.0.85-jre8-alpine
+  environment:
+    HOSTNAME: jolokia1.3.5-tomcat7.0.85-jre8-alpine
+
+python3.6.4-jolokia1.3.5-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.5-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.5
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.5-tomcat7.0.85-jre8-alpine
+
+python3.5.5-jolokia1.3.5-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.5-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.5
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.5-tomcat7.0.85-jre8-alpine
+
+python3.4.8-jolokia1.3.5-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.5-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.5
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.5-tomcat7.0.85-jre8-alpine
+
+python2.7.14-jolokia1.3.5-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.5-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.5
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.5-tomcat7.0.85-jre8-alpine
+
+jolokia1.3.5-tomcat7.0.85-jre7-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/7.0.85-jre7-alpine/Dockerfile.jolokia1.3.5
+    image: wbrefvem/jolokia:1.3.5-tomcat7.0.85-jre7-alpine
+  environment:
+    HOSTNAME: jolokia1.3.5-tomcat7.0.85-jre7-alpine
+
+python3.6.4-jolokia1.3.5-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.5-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.5
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.5-tomcat7.0.85-jre7-alpine
+
+python3.5.5-jolokia1.3.5-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.5-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.5
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.5-tomcat7.0.85-jre7-alpine
+
+python3.4.8-jolokia1.3.5-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.5-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.5
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.5-tomcat7.0.85-jre7-alpine
+
+python2.7.14-jolokia1.3.5-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.5-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.5
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.5-tomcat7.0.85-jre7-alpine
+
+jolokia1.3.4-tomcat8.5.28-jre8-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/8.5.28-jre8-alpine/Dockerfile.jolokia1.3.4
+    image: wbrefvem/jolokia:1.3.4-tomcat8.5.28-jre8-alpine
+  environment:
+    HOSTNAME: jolokia1.3.4-tomcat8.5.28-jre8-alpine
+
+python3.6.4-jolokia1.3.4-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.4-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.4
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.4-tomcat8.5.28-jre8-alpine
+
+python3.5.5-jolokia1.3.4-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.4-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.4
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.4-tomcat8.5.28-jre8-alpine
+
+python3.4.8-jolokia1.3.4-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.4-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.4
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.4-tomcat8.5.28-jre8-alpine
+
+python2.7.14-jolokia1.3.4-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.4-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.4
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.4-tomcat8.5.28-jre8-alpine
+
+jolokia1.3.4-tomcat8.0.50-jre8-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/8.0.50-jre8-alpine/Dockerfile.jolokia1.3.4
+    image: wbrefvem/jolokia:1.3.4-tomcat8.0.50-jre8-alpine
+  environment:
+    HOSTNAME: jolokia1.3.4-tomcat8.0.50-jre8-alpine
+
+python3.6.4-jolokia1.3.4-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.4-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.4
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.4-tomcat8.0.50-jre8-alpine
+
+python3.5.5-jolokia1.3.4-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.4-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.4
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.4-tomcat8.0.50-jre8-alpine
+
+python3.4.8-jolokia1.3.4-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.4-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.4
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.4-tomcat8.0.50-jre8-alpine
+
+python2.7.14-jolokia1.3.4-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.4-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.4
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.4-tomcat8.0.50-jre8-alpine
+
+jolokia1.3.4-tomcat8.0.50-jre7-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/8.0.50-jre7-alpine/Dockerfile.jolokia1.3.4
+    image: wbrefvem/jolokia:1.3.4-tomcat8.0.50-jre7-alpine
+  environment:
+    HOSTNAME: jolokia1.3.4-tomcat8.0.50-jre7-alpine
+
+python3.6.4-jolokia1.3.4-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.4-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.4
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.4-tomcat8.0.50-jre7-alpine
+
+python3.5.5-jolokia1.3.4-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.4-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.4
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.4-tomcat8.0.50-jre7-alpine
+
+python3.4.8-jolokia1.3.4-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.4-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.4
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.4-tomcat8.0.50-jre7-alpine
+
+python2.7.14-jolokia1.3.4-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.4-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.4
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.4-tomcat8.0.50-jre7-alpine
+
+jolokia1.3.4-tomcat7.0.85-jre8-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/7.0.85-jre8-alpine/Dockerfile.jolokia1.3.4
+    image: wbrefvem/jolokia:1.3.4-tomcat7.0.85-jre8-alpine
+  environment:
+    HOSTNAME: jolokia1.3.4-tomcat7.0.85-jre8-alpine
+
+python3.6.4-jolokia1.3.4-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.4-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.4
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.4-tomcat7.0.85-jre8-alpine
+
+python3.5.5-jolokia1.3.4-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.4-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.4
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.4-tomcat7.0.85-jre8-alpine
+
+python3.4.8-jolokia1.3.4-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.4-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.4
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.4-tomcat7.0.85-jre8-alpine
+
+python2.7.14-jolokia1.3.4-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.4-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.4
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.4-tomcat7.0.85-jre8-alpine
+
+jolokia1.3.4-tomcat7.0.85-jre7-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/7.0.85-jre7-alpine/Dockerfile.jolokia1.3.4
+    image: wbrefvem/jolokia:1.3.4-tomcat7.0.85-jre7-alpine
+  environment:
+    HOSTNAME: jolokia1.3.4-tomcat7.0.85-jre7-alpine
+
+python3.6.4-jolokia1.3.4-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.4-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.4
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.4-tomcat7.0.85-jre7-alpine
+
+python3.5.5-jolokia1.3.4-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.4-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.4
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.4-tomcat7.0.85-jre7-alpine
+
+python3.4.8-jolokia1.3.4-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.4-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.4
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.4-tomcat7.0.85-jre7-alpine
+
+python2.7.14-jolokia1.3.4-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.4-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.4
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.4-tomcat7.0.85-jre7-alpine
+
+jolokia1.3.3-tomcat8.5.28-jre8-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/8.5.28-jre8-alpine/Dockerfile.jolokia1.3.3
+    image: wbrefvem/jolokia:1.3.3-tomcat8.5.28-jre8-alpine
+  environment:
+    HOSTNAME: jolokia1.3.3-tomcat8.5.28-jre8-alpine
+
+python3.6.4-jolokia1.3.3-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.3-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.3
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.3-tomcat8.5.28-jre8-alpine
+
+python3.5.5-jolokia1.3.3-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.3-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.3
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.3-tomcat8.5.28-jre8-alpine
+
+python3.4.8-jolokia1.3.3-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.3-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.3
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.3-tomcat8.5.28-jre8-alpine
+
+python2.7.14-jolokia1.3.3-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.3-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.3
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.3-tomcat8.5.28-jre8-alpine
+
+jolokia1.3.3-tomcat8.0.50-jre8-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/8.0.50-jre8-alpine/Dockerfile.jolokia1.3.3
+    image: wbrefvem/jolokia:1.3.3-tomcat8.0.50-jre8-alpine
+  environment:
+    HOSTNAME: jolokia1.3.3-tomcat8.0.50-jre8-alpine
+
+python3.6.4-jolokia1.3.3-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.3-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.3
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.3-tomcat8.0.50-jre8-alpine
+
+python3.5.5-jolokia1.3.3-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.3-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.3
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.3-tomcat8.0.50-jre8-alpine
+
+python3.4.8-jolokia1.3.3-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.3-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.3
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.3-tomcat8.0.50-jre8-alpine
+
+python2.7.14-jolokia1.3.3-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.3-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.3
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.3-tomcat8.0.50-jre8-alpine
+
+jolokia1.3.3-tomcat8.0.50-jre7-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/8.0.50-jre7-alpine/Dockerfile.jolokia1.3.3
+    image: wbrefvem/jolokia:1.3.3-tomcat8.0.50-jre7-alpine
+  environment:
+    HOSTNAME: jolokia1.3.3-tomcat8.0.50-jre7-alpine
+
+python3.6.4-jolokia1.3.3-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.3-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.3
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.3-tomcat8.0.50-jre7-alpine
+
+python3.5.5-jolokia1.3.3-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.3-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.3
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.3-tomcat8.0.50-jre7-alpine
+
+python3.4.8-jolokia1.3.3-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.3-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.3
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.3-tomcat8.0.50-jre7-alpine
+
+python2.7.14-jolokia1.3.3-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.3-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.3
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.3-tomcat8.0.50-jre7-alpine
+
+jolokia1.3.3-tomcat7.0.85-jre8-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/7.0.85-jre8-alpine/Dockerfile.jolokia1.3.3
+    image: wbrefvem/jolokia:1.3.3-tomcat7.0.85-jre8-alpine
+  environment:
+    HOSTNAME: jolokia1.3.3-tomcat7.0.85-jre8-alpine
+
+python3.6.4-jolokia1.3.3-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.3-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.3
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.3-tomcat7.0.85-jre8-alpine
+
+python3.5.5-jolokia1.3.3-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.3-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.3
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.3-tomcat7.0.85-jre8-alpine
+
+python3.4.8-jolokia1.3.3-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.3-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.3
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.3-tomcat7.0.85-jre8-alpine
+
+python2.7.14-jolokia1.3.3-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.3-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.3
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.3-tomcat7.0.85-jre8-alpine
+
+jolokia1.3.3-tomcat7.0.85-jre7-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/7.0.85-jre7-alpine/Dockerfile.jolokia1.3.3
+    image: wbrefvem/jolokia:1.3.3-tomcat7.0.85-jre7-alpine
+  environment:
+    HOSTNAME: jolokia1.3.3-tomcat7.0.85-jre7-alpine
+
+python3.6.4-jolokia1.3.3-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.3-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.3
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.3-tomcat7.0.85-jre7-alpine
+
+python3.5.5-jolokia1.3.3-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.3-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.3
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.3-tomcat7.0.85-jre7-alpine
+
+python3.4.8-jolokia1.3.3-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.3-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.3
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.3-tomcat7.0.85-jre7-alpine
+
+python2.7.14-jolokia1.3.3-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.3-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.3
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.3-tomcat7.0.85-jre7-alpine
+
+jolokia1.3.2-tomcat8.5.28-jre8-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/8.5.28-jre8-alpine/Dockerfile.jolokia1.3.2
+    image: wbrefvem/jolokia:1.3.2-tomcat8.5.28-jre8-alpine
+  environment:
+    HOSTNAME: jolokia1.3.2-tomcat8.5.28-jre8-alpine
+
+python3.6.4-jolokia1.3.2-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.2-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.2
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.2-tomcat8.5.28-jre8-alpine
+
+python3.5.5-jolokia1.3.2-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.2-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.2
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.2-tomcat8.5.28-jre8-alpine
+
+python3.4.8-jolokia1.3.2-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.2-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.2
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.2-tomcat8.5.28-jre8-alpine
+
+python2.7.14-jolokia1.3.2-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.2-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.2
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.2-tomcat8.5.28-jre8-alpine
+
+jolokia1.3.2-tomcat8.0.50-jre8-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/8.0.50-jre8-alpine/Dockerfile.jolokia1.3.2
+    image: wbrefvem/jolokia:1.3.2-tomcat8.0.50-jre8-alpine
+  environment:
+    HOSTNAME: jolokia1.3.2-tomcat8.0.50-jre8-alpine
+
+python3.6.4-jolokia1.3.2-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.2-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.2
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.2-tomcat8.0.50-jre8-alpine
+
+python3.5.5-jolokia1.3.2-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.2-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.2
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.2-tomcat8.0.50-jre8-alpine
+
+python3.4.8-jolokia1.3.2-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.2-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.2
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.2-tomcat8.0.50-jre8-alpine
+
+python2.7.14-jolokia1.3.2-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.2-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.2
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.2-tomcat8.0.50-jre8-alpine
+
+jolokia1.3.2-tomcat8.0.50-jre7-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/8.0.50-jre7-alpine/Dockerfile.jolokia1.3.2
+    image: wbrefvem/jolokia:1.3.2-tomcat8.0.50-jre7-alpine
+  environment:
+    HOSTNAME: jolokia1.3.2-tomcat8.0.50-jre7-alpine
+
+python3.6.4-jolokia1.3.2-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.2-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.2
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.2-tomcat8.0.50-jre7-alpine
+
+python3.5.5-jolokia1.3.2-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.2-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.2
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.2-tomcat8.0.50-jre7-alpine
+
+python3.4.8-jolokia1.3.2-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.2-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.2
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.2-tomcat8.0.50-jre7-alpine
+
+python2.7.14-jolokia1.3.2-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.2-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.2
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.2-tomcat8.0.50-jre7-alpine
+
+jolokia1.3.2-tomcat7.0.85-jre8-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/7.0.85-jre8-alpine/Dockerfile.jolokia1.3.2
+    image: wbrefvem/jolokia:1.3.2-tomcat7.0.85-jre8-alpine
+  environment:
+    HOSTNAME: jolokia1.3.2-tomcat7.0.85-jre8-alpine
+
+python3.6.4-jolokia1.3.2-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.2-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.2
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.2-tomcat7.0.85-jre8-alpine
+
+python3.5.5-jolokia1.3.2-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.2-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.2
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.2-tomcat7.0.85-jre8-alpine
+
+python3.4.8-jolokia1.3.2-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.2-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.2
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.2-tomcat7.0.85-jre8-alpine
+
+python2.7.14-jolokia1.3.2-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.2-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.2
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.2-tomcat7.0.85-jre8-alpine
+
+jolokia1.3.2-tomcat7.0.85-jre7-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/7.0.85-jre7-alpine/Dockerfile.jolokia1.3.2
+    image: wbrefvem/jolokia:1.3.2-tomcat7.0.85-jre7-alpine
+  environment:
+    HOSTNAME: jolokia1.3.2-tomcat7.0.85-jre7-alpine
+
+python3.6.4-jolokia1.3.2-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.2-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.2
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.2-tomcat7.0.85-jre7-alpine
+
+python3.5.5-jolokia1.3.2-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.2-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.2
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.2-tomcat7.0.85-jre7-alpine
+
+python3.4.8-jolokia1.3.2-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.2-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.2
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.2-tomcat7.0.85-jre7-alpine
+
+python2.7.14-jolokia1.3.2-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.2-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.2
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.2-tomcat7.0.85-jre7-alpine
+
+jolokia1.3.1-tomcat8.5.28-jre8-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/8.5.28-jre8-alpine/Dockerfile.jolokia1.3.1
+    image: wbrefvem/jolokia:1.3.1-tomcat8.5.28-jre8-alpine
+  environment:
+    HOSTNAME: jolokia1.3.1-tomcat8.5.28-jre8-alpine
+
+python3.6.4-jolokia1.3.1-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.1-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.1
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.1-tomcat8.5.28-jre8-alpine
+
+python3.5.5-jolokia1.3.1-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.1-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.1
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.1-tomcat8.5.28-jre8-alpine
+
+python3.4.8-jolokia1.3.1-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.1-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.1
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.1-tomcat8.5.28-jre8-alpine
+
+python2.7.14-jolokia1.3.1-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.1-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.1
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.1-tomcat8.5.28-jre8-alpine
+
+jolokia1.3.1-tomcat8.0.50-jre8-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/8.0.50-jre8-alpine/Dockerfile.jolokia1.3.1
+    image: wbrefvem/jolokia:1.3.1-tomcat8.0.50-jre8-alpine
+  environment:
+    HOSTNAME: jolokia1.3.1-tomcat8.0.50-jre8-alpine
+
+python3.6.4-jolokia1.3.1-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.1-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.1
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.1-tomcat8.0.50-jre8-alpine
+
+python3.5.5-jolokia1.3.1-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.1-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.1
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.1-tomcat8.0.50-jre8-alpine
+
+python3.4.8-jolokia1.3.1-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.1-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.1
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.1-tomcat8.0.50-jre8-alpine
+
+python2.7.14-jolokia1.3.1-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.1-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.1
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.1-tomcat8.0.50-jre8-alpine
+
+jolokia1.3.1-tomcat8.0.50-jre7-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/8.0.50-jre7-alpine/Dockerfile.jolokia1.3.1
+    image: wbrefvem/jolokia:1.3.1-tomcat8.0.50-jre7-alpine
+  environment:
+    HOSTNAME: jolokia1.3.1-tomcat8.0.50-jre7-alpine
+
+python3.6.4-jolokia1.3.1-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.1-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.1
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.1-tomcat8.0.50-jre7-alpine
+
+python3.5.5-jolokia1.3.1-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.1-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.1
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.1-tomcat8.0.50-jre7-alpine
+
+python3.4.8-jolokia1.3.1-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.1-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.1
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.1-tomcat8.0.50-jre7-alpine
+
+python2.7.14-jolokia1.3.1-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.1-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.1
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.1-tomcat8.0.50-jre7-alpine
+
+jolokia1.3.1-tomcat7.0.85-jre8-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/7.0.85-jre8-alpine/Dockerfile.jolokia1.3.1
+    image: wbrefvem/jolokia:1.3.1-tomcat7.0.85-jre8-alpine
+  environment:
+    HOSTNAME: jolokia1.3.1-tomcat7.0.85-jre8-alpine
+
+python3.6.4-jolokia1.3.1-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.1-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.1
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.1-tomcat7.0.85-jre8-alpine
+
+python3.5.5-jolokia1.3.1-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.1-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.1
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.1-tomcat7.0.85-jre8-alpine
+
+python3.4.8-jolokia1.3.1-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.1-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.1
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.1-tomcat7.0.85-jre8-alpine
+
+python2.7.14-jolokia1.3.1-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.1-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.1
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.1-tomcat7.0.85-jre8-alpine
+
+jolokia1.3.1-tomcat7.0.85-jre7-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/7.0.85-jre7-alpine/Dockerfile.jolokia1.3.1
+    image: wbrefvem/jolokia:1.3.1-tomcat7.0.85-jre7-alpine
+  environment:
+    HOSTNAME: jolokia1.3.1-tomcat7.0.85-jre7-alpine
+
+python3.6.4-jolokia1.3.1-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.1-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.1
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.1-tomcat7.0.85-jre7-alpine
+
+python3.5.5-jolokia1.3.1-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.1-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.1
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.1-tomcat7.0.85-jre7-alpine
+
+python3.4.8-jolokia1.3.1-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.1-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.1
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.1-tomcat7.0.85-jre7-alpine
+
+python2.7.14-jolokia1.3.1-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.1-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.1
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.1-tomcat7.0.85-jre7-alpine
+
+jolokia1.3.0-tomcat8.5.28-jre8-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/8.5.28-jre8-alpine/Dockerfile.jolokia1.3.0
+    image: wbrefvem/jolokia:1.3.0-tomcat8.5.28-jre8-alpine
+  environment:
+    HOSTNAME: jolokia1.3.0-tomcat8.5.28-jre8-alpine
+
+python3.6.4-jolokia1.3.0-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.0-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.0-tomcat8.5.28-jre8-alpine
+
+python3.5.5-jolokia1.3.0-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.0-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.0-tomcat8.5.28-jre8-alpine
+
+python3.4.8-jolokia1.3.0-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.0-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.0-tomcat8.5.28-jre8-alpine
+
+python2.7.14-jolokia1.3.0-tomcat8.5.28-jre8-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.0-tomcat8.5.28-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.0-tomcat8.5.28-jre8-alpine
+
+jolokia1.3.0-tomcat8.0.50-jre8-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/8.0.50-jre8-alpine/Dockerfile.jolokia1.3.0
+    image: wbrefvem/jolokia:1.3.0-tomcat8.0.50-jre8-alpine
+  environment:
+    HOSTNAME: jolokia1.3.0-tomcat8.0.50-jre8-alpine
+
+python3.6.4-jolokia1.3.0-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.0-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.0-tomcat8.0.50-jre8-alpine
+
+python3.5.5-jolokia1.3.0-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.0-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.0-tomcat8.0.50-jre8-alpine
+
+python3.4.8-jolokia1.3.0-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.0-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.0-tomcat8.0.50-jre8-alpine
+
+python2.7.14-jolokia1.3.0-tomcat8.0.50-jre8-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.0-tomcat8.0.50-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.0-tomcat8.0.50-jre8-alpine
+
+jolokia1.3.0-tomcat8.0.50-jre7-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/8.0.50-jre7-alpine/Dockerfile.jolokia1.3.0
+    image: wbrefvem/jolokia:1.3.0-tomcat8.0.50-jre7-alpine
+  environment:
+    HOSTNAME: jolokia1.3.0-tomcat8.0.50-jre7-alpine
+
+python3.6.4-jolokia1.3.0-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.0-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.0-tomcat8.0.50-jre7-alpine
+
+python3.5.5-jolokia1.3.0-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.0-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.0-tomcat8.0.50-jre7-alpine
+
+python3.4.8-jolokia1.3.0-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.0-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.0-tomcat8.0.50-jre7-alpine
+
+python2.7.14-jolokia1.3.0-tomcat8.0.50-jre7-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.0-tomcat8.0.50-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.0-tomcat8.0.50-jre7-alpine
+
+jolokia1.3.0-tomcat7.0.85-jre8-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/7.0.85-jre8-alpine/Dockerfile.jolokia1.3.0
+    image: wbrefvem/jolokia:1.3.0-tomcat7.0.85-jre8-alpine
+  environment:
+    HOSTNAME: jolokia1.3.0-tomcat7.0.85-jre8-alpine
+
+python3.6.4-jolokia1.3.0-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.0-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.0-tomcat7.0.85-jre8-alpine
+
+python3.5.5-jolokia1.3.0-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.0-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.0-tomcat7.0.85-jre8-alpine
+
+python3.4.8-jolokia1.3.0-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.0-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.0-tomcat7.0.85-jre8-alpine
+
+python2.7.14-jolokia1.3.0-tomcat7.0.85-jre8-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.0-tomcat7.0.85-jre8-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.0-tomcat7.0.85-jre8-alpine
+
+jolokia1.3.0-tomcat7.0.85-jre7-alpine:
+  build: 
+    context: ./ci/codeship
+    dockerfile: docker/jolokia/tomcat/7.0.85-jre7-alpine/Dockerfile.jolokia1.3.0
+    image: wbrefvem/jolokia:1.3.0-tomcat7.0.85-jre7-alpine
+  environment:
+    HOSTNAME: jolokia1.3.0-tomcat7.0.85-jre7-alpine
+
+python3.6.4-jolokia1.3.0-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.6.4
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.6.4
+  environment:
+    JOLOKIA_HOST: jolokia1.3.0-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.0-tomcat7.0.85-jre7-alpine
+
+python3.5.5-jolokia1.3.0-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.5.5
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.5.5
+  environment:
+    JOLOKIA_HOST: jolokia1.3.0-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.0-tomcat7.0.85-jre7-alpine
+
+python3.4.8-jolokia1.3.0-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:3.4.8
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.3.4.8
+  environment:
+    JOLOKIA_HOST: jolokia1.3.0-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.0-tomcat7.0.85-jre7-alpine
+
+python2.7.14-jolokia1.3.0-tomcat7.0.85-jre7-alpine:
+  build:
+    image: wbrefvem/python:2.7.14
+    context: .
+    dockerfile: ci/codeship/docker/python/Dockerfile.python.2.7.14
+  environment:
+    JOLOKIA_HOST: jolokia1.3.0-tomcat7.0.85-jre7-alpine
+    JOLOKIA_AGENT_VERSION: 1.3.0
+    JOLOKIA_PROTOCOL_VERSION: 7.2
+  depends_on: 
+    - jolokia1.3.0-tomcat7.0.85-jre7-alpine
+
