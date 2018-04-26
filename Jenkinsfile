@@ -23,7 +23,8 @@ pipeline {
     }
     stage('Notifying Codeship') {
       steps {
-        echo 'Triggering codeship build'
+        sh 'git commit -am "Committing from ${BUILD_TAG}"'
+        sh 'git push'
       }
     }
   }
