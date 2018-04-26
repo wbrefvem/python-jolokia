@@ -24,7 +24,7 @@ pipeline {
     stage('Notifying Codeship') {
       steps {
         sh 'git config --global user.email "wbrefvem@gmail.com"'
-        sh 'git config --global user.name "Will Refvem"
+        sh 'git config --global user.name "Will Refvem"'
         sh 'git commit -am "Committing from ${BUILD_TAG}"'
         sh 'git push'
       }
