@@ -30,6 +30,15 @@ pipenv install --dev
 
 ### Usage
 
+For HTTP authentication you can pass a in username and password
+
+```python
+from jolokia import JolokiaClient
+
+
+jc = JolokiaClient('http://my-jolokia-enabled-server.com/jolokia', 'my_login', 'my_password')
+``` 
+
 To get a single attribute of an MBean:
 
 ```python

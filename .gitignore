@@ -102,3 +102,6 @@ ENV/
 
 Pipfile.lock
 .vscode/
+
+# IDE editors
+.idea
