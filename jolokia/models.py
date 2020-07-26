@@ -20,6 +20,14 @@ class JolokiaRequest(Request):
 class JolokiaSession(Session):
     """Wraps requests.Session"""
 
+    def __init__(self, username=None, password=None):
+        """Initialize the session with http authentication if provided"""
+
+        super().__init__()
+
+        if username and password:
+            self.auth = (username, password)
+
     def simple_post(self, url, data=None):
         """Posts to url and returns de-serialized response"""
         try:
