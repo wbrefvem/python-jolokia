@@ -1,9 +1,9 @@
 language: python
 python:
-- 2.7
-- 3.4
 - 3.5
 - 3.6
+- 3.7
+- 3.8
 install:
 - python setup.py develop
 before_script:
@@ -19,7 +19,7 @@ notifications:
 jobs:
   include:
   - stage: PyPI and GitHub release
-    python: 3.6
+    python: 3.8
     deploy:
     - provider: releases
       api_key:
