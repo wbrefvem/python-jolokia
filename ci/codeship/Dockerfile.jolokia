@@ -1,9 +1,0 @@
-FROM {{app_server}}:{{app_server_version}}
-
-USER root
-RUN yum -y install wget
-
-USER {{user}}
-WORKDIR {{work_dir}}
-
-RUN wget -O ./{{deploy_dir}}/jolokia.war http://search.maven.org/remotecontent?filepath=org/jolokia/jolokia-war/{{jolokia_version}}/jolokia-war-{{jolokia_version}}.war

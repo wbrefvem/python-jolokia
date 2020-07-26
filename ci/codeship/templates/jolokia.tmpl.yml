@@ -1,9 +1,0 @@
-jolokia{{jolokia_agent_version}}-{{app_server}}{{app_server_version}}:
-  build: 
-    context: ./ci/codeship
-    dockerfile: docker/jolokia/{{app_server}}/{{app_server_version}}/Dockerfile.jolokia{{jolokia_agent_version}}
-    image: wbrefvem/jolokia:{{jolokia_agent_version}}-{{app_server}}{{app_server_version}}
-  environment:
-    HOSTNAME: jolokia{{jolokia_agent_version}}-{{app_server}}{{app_server_version}}
-
-

@@ -1,8 +1,0 @@
-FROM python:3.4.8
-
-# Source tree files
-RUN mkdir /app
-WORKDIR /app
-COPY . /app
-
-RUN pip install -r ci/codeship/requirements.txt -r ci/codeship/dev-requirements.txt

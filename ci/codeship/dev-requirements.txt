@@ -1,6 +1,0 @@
-pytest
-pytest-cov
-twine
-coveralls
-mock
-pylint
