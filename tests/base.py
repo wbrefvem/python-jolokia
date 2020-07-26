@@ -1,6 +1,6 @@
 from unittest import TestCase
 from jolokia import JolokiaClient
-from jolokia.models import JolokiaResponse
+from requests import Response
 
 import json
 import os
@@ -48,10 +48,10 @@ class JolokiaTestCase(TestCase):
         else:
             resp_string = response
 
-        resp_obj = JolokiaResponse()
+        resp_obj = Response()
 
-        setattr(JolokiaResponse, 'content', resp_string.encode('utf-8'))
+        setattr(Response, 'content', resp_string.encode('utf-8'))
         resp_obj.status_code = status_code
-        setattr(JolokiaResponse, 'ok', ok)
+        setattr(Response, 'ok', ok)
 
         return resp_obj

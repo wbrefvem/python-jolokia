@@ -2,19 +2,9 @@
 
 import logging
 
-from requests import Session, Response, Request
+from requests import Session
 
 LOGGER = logging.getLogger(__name__)
-
-
-class JolokiaResponse(Response):
-    """Wraps requests.Response"""
-    pass
-
-
-class JolokiaRequest(Request):
-    """Wraps requests.Request"""
-    pass
 
 
 class JolokiaSession(Session):

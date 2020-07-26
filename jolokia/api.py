@@ -9,7 +9,7 @@ from jolokia.utils.decorators import require_params
 LOGGER = logging.getLogger(__name__)
 
 
-class JolokiaClient(object):
+class JolokiaClient:
     """Main class for interacting with a single Jolokia agent"""
 
     def __init__(self, base_url, username=None, password=None):
@@ -26,7 +26,7 @@ class JolokiaClient(object):
 
         resp = self.session.simple_post(self.base_url, data=kwargs)
 
-        LOGGER.debug('Return type of {0} with return value of {1}'.format(type(resp), resp.text))
+        LOGGER.debug('Return type of %s with return value of %s', type(resp), resp.text)
 
         try:
             return resp.json()
