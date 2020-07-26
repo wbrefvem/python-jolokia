@@ -1,6 +1,7 @@
 from jolokia.exceptions import IllegalArgumentException
 from tests.base import JolokiaTestCase
 from mock import Mock
+from requests import Response
 
 import pytest
 import logging
@@ -49,3 +50,14 @@ class TestGetAttribute(JolokiaTestCase):
 
         kwargs = {'mbean': 'java.lang:type=Memory'}
         pytest.raises(IllegalArgumentException, self.jc.get_attribute, **kwargs)
+    
+    def test_bulk_read_no_json_response(self):
+
+        if self.mock:
+            resp = self._prepare_response(self.responses['generic_404_page'], 404, False)
+            self.jc.session.request = Mock(return_value=resp)
+        
+        attributes = ['HeapMemoryUsage', 'NonHeapMemoryUsage']
+        resp_data = self.jc.get_attribute(mbean='java.lang:type=Memory', attribute=attributes)        
+        
+        assert type(resp_data) is Response

@@ -11,5 +11,9 @@
     "valid_search": {
         "type": "search",
         "mbean": "java.lang:*"
+    },
+    "invalid_search": {
+        "type": "search",
+        "mbean": "java.lang.kopiluwak"
     }
 }
