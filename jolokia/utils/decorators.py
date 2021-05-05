@@ -18,7 +18,7 @@ def require_params(reqs, err_msg):
                     argument = kwargs[arg]
                     LOGGER.debug(argument)
                 return func(*args, **kwargs)
-            except KeyError:
-                raise IllegalArgumentException(err_msg)
+            except KeyError as ke_except:
+                raise IllegalArgumentException(err_msg) from ke_except
         return _new_func
     return _wrapper
