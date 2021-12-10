@@ -12,12 +12,14 @@ LOGGER = logging.getLogger(__name__)
 class JolokiaClient:
     """Main class for interacting with a single Jolokia agent"""
 
-    def __init__(self, base_url, username=None, password=None):
+    def __init__(self, base_url, username=None, password=None, headers=None):
 
         verify_url(base_url)
 
         self.base_url = base_url
         self.session = JolokiaSession(username, password)
+        if headers is not None:
+            self.session.headers.update(headers)
 
     @require_params(['mbean', 'operation', 'arguments'], 'execute method has 3 required keyword argument: mbean, operation, and arguments')
     def execute(self, **kwargs):
